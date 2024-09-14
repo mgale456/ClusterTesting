@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: lvm-info
+  namespace: kube-system
+spec:
+  ttlSecondsAfterFinished: 3600
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: lvm-info
+        image: alpine
+        securityContext:
+          privileged: true
+        command: ["/bin/sh", "-c", "apk add lvm2 lsblk sgdisk util-linux util-linux-misc parted device-mapper && lvs && lsblk && vgdisplay && sleep 99999”]
