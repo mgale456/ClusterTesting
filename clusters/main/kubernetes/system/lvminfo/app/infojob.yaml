@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: lvm-info
+  name: lvm-info2
   namespace: kube-system
 spec:
   ttlSecondsAfterFinished: 3600
