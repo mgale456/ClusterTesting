@@ -25,5 +25,5 @@ spec:
             [
               "/bin/sh",
               "-c",
-              "apk add lvm2 && pvcreate /dev/vdb && && vgcreate myvg1 /dev/vdb && vgdisplay && sleep 99999",
+              "apk add lvm2 && pvcreate /dev/vdb && && vgcreate michaelvg /dev/vdb && vgdisplay && sleep 99999",
             ]
