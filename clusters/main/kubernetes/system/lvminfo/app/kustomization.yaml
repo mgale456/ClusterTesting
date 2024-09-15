@@ -4,3 +4,4 @@ resources:
   - infojob.yaml
   - remvgjob.yaml
   - setvgjob.yaml
+  - repo.yaml
