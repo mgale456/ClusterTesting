@@ -6,3 +6,4 @@ resources:
   - truecharts.yaml
   - intel.yaml
   - cilium.yaml
+  - topolvm.yaml
