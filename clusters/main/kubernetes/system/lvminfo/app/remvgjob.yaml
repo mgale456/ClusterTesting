@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: rem-vg
+  name: rem-vg2
   namespace: kube-system
 spec:
   ttlSecondsAfterFinished: 3600
@@ -25,5 +25,5 @@ spec:
             [
               "/bin/sh",
               "-c",
-              "apk add lvm2 && vgcreate topolvm_all && vgdisplay && sleep 99999",
+              "apk add lvm2 && vgremove topolvm_all && vgdisplay && sleep 99999",
             ]
