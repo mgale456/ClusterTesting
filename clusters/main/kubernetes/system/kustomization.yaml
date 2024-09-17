@@ -14,4 +14,4 @@ resources:
   - topolvm/ks.yaml
   - traefik-crds/ks.yaml
   - volsync/ks.yaml
-  - lvmtesting/ks.yaml
+  - lvminfo/ks.yaml
