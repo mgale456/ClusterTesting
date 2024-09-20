@@ -42,8 +42,9 @@ spec:
       movies:
         enabled: true
         type: nfs
-        path: /mnt/MainPool/media/movies
+        path: /mnt/MainPool/media
         server: 192.168.0.109
+        readOnly: true
         mountPath: /movies
     autodiscovery:
       enabled: false
