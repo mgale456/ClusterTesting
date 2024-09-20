@@ -39,5 +39,11 @@ spec:
     persistence:
       config:
         storageClass: topolvm-provisioner
+      movies:
+        enabled: true
+        type: nfs
+        path: /mnt/MainPool/media/movies
+        server: 192.168.0.109
+        mountPath: /movies
     autodiscovery:
       enabled: false
