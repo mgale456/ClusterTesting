@@ -95,5 +95,6 @@ spec:
         server: 192.168.0.109
       config:
         enabled: true
+        storageClass: topolvm-provisioner
         mountPath: /config
         size: 20G
