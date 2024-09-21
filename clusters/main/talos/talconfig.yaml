@@ -38,6 +38,12 @@ nodes:
             gateway: ${GATEWAY}
         vip:
           ip: ${VIP}
+      - interface: eth1
+        addresses:
+          - 192.168.1.2/24
+        routes:
+          - network: 192.168.1.0/24
+        dhcp: false
 controlPlane:
   patches:
     - "@./clusters/${CLUSTERNAME}/talos/patches/controlplane.yaml"

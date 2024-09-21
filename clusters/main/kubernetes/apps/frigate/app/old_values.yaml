@@ -1,156 +1,142 @@
 frigateConfig:
-  cameras:
-    camera1:
-      detect:
-        height: 480
-        width: 704
-      ffmpeg:
-        inputs:
-          - input_args: "preset-rtsp-restream"
-            path: "rtsp://127.0.0.1:8554/camera1"
-            roles:
-              - "record"
-          - input_args: "preset-rtsp-restream"
-            path: "rtsp://127.0.0.1:8554/camera1_sub"
-            roles:
-              - "detect"
-      record:
+    cameras:
+        camera1:
+            detect:
+                height: 480
+                width: 704
+            ffmpeg:
+                inputs:
+                    - input_args: preset-rtsp-restream
+                      path: rtsp://127.0.0.1:8554/camera1
+                      roles:
+                        - record
+                    - input_args: preset-rtsp-restream
+                      path: rtsp://127.0.0.1:8554/camera1_sub
+                      roles:
+                        - detect
+            record:
+                enabled: true
+            snapshots:
+                enabled: true
+    go2rtc:
+        streams:
+            camera1:
+                - rtsp://viewer:6aYynakY2QBRDv2koXx@192.168.1.101:554/cam/realmonitor?channel=1&subtype=0
+            camera1_sub:
+                - rtsp://viewer:6aYynakY2QBRDv2koXx@192.168.1.101:554/cam/realmonitor?channel=1&subtype=1
+        webrtc:
+            candidates:
+                - 192.168.0.109:8555
+    mqtt:
         enabled: true
-      snapshots:
-        enabled: true
-  go2rtc:
-    streams:
-      camera1:
-        - "rtsp://viewer:6aYynakY2QBRDv2koXx@192.168.1.101:554/cam/realmonitor?\
-          channel=1&subtype=0"
-      camera1_sub:
-        - "rtsp://viewer:6aYynakY2QBRDv2koXx@192.168.1.101:554/cam/realmonitor?\
-          channel=1&subtype=1"
-    webrtc:
-      candidates:
-        - "192.168.0.109:8555"
-  mqtt:
-    enabled: true
-    host: "mosquitto.mosquitto.svc.cluster.local"
-    password: "SHDdsbcnNqfc4zKdN9y"
-    user: "frigate"
-  objects:
-    track:
-      - "cat"
+        host: mosquitto.mosquitto.svc.cluster.local
+        password: SHDdsbcnNqfc4zKdN9y
+        user: frigate
+    objects:
+        track:
+            - cat
 image:
-  pullPolicy: "IfNotPresent"
-  repository: "ghcr.io/blakeblackshear/frigate"
-  tag:
-    "0.13.2@sha256:2906991ccad85035b176941f9dedfd35088ff710c39d45ef1baa9a49f2b\
-    16734"
+    pullPolicy: IfNotPresent
+    repository: ghcr.io/blakeblackshear/frigate
+    tag: 0.13.2@sha256:2906991ccad85035b176941f9dedfd35088ff710c39d45ef1baa9a49f2b16734
 ingress:
-  main:
-    enabled: true
-    hosts:
-      - host: "frigate.michaelhome.xyz"
-        paths:
-          - overrideService:
-              name: "main"
-              port: 10500
-            path: "/"
-            pathType: "Prefix"
-    integrations:
-      certManager:
-        certificateIssuer: "cfcert"
+    main:
         enabled: true
-      homepage:
-        enabled: true
-        group: "Home Automation"
-    tls:
-      - hosts:
-          - "frigate.michaelhome.xyz"
+        hosts:
+            - host: frigate.michaelhome.xyz
+              paths:
+                - overrideService:
+                    name: main
+                    port: 10500
+                  path: /
+                  pathType: Prefix
+        integrations:
+            certManager:
+                certificateIssuer: cfcert
+                enabled: true
+            homepage:
+                enabled: true
+                group: Home Automation
+        tls:
+            - hosts:
+                - frigate.michaelhome.xyz
 persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-    targetSelector:
-      main:
-        init-config: {}
-        main: {}
-  media:
-    enabled: true
-    mountPath: "/media"
+    config:
+        enabled: true
+        mountPath: /config
+        targetSelector:
+            main:
+                init-config: {}
+                main: {}
+    media:
+        enabled: true
+        mountPath: /media
 portal:
-  open:
-    enabled: true
+    open:
+        enabled: true
 securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsGroup: 0
-    runAsNonRoot: false
-    runAsUser: 0
+    container:
+        readOnlyRootFilesystem: false
+        runAsGroup: 0
+        runAsNonRoot: false
+        runAsUser: 0
 service:
-  main:
-    ports:
-      main:
-        port: 10500
-        protocol: "http"
-        targetPort: 5000
-    type: "LoadBalancer"
-  rtmp:
-    enabled: true
-    ports:
-      rtmp:
+    main:
+        ports:
+            main:
+                port: 10500
+                protocol: http
+                targetPort: 5000
+        type: LoadBalancer
+    rtmp:
         enabled: true
-        port: 1935
-        targetPort: 1935
-  rtsp:
-    enabled: true
-    ports:
-      rtsp:
+        ports:
+            rtmp:
+                enabled: true
+                port: 1935
+                targetPort: 1935
+    rtsp:
         enabled: true
-        port: 8554
-        targetPort: 8554
-    type: "LoadBalancer"
-  webrtc:
-    enabled: true
-    ports:
-      webrtc-tcp:
+        ports:
+            rtsp:
+                enabled: true
+                port: 8554
+                targetPort: 8554
+        type: LoadBalancer
+    webrtc:
         enabled: true
-        port: 8555
-        targetPort: 8555
-      webrtc-udp:
-        enabled: true
-        port: 8555
-        protocol: "udp"
-        targetPort: 8555
-    type: "LoadBalancer"
+        ports:
+            webrtc-tcp:
+                enabled: true
+                port: 8555
+                targetPort: 8555
+            webrtc-udp:
+                enabled: true
+                port: 8555
+                protocol: udp
+                targetPort: 8555
+        type: LoadBalancer
 tensorrtImage:
-  pullPolicy: "IfNotPresent"
-  repository: "ghcr.io/blakeblackshear/frigate"
-  tag:
-    "0.13.2-tensorrt@sha256:07cc224cdf2feef0af9c860c044ac7ea0ac4adfca7f68b37dc\
-    3958bc3a3ee357"
+    pullPolicy: IfNotPresent
+    repository: ghcr.io/blakeblackshear/frigate
+    tag: 0.13.2-tensorrt@sha256:07cc224cdf2feef0af9c860c044ac7ea0ac4adfca7f68b37dc3958bc3a3ee357
 workload:
-  main:
-    podSpec:
-      initContainers:
-        init-config:
-          command:
-            - "/bin/sh"
-            - "-c"
-            - "mkdir -p /config
-
-              if [ ! -f /config/config.yml ]; then
-
-              \  echo \"Config file not found, copying dummy...\"
-
-              \  cp /dummy-config/config.yml /config/config.yml
-
-              \  echo \"Config file copied, you can now edit it at
-              /config/config.yml\"
-
-              else
-
-              \  echo \"Config file found, you can edit it at
-              /config/config.yml\"
-
-              fi\n"
-          enabled: "{{ not .Values.frigateConfig }}"
-          imageSelector: "alpineImage"
-          type: "init"
+    main:
+        podSpec:
+            initContainers:
+                init-config:
+                    command:
+                        - /bin/sh
+                        - -c
+                        - |
+                          mkdir -p /config
+                          if [ ! -f /config/config.yml ]; then
+                            echo "Config file not found, copying dummy..."
+                            cp /dummy-config/config.yml /config/config.yml
+                            echo "Config file copied, you can now edit it at /config/config.yml"
+                          else
+                            echo "Config file found, you can edit it at /config/config.yml"
+                          fi
+                    enabled: '{{ not .Values.frigateConfig }}'
+                    imageSelector: alpineImage
+                    type: init
