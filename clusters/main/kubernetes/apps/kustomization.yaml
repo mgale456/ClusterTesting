@@ -4,3 +4,4 @@ resources:
   - kubernetes-dashboard/ks.yaml
   - uptime-kuma/ks.yaml
   - jellyfin/ks.yaml
+  - frigate/ks.yaml
