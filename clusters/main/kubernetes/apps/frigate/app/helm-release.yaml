@@ -89,13 +89,11 @@ spec:
     persistence:
       media:
         enabled: true
+        type: nfs
         mountPath: /media
         path: /mnt/MainPool/media/frigate
         server: 192.168.0.109
       config:
         enabled: true
         mountPath: /config
-        targetSelector:
-          main:
-            main: {}
-            init-config: {}
+        size: 20G
