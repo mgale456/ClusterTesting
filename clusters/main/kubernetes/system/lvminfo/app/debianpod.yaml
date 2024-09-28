@@ -1,10 +1,10 @@
-apiVersion: batch/v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: debianpod
   namespace: kube-system
 spec:
-  ttlSecondsAfterFinished: 3600
+  replicas: 1
   template:
     spec:
       restartPolicy: Never
@@ -13,7 +13,7 @@ spec:
           hostPath:
             path: /dev/vdb #location on host
       containers:
-        - name: set-vg
+        - name: viewvg
           image: debian
           securityContext:
             privileged: true
