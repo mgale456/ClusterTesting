@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: createthinpooljob
+  namespace: kube-system
+spec:
+  ttlSecondsAfterFinished: 3600
+  template:
+    spec:
+      restartPolicy: Never
+      volumes:
+        - name: devices-volume
+          hostPath:
+            path: /dev/vdb #location on host
+      containers:
+        - name: set-vg
+          image: alpine
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - mountPath: /dev/vdb
+              name: devices-volume
+              readOnly: false
+          command:
+            [
+              "/bin/sh",
+              "-c",
+              "apk add lvm2 && lvcreate -L 50G -T michaelvg/michaelthinpool && vgdisplay && lvs && sleep 3600",
+            ]

@@ -5,3 +5,4 @@ resources:
   - remvgjob.yaml
   - setvgjob.yaml
   - repo.yaml
+  - createthinpooljob.yaml
