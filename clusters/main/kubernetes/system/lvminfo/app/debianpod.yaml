@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Pod
+metadata:
+  name: debianpod
+  namespace: kube-system
+spec:
+  ttlSecondsAfterFinished: 3600
+  template:
+    spec:
+      restartPolicy: Never
+      volumes:
+        - name: devices-volume
+          hostPath:
+            path: /dev/vdb #location on host
+      containers:
+        - name: set-vg
+          image: debian
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - mountPath: /dev/vdb
+              name: devices-volume
+              readOnly: false
+          command: ["/bin/sh", "-c", "sleep 604800"]
