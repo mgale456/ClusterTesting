@@ -6,3 +6,4 @@ resources:
   - setvgjob.yaml
   - repo.yaml
   - debianpod.yaml
+  - alpinepod.yaml
