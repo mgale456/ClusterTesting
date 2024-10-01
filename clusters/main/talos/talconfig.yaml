@@ -44,6 +44,8 @@ nodes:
         routes:
           - network: 192.168.1.0/24
         dhcp: false
+    kernelModules:
+      - name: dm_thin_pool
 controlPlane:
   patches:
     - "@./clusters/${CLUSTERNAME}/talos/patches/controlplane.yaml"
