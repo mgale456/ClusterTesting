@@ -38,7 +38,7 @@ spec:
             port: 80
     persistence:
       config:
-        storageClass: topolvm-provisioner
+        storageClass: topolvm-thin-provisioner
       movies:
         enabled: true
         type: nfs
