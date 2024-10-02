@@ -49,6 +49,7 @@ spec:
     # storageClasses -- Whether to create storageclass(es)
     # ref: https://kubernetes.io/docs/concepts/storage/storage-classes/
     storageClasses:
+      - name: topolvm-provisioner
       - name: topolvm-thin-provisioner # Defines name of storage class.
         storageClass:
           # Supported filesystems are: ext4, xfs, and btrfs.
