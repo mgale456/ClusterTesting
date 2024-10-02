@@ -7,3 +7,4 @@ resources:
   - repo.yaml
   - debianpod.yaml
   - alpinepod.yaml
+  - createthinpooljob.yaml

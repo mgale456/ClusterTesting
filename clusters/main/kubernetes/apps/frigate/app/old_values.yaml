@@ -2,35 +2,35 @@ frigateConfig:
     cameras:
         camera1:
             detect:
-                height: 480
-                width: 704
+                height: ENC[AES256_GCM,data:3FFi,iv:lFovdpTGkIgGTvYxfKCpQQIUQQOdmr00t7ePkssHn+0=,tag:UTBhJnQ5XJT6R+cM1rIwcQ==,type:int]
+                width: ENC[AES256_GCM,data:XPBY,iv:WisonqJRdnWKsiDLgzGFwJ3dglMuXuSDCtiJpdx21LA=,tag:DRu8elwkShgDr13DsMUalg==,type:int]
             ffmpeg:
                 inputs:
-                    - input_args: preset-rtsp-restream
-                      path: rtsp://127.0.0.1:8554/camera1
+                    - input_args: ENC[AES256_GCM,data:DdRJE346x9APEZe4dJKD2opBavQ=,iv:LFQKk+2w3+HKAfbNe8TremyDOAjfDy6ExSqOMc2yUiI=,tag:WLEFCMN/jzq/YMEkWVBnUw==,type:str]
+                      path: ENC[AES256_GCM,data:zxkr65o6+6wJtWk80uhUUHL/Yiv1DLHXnR72Qnk=,iv:kjfqImpjHzmAHuZGCcZ4JLQ5DIZtANZDZaxMaHEK0kY=,tag:tBFriPtrg/XA/O+K8GlOIw==,type:str]
                       roles:
-                        - record
-                    - input_args: preset-rtsp-restream
-                      path: rtsp://127.0.0.1:8554/camera1_sub
+                        - ENC[AES256_GCM,data:C8eFH3E6,iv:dzdZKxxwYfEJFPqcBKyJwSltfzDPfLXI3LEwiymEcak=,tag:TaduZONe9WqgnHceGsblwg==,type:str]
+                    - input_args: ENC[AES256_GCM,data:bkDcuooFzl7nq2GrUgcsBGbwnV8=,iv:AaxBwBiHX8vTEGSE4kwQWEqyGhVOn/DNy/EZzpgKuB0=,tag:LGikWRvi+RBeWrlTe2LAGg==,type:str]
+                      path: ENC[AES256_GCM,data:S9PswARRY75IaysSeR8Rc5otJ1OAM6WS/wIw5jfFsf6X,iv:aNYGRk7ONlde3Yp4y70jdcsSDh7nOX1nl10SmLdNIEA=,tag:lpxum75BN8ZCMYXb/rOFIQ==,type:str]
                       roles:
-                        - detect
+                        - ENC[AES256_GCM,data:acN9g5NY,iv:HrHmjQvGVUKI5gjZsBXoyMDDLyf/68LOXfGMmBvj70I=,tag:4xh/LuFg6xRYGYgNor9NwQ==,type:str]
             record:
-                enabled: true
+                enabled: ENC[AES256_GCM,data:6i26xg==,iv:ISvNHUL+4HM3Q5KpkB3lTRiVkVcaaES69ruMxLUuBAk=,tag:NBB+6Uo9JxQGgXNVRr4CHA==,type:bool]
             snapshots:
-                enabled: true
+                enabled: ENC[AES256_GCM,data:RoUhSQ==,iv:zKRIT4xhAh2UO8xuzrpC8FC8J4nPeJwYBAv+1h7Rv6k=,tag:IfOflfa3ZDjC6FC4hbzXtg==,type:bool]
     go2rtc:
         streams:
             camera1:
-                - rtsp://viewer:6aYynakY2QBRDv2koXx@192.168.1.101:554/cam/realmonitor?channel=1&subtype=0
+                - ENC[AES256_GCM,data:JbuHRokH7cgKZaauO/RNJrhrfHgnaFmaNAK9wRogePefqJTMcT7GE4ve9DtBYWDaSEO9mjQbDPuUjg0/L1t2Mb1TBhv8SGZANuK054bEr15um52p25rU,iv:zlW0f9OWLuBs5oL4nz6hYjeBZzksP2mX2OZ2ibT2FDk=,tag:G2Y5Q5NrRysJy75xEupNAw==,type:str]
             camera1_sub:
-                - rtsp://viewer:6aYynakY2QBRDv2koXx@192.168.1.101:554/cam/realmonitor?channel=1&subtype=1
+                - ENC[AES256_GCM,data:CizZkuMSGuo7Q3Z8xLd+AfknwLEVOsNhq2NfNKjNY/z9lZZY8/Gjs2WRzin8KGvqIqHLFBykWDlBOb0YaezR6w26bi7NCzJOHKRoTi7ZLD00mKhDSAj1,iv:qI9mEUZ1qLiDnMTjsAEecPbeq3mhY87LA4rKdOTi4b0=,tag:jZyBcV8VS933MmBNNj3njg==,type:str]
         webrtc:
             candidates:
-                - 192.168.0.109:8555
+                - ENC[AES256_GCM,data:G8xkxq3wqk8dwkyOqD9sS5kD,iv:owkxYokyH1nffJFQIvkSR30Wo2dUPASNaKZ0Uc8bXKU=,tag:GqbUQg6dfWxxaaH2FP2bhQ==,type:str]
     mqtt:
         enabled: true
         host: mosquitto.mosquitto.svc.cluster.local
-        password: SHDdsbcnNqfc4zKdN9y
+        password: ENC[AES256_GCM,data:2J0U5AV8BrL6inMD2FSp3aPf3A==,iv:O0bxpn/IN5CtPXyctyKWKTeHtlGmAFaJ+dwJHbecTVk=,tag:2loncGFg4kNAgPzVlb1Wfw==,type:str]
         user: frigate
     objects:
         track:
@@ -46,14 +46,14 @@ ingress:
             - host: frigate.michaelhome.xyz
               paths:
                 - overrideService:
-                    name: main
-                    port: 10500
+                    name: ENC[AES256_GCM,data:e2tZDQ==,iv:BJ0ZZaC/yXKWFOe6AjQ7+ouOhfuppx6keaqcKw/hDFs=,tag:OxHC/C3mGObDI7HPDqZ8mg==,type:str]
+                    port: ENC[AES256_GCM,data:ZtQv8oY=,iv:gmmqNS6Y7b66TTkJAFI3A6dsL6TXHfApE9xYbRRpdg8=,tag:cQ3SPAwXvlVaJwx0w/jytA==,type:int]
                   path: /
                   pathType: Prefix
         integrations:
             certManager:
-                certificateIssuer: cfcert
-                enabled: true
+                certificateIssuer: ENC[AES256_GCM,data:7X0s0fqA,iv:xwtAvMS0WDZn5RvmI097EtWtpXzLLHpuBGQk8W6/S/o=,tag:TYLHdPFgpmL4XEw40cAKgQ==,type:str]
+                enabled: ENC[AES256_GCM,data:0KYGIg==,iv:IWkcUGeqEgbwVizNQtC6i7Tsv4MlitMHPvIrEd13PpA=,tag:V8h1lrGn8hfofyOoOzoKLw==,type:bool]
             homepage:
                 enabled: true
                 group: Home Automation
@@ -140,3 +140,24 @@ workload:
                     enabled: '{{ not .Values.frigateConfig }}'
                     imageSelector: alpineImage
                     type: init
+sops:
+    shamir_threshold: 3
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1z9q5jvy8j566wk2kj6kph54f4xl6lqfr6wmqrqeamzlqe8rlkfwqmyd0jk
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBnU2ZoUE9WbUttNzI5cFpV
+            dTFnVTR1VFpPNmtGQXF3Y3RQcFoyU1ZxK0U4CkY0RXJ3Vm1aVEhwb1VIbGhlZjJt
+            ZUpBVmV2S2lRT0wvSGZvYjRwaFNjYnMKLS0tICtBY2hRMDBFZ3A4TEZvdVdWeU1O
+            N3Rid2FyQXJUSWp2ZHpWYjhYZkZrZHcKpSCXL5X5VEIAheej72EYxW98TVfNp7q/
+            iw30caBpECPVnxT4IBxc4gi4YJQgvh+ZWbibRu669P4N9m74rq6r1g==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-10-02T00:16:34Z"
+    mac: ENC[AES256_GCM,data:1/LFjIAg+IkM1WQRLgA/VSaTrbdHDw8u3VwxyyGJUg+31caP9JzYF4UxuHKoMgjSY/GHa1KfM8OBBP4QJ80v+0E16RLu2i7+Wte8ULhRU57HBkHB9Tj35g7tcevg3OU040qd1mowhAs+EASPA6Qzn4HDQH57LExqSocZM73LhvQ=,iv:fwebheBFtt+fsj8KzO7wl5MlQ+YvfLeWYlbqE0+YT08=,tag:m+GYQS4vPufKqlRB1004iA==,type:str]
+    pgp: []
+    encrypted_regex: ((?i)(displayname|email|pass|ca|id|bootstraptoken|secretboxencryptionsecret|secrets|secrets|password|cert|secret($|[^N])|key|token|^data$|^stringData))
+    version: 3.8.1
