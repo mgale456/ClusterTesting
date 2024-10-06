@@ -42,7 +42,7 @@ spec:
           type: thin
           thin-pool:
             name: michaelthinpool
-            overprovision-ratio: 50.0
+            overprovision-ratio: 1.0
     node:
       lvmdEmbedded: true
 
@@ -50,6 +50,23 @@ spec:
     # ref: https://kubernetes.io/docs/concepts/storage/storage-classes/
     storageClasses:
       - name: topolvm-provisioner
+        storageClass:
+          # Supported filesystems are: ext4, xfs, and btrfs.
+          fsType: xfs
+          # reclaimPolicy
+          reclaimPolicy: # Delete
+          # Additional annotations
+          annotations: {}
+          # Default storage class for dynamic volume provisioning
+          # ref: https://kubernetes.io/docs/concepts/storage/dynamic-provisioning
+          isDefaultClass: false
+          # volumeBindingMode can be either WaitForFirstConsumer or Immediate. WaitForFirstConsumer is recommended because TopoLVM cannot schedule pods wisely if volumeBindingMode is Immediate.
+          volumeBindingMode: WaitForFirstConsumer
+          # enables CSI drivers to expand volumes. This feature is available for Kubernetes 1.16 and later releases.
+          allowVolumeExpansion: true
+          additionalParameters: { "topolvm.io/device-class": "main" }
+          # mount options
+          mountOptions: []
       - name: topolvm-thin-provisioner # Defines name of storage class.
         storageClass:
           # Supported filesystems are: ext4, xfs, and btrfs.
