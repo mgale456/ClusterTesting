@@ -4,3 +4,4 @@ resources:
   - kubernetes-dashboard/ks.yaml
   - frigate/ks.yaml
   - traefik/ks.yaml
+  - homepage/ks.yaml

@@ -1,0 +1,190 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: homepage
+  namespace: homepage
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: homepage
+      version: 9.3.0
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: homepage.vm.michaelhome.xyz
+            paths:
+              - path: /
+                pathType: Prefix
+                overrideService:
+                  name: main
+                  port: 10352
+        tls:
+          - hosts:
+              - homepage.vm.michaelhome.xyz
+            certificateIssuer: "cfcert"
+        integrations:
+          certManager:
+            enabled: true
+            certificateIssuer: "cfcert"
+    configmap:
+      config:
+        enabled: true
+        data:
+          custom.js: ""
+          custom.css: ""
+          kubernetes.yaml: |
+            mode: cluster
+          settings.yaml: |
+            ---
+            # For configuration options and examples, please see:
+            # https://gethomepage.dev/latest/configs/settings
+
+            providers:
+              openweathermap: openweathermapapikey
+              weatherapi: weatherapiapikey
+
+            useEqualHeights: true
+
+            layout:
+              - Home Automation:
+                  icon: mdi-home
+                  style: row
+                  columns: 3
+              - Finance:
+                  icon: mdi-cash-multiple
+                  style: row
+                  columns: 2
+              - Default:
+                  style: row
+                  columns: 3
+          widgets.yaml: |
+            ---
+            # For configuration options and examples, please see:
+            # https://gethomepage.dev/latest/configs/widgets
+
+            - resources:
+                cpu: true
+                memory: true
+                disk: /
+
+            - search:
+                provider: duckduckgo
+                target: _blank
+
+          services.yaml: |
+            ---
+            # For configuration options and examples, please see:
+            # https://gethomepage.dev/latest/configs/services
+            #
+            - Home Automation:
+                - Home Assistant:
+                    href: https://hass.michaelhome.xyz/
+                    description: Home Automation Hub
+                    icon: https://hass.michaelhome.xyz/static/icons/favicon.ico
+
+            - Arr:
+                - My First Service:
+                    href: http://localhost/
+                    description: Homepage is awesome
+
+            - Media:
+                - My Second Service:
+                    href: http://localhost/
+                    description: Homepage is the best
+
+            - Infra:
+                - My Third Service:
+                    href: http://localhost/
+                    description: Homepage is 😎
+            - Finance:
+                - UW Credit Union:
+                    href: https://www.uwcu.org/
+                    description: Online Banking
+                    icon: https://www.uwcu.org/favicon.ico
+                - The Banano Stand:
+                    href: https://thebananostand.com/
+                    description: Online Banano wallet
+                    icon: https://banano.cc/icon.svg
+                    widget:
+                        type: customapi
+                        url: https://api.spyglass.pw/banano/v1/account/overview/ban_3szzs3sfn3ar4w1xa7n3u6jp9d9wezzz4ydez1yy8ux85epryp7mux9rbsou
+                        refreshInterval: 360000000 # 100 hours (4 days)
+                        method: GET
+                        mappings:
+                            - field: balance
+                              label: Banano
+                              format: number
+                            - field: receivable
+                              label: Receivable Banano
+                              format: float
+          bookmarks.yaml: |
+            ---
+            # For configuration options and examples, please see:
+            # https://gethomepage.dev/latest/configs/bookmarks
+
+            - Michael:
+                - Github:
+                    - abbr: GH
+                      href: https://github.com/
+                - Homepage docs:
+                    - abbr: HP
+                      href: https://gethomepage.dev/main/
+                      icon: https://gethomepage.dev/main/assets/favicon.ico
+                - TP Link Router:
+                    - abbr: TP
+                      href: http://tplinkwifi.net
+                      icon: http://tplinkwifi.net/webpages/themes/default/img/logo/favicon.ico
+
+            - Mattie:
+                - Library:
+                    - abbr: VL
+                      href: https://www.veronapubliclibrary.org/
+                      icon: https://www.veronapubliclibrary.org/sites/www.veronapubliclibrary.org/themes/custom/bootstrap_ver/favicon.ico
+                - Fitchburg Library:
+                    - abbr: FL
+                      href: http://fitchburgwi.gov/2775/Library
+                      icon: http://fitchburgwi.gov/images/favicon.ico
+
+            - TrueCharts:
+                - TrueCharts:
+                  - abbr: TC
+                    icon: https://truecharts.org/svg/favicon.svg
+                    href: https://truecharts.org
+                    description: "TrueCharts Website"
+                - Github:
+                  - abbr: GH
+                    icon: https://github.com/fluidicon.png
+                    href: https://github.com/truecharts
+                    description: "TrueCharts GitHub"
+                - Open Collective:
+                  - abbr: TC
+                    icon: https://opencollective.com/favicon.ico
+                    href: https://opencollective.com/truecharts
+                    description: "TrueCharts Open Collective"
+                - Discord:
+                  - abbr: DC
+                    icon: https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://discord.com&size=32
+                    href: https://truecharts.org/s/discord
+                    description: "TrueCharts Discord"
+
+    forceConfigFromValues: true
