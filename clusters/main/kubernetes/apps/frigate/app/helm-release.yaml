@@ -97,24 +97,24 @@ spec:
         enabled: true
         mountPath: /config
 
-ingress:
-  main:
-    enabled: true
-    hosts:
-      - host: frigate.michaelhome.xyz
-        paths:
-          - overrideService:
-              name: main
-              port: 10500
-            path: /
-            pathType: Prefix
-    integrations:
-      certManager:
-        certificateIssuer: cfcert
+    ingress:
+      main:
         enabled: true
-      homepage:
-        enabled: true
-        group: Home Automation
-    tls:
-      - hosts:
-          - frigate.michaelhome.xyz
+        hosts:
+          - host: frigate.michaelhome.xyz
+            paths:
+              - overrideService:
+                  name: main
+                  port: 10500
+                path: /
+                pathType: Prefix
+        integrations:
+          certManager:
+            certificateIssuer: cfcert
+            enabled: true
+          homepage:
+            enabled: true
+            group: Home Automation
+        tls:
+          - hosts:
+              - frigate.michaelhome.xyz
