@@ -95,5 +95,26 @@ spec:
         server: 192.168.0.109
       config:
         enabled: true
-        storageClass: topolvm-thin-provisioner
         mountPath: /config
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: frigate.michaelhome.xyz
+        paths:
+          - overrideService:
+              name: main
+              port: 10500
+            path: /
+            pathType: Prefix
+    integrations:
+      certManager:
+        certificateIssuer: cfcert
+        enabled: true
+      homepage:
+        enabled: true
+        group: Home Automation
+    tls:
+      - hosts:
+          - frigate.michaelhome.xyz
