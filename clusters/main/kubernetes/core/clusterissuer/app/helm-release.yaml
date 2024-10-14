@@ -31,7 +31,7 @@ spec:
   values:
     clusterIssuer:
       ACME:
-        - cfapitoken: "-WMRmwTu7PUf4k9y6oBBBT7OxQDPcj4LEp1b5DpA"
+        - cfapitoken: ${CF_API_TOKEN}
           email: "mgale456@gmail.com"
           name: "cfcert"
           server: "https://acme-v02.api.letsencrypt.org/directory"
