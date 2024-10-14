@@ -31,7 +31,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: homepage.vm.michaelhome.xyz
+          - host: homepage.michaelhome.xyz
             paths:
               - path: /
                 pathType: Prefix
@@ -40,7 +40,7 @@ spec:
                   port: 10352
         tls:
           - hosts:
-              - homepage.vm.michaelhome.xyz
+              - homepage.michaelhome.xyz
             certificateIssuer: "cfcert"
         integrations:
           certManager:
