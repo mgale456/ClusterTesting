@@ -28,6 +28,12 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    securityContext:
+      container:
+        capabilities:
+          add:
+            - NET_ADMIN
+            - NET_RAW
     ingress:
       main:
         enabled: true
