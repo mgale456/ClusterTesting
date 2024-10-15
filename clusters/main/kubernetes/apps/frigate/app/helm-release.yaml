@@ -101,7 +101,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: frigate.michaelhome.xyz
+          - host: frigate.${INGRESS_URL}
             paths:
               - overrideService:
                   name: main
@@ -117,4 +117,4 @@ spec:
             group: Home Automation
         tls:
           - hosts:
-              - frigate.michaelhome.xyz
+              - frigate.${INGRESS_URL}

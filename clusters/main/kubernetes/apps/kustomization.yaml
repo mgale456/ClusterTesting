@@ -6,3 +6,5 @@ resources:
   - traefik/ks.yaml
   - homepage/ks.yaml
   - wg-easy/ks.yaml
+  - fireflyiii/ks.yaml
+  - mosquitto/ks.yaml

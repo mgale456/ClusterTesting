@@ -1,0 +1,98 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: mosquitto
+  namespace: mosquitto
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: mosquitto
+      version: 16.2.1
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: ${MOSQUITTO_IP}
+      websockets:
+        type: LoadBalancer
+        loadBalancerIP: ${MOSQUITTO_IP}
+    auth:
+      # -- By enabling this, `allow_anonymous` gets set to `false` in the mosquitto config.
+      enabled: true
+    websockets:
+      # -- By enabling this, an additional listener with protocol websockets is added in the mosquitto config.
+      enabled: false
+    configmap:
+      config:
+        enabled: true
+        data:
+          mosquitto.conf: |
+            listener {{ .Values.service.main.ports.main.targetPort }}
+            {{- if .Values.websockets.enabled }}
+            listener {{ .Values.service.websockets.ports.websockets.targetPort }}
+            protocol websockets
+            {{- end }}
+            {{- if .Values.auth.enabled }}
+            allow_anonymous false
+            {{- else }}
+            allow_anonymous true
+            {{- end }}
+            {{- if .Values.persistence.data.enabled }}
+            persistence true
+            persistence_location {{ .Values.persistence.data.mountPath }}
+            autosave_interval 1800
+            {{- end }}
+            {{- if .Values.persistence.configinc.enabled }}
+            include_dir {{ .Values.persistence.configinc.mountPath }}
+            {{- end }}
+    persistence:
+      data:
+        enabled: true
+        mountPath: "/mosquitto/data"
+      configinc:
+        enabled: true
+        mountPath: "/mosquitto/configinc"
+      mosquitto-config:
+        enabled: true
+        mountPath: "/mosquitto/config/mosquitto.conf"
+        subPath: "mosquitto.conf"
+        type: configmap
+        objectName: config
+    addons:
+      codeserver:
+        # -- Enable running a code-server container in the pod
+        enabled: true
+
+        service:
+          # -- Enable a service for the code-server add-on.
+          type: "ClusterIP"
+          # Specify the default port information
+          ports:
+            codeserver:
+              port: 12321
+        ingress:
+          # -- Enable an ingress for the code-server add-on.
+          certManager:
+            enabled: true
+            certificateIssuer: cfcert
+          hosts:
+            - host: cs.mosquitto.${INGRESS_URL}

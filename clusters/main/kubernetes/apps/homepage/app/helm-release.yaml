@@ -31,7 +31,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: homepage.michaelhome.xyz
+          - host: homepage.${INGRESS_URL}
             paths:
               - path: /
                 pathType: Prefix
@@ -40,7 +40,7 @@ spec:
                   port: 10352
         tls:
           - hosts:
-              - homepage.michaelhome.xyz
+              - homepage.${INGRESS_URL}
             certificateIssuer: "cfcert"
         integrations:
           certManager:
@@ -98,9 +98,9 @@ spec:
             #
             - Home Automation:
                 - Home Assistant:
-                    href: https://hass.michaelhome.xyz/
+                    href: https://hass.${INGRESS_URL}/
                     description: Home Automation Hub
-                    icon: https://hass.michaelhome.xyz/static/icons/favicon.ico
+                    icon: https://hass.${INGRESS_URL}/static/icons/favicon.ico
 
             - Arr:
                 - My First Service:
