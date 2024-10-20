@@ -9,3 +9,4 @@ resources:
   - mosquitto/ks.yaml
   - fireflyiii/ks.yaml
   - pgadmin/ks.yaml
+  - hass-external-service/ks.yaml
