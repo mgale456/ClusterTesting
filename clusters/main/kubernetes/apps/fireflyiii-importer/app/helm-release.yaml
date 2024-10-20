@@ -1,0 +1,51 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: fireflyiii-importer
+  namespace: fireflyiii
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: importer
+      version: 1.4.0
+      sourceRef:
+        kind: HelmRepository
+        name: fireflyiii
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    fireflyiii:
+      # -- The URL at which Firefly III is available. If you change this value, click the "Reauthenticate" button on the importer after opening it!
+      url: "http://fireflyiii.fireflyiii.svc.cluster.local"
+
+      # -- The URL at which you access Firefly III. Check https://docs.firefly-iii.org/data-importer/install/configure/#configure-fidi to find out if you should set this.
+      vanityUrl: "https://fireflyiii.${INGRESS_URL}"
+
+      auth:
+        # -- The access token in plain text
+        accessToken: "${FIREFLYIII_ACCESS_TOKEN}"
+
+    # -- Environment variables for the importer. See docs at: https://github.com/firefly-iii/data-importer/blob/main/.env.example
+    config:
+      # -- Directly defined environment variables. Use this for non-secret configuration values.
+      env:
+        IGNORE_DUPLICATE_ERRORS: "false"
+        TZ: "America/Chicago"
+
+    service:
+      type: LoadBalancer
+      port: 80

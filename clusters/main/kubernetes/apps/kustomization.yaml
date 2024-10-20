@@ -10,3 +10,4 @@ resources:
   - fireflyiii/ks.yaml
   - pgadmin/ks.yaml
   - hass-external-service/ks.yaml
+  - fireflyiii-importer/ks.yaml
