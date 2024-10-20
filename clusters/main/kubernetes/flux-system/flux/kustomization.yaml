@@ -6,6 +6,9 @@ resources:
   - github.com/fluxcd/flux2/manifests/install?ref=v2.4.0
   - ./deploykey.secret.yaml
   - ./clustersettings.secret.yaml
+  - ./flux.yaml
+  - ./upgradesettings.yaml
+  - ./namespace.yaml
 patches:
   # Remove the built-in network policies
   - target:
@@ -60,5 +63,3 @@ patches:
       - op: replace
         path: /metadata/name
         value: flux-view-flux-system  - namespace.yaml
-  - flux.yaml
-  - upgradesettings.yaml
