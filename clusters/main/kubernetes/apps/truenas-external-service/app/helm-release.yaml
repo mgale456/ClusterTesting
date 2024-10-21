@@ -52,6 +52,10 @@ spec:
           homepage:
             enabled: true
             group: Default
+            icon: "https://truenas.michaelhome.xyz/ui/assets/images/truenas_scale_ondark_favicon.png"
+            name: "TrueNAS Scale"
+            widget:
+              type: ""
     service:
       main:
         type: ExternalIP
