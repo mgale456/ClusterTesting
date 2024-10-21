@@ -11,3 +11,4 @@ resources:
   - pgadmin/ks.yaml
   - hass-external-service/ks.yaml
   - fireflyiii-importer/ks.yaml
+  - truenas-external-service/ks.yaml

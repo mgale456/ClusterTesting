@@ -1,0 +1,72 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: truenas-external-service
+  namespace: truenas-external-service
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: truenas-external-service
+      version: 27.5.0
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          traefik.frontend.passHostHeader: "false"
+        hosts:
+          - host: truenas.${INGRESS_URL}
+            paths:
+              - path: /
+                pathType: Prefix
+                overrideService:
+                  name: main
+                  port: 81
+        tls:
+          - hosts:
+              - truenas.${INGRESS_URL}
+            certificateIssuer: "cfcert"
+        integrations:
+          certManager:
+            enabled: true
+            certificateIssuer: "cfcert"
+          homepage:
+            enabled: true
+            group: Default
+    service:
+      main:
+        type: ExternalIP
+        externalIP: "${TRUENAS_EXTERNAL_IP}"
+        useSlice: false
+        ports:
+          main:
+            protocol: https
+            port: 81
+            # Target port is the port of the "external service"
+            # Defaults to "port" if not set
+    workload:
+      main:
+        enabled: false
+        podSpec:
+          containers:
+            main:
+              env: {}
