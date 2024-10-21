@@ -8,7 +8,7 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: hass-external-service
+      chart: external-service
       version: 27.5.0
       sourceRef:
         kind: HelmRepository
