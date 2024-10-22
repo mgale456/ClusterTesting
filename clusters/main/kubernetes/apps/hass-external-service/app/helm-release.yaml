@@ -58,7 +58,7 @@ spec:
         useSlice: false
         ports:
           main:
-            protocol: https
+            protocol: http
             port: 8123
             # Target port is the port of the "external service"
             # Defaults to "port" if not set

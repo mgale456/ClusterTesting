@@ -64,7 +64,7 @@ spec:
         ports:
           main:
             protocol: https
-            port: 81
+            port: 444
             # Target port is the port of the "external service"
             # Defaults to "port" if not set
     workload:
