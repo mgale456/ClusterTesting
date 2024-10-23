@@ -8,7 +8,6 @@ resources:
   - wg-easy/ks.yaml
   - mosquitto/ks.yaml
   - fireflyiii/ks.yaml
-  - pgadmin/ks.yaml
   - hass-external-service/ks.yaml
   - fireflyiii-importer/ks.yaml
   - truenas-external-service/ks.yaml
