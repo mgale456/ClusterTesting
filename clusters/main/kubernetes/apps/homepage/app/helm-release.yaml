@@ -110,10 +110,7 @@ spec:
             - Media:
                 - My Second Service:
                     href: http://localhost/
-                    description: Homepage is the best
 
-            - Infra:
-                - My Third Service:
                     href: http://localhost/
                     description: Homepage is 😎
             - Finance:
@@ -143,9 +140,10 @@ spec:
             # https://gethomepage.dev/latest/configs/bookmarks
 
             - Michael:
-                - Github:
+                - Cluster Repo:
                     - abbr: GH
-                      href: https://github.com/
+                      href: https://github.com/mgale456/ClusterTesting
+                      icon: https://github.githubassets.com/favicons/favicon-dark.svg
                 - Homepage docs:
                     - abbr: HP
                       href: https://gethomepage.dev/main/
@@ -176,6 +174,11 @@ spec:
                     icon: https://github.com/fluidicon.png
                     href: https://github.com/truecharts
                     description: "TrueCharts GitHub"
+                - MrPuffin's Cluster Repo:
+                  - abbr: GH
+                    href: https://github.com/PrivatePuffin/cluster
+                    icon: https://github.com/fluidicon.png
+                    description: "Cluster Repo"
                 - Open Collective:
                   - abbr: TC
                     icon: https://opencollective.com/favicon.ico
