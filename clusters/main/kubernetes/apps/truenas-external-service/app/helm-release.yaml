@@ -40,7 +40,7 @@ spec:
                 pathType: Prefix
                 overrideService:
                   name: main
-                  port: 81
+                  port: 444
         tls:
           - hosts:
               - truenas.${INGRESS_URL}
