@@ -102,17 +102,6 @@ spec:
                     description: Home Automation Hub
                     icon: https://hass.${INGRESS_URL}/static/icons/favicon.ico
 
-            - Arr:
-                - My First Service:
-                    href: http://localhost/
-                    description: Homepage is awesome
-
-            - Media:
-                - My Second Service:
-                    href: http://localhost/
-
-                    href: http://localhost/
-                    description: Homepage is 😎
             - Finance:
                 - UW Credit Union:
                     href: https://www.uwcu.org/
