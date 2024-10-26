@@ -38,7 +38,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: "wg-easy.michaelhome.xyz"
+          - host: "wg-easy.${INGRESS_URL}"
             paths:
               - overrideService:
                   name: "main"
@@ -54,7 +54,7 @@ spec:
             group: "Default"
         tls:
           - hosts:
-              - "wg-easy.michaelhome.xyz"
+              - "wg-easy.${INGRESS_URL}"
     service:
       vpn:
         type: LoadBalancer
@@ -72,7 +72,7 @@ spec:
                 startup:
                   type: tcp
               env:
-                WG_HOST: "mgale.duckdns.org"
+                WG_HOST: "${DDNS_URL}"
                 PORT: "{{ .Values.service.main.ports.main.port }}"
                 WG_PORT: "{{ .Values.service.vpn.ports.vpn.port }}"
                 WG_MTU: 0
