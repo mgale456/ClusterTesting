@@ -37,3 +37,22 @@ spec:
         ports:
           main:
             port: 80
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: kubernetes-dashboard.${INGRESS_URL}
+            paths:
+              - path: /
+                pathType: Prefix
+                overrideService:
+                  name: main
+                  port: 80
+        tls:
+          - hosts:
+              - kubernetes-dashboard.${INGRESS_URL}
+            certificateIssuer: "cfcert"
+        integrations:
+          certManager:
+            enabled: true
+            certificateIssuer: "cfcert"
