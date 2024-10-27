@@ -81,3 +81,8 @@ spec:
 
     bpf:
       lbExternalClusterIP: true
+    socketLB:
+      # -- Enable socket LB
+      enabled: false
+      # -- Disable socket lb for non-root ns. This is used to enable Istio routing rules.
+      hostNamespaceOnly: true
