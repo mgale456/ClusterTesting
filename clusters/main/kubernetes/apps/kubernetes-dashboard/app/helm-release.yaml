@@ -56,3 +56,6 @@ spec:
           certManager:
             enabled: true
             certificateIssuer: "cfcert"
+          homepage:
+            enabled: true
+            group: Default
