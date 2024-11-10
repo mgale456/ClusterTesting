@@ -98,3 +98,5 @@ spec:
             certManager:
               enabled: true
               certificateIssuer: "cfcert"
+            traefik:
+              enabled: true
