@@ -54,7 +54,7 @@ spec:
     service:
       main:
         type: ExternalIP
-        externalIP: "${HASS_EXTERNAL_IP}"
+        externalIP: ${HASS_EXTERNAL_IP}
         useSlice: false
         ports:
           main:
