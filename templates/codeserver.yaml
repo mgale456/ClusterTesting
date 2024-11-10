@@ -7,9 +7,6 @@ addons:
           paths:
             - path: /
               pathType: Prefix
-              overrideService:
-                name: main
-                port: 12321
       tls:
         - hosts:
             - cs.REPLACEME.${INGRESS_URL}
