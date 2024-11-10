@@ -80,6 +80,10 @@ spec:
     addons:
       codeserver:
         enabled: true
+        service:
+          enabled: true
+          type: LoadBalancer
+          LoadBalancerIP: 192.168.0.65
         ingress:
           enabled: true
           hosts:
@@ -87,9 +91,9 @@ spec:
               paths:
                 - path: /
                   pathType: Prefix
-                  overrideService:
-                    name: main
-                    port: 12321
+          #                  overrideService:
+          #                    name: main
+          #                    port: 12321
           tls:
             - hosts:
                 - cs.mosquitto.${INGRESS_URL}
