@@ -11,6 +11,5 @@ resources:
   - hass-external-service/ks.yaml
   - fireflyiii-importer/ks.yaml
   - truenas-external-service/ks.yaml
-  - esphome/ks.yaml
   - piper/ks.yaml
   - esphome-external-service/ks.yaml
