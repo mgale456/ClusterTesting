@@ -39,3 +39,26 @@ spec:
     metrics:
       main:
         enabled: false
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: traefik.${INGRESS_URL}
+            paths:
+              - path: /
+                pathType: Prefix
+                overrideService:
+                  name: main
+                  port: 9000
+        tls:
+          - hosts:
+              - traefik.${INGRESS_URL}
+            certificateIssuer: "cfcert"
+        integrations:
+          certManager:
+            enabled: true
+            certificateIssuer: "cfcert"
+          homepage:
+            enabled: true
+            href: https://traefik.${INGRESS_URL}/dashboard
+            group: Default
