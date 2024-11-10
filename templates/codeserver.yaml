@@ -1,0 +1,10 @@
+addons:
+  codeserver:
+    enabled: true
+    ingress:
+      # -- Enable an ingress for the code-server add-on.
+      certManager:
+        enabled: true
+        certificateIssuer: cfcert
+      hosts:
+        - host: cs-REPLACEME.${INGRESS_URL}
