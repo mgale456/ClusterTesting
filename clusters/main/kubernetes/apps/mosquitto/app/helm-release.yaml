@@ -81,9 +81,19 @@ spec:
       codeserver:
         enabled: true
         ingress:
-          # -- Enable an ingress for the code-server add-on.
-          certManager:
-            enabled: true
-            certificateIssuer: cfcert
           hosts:
             - host: cs.mosquitto.${INGRESS_URL}
+              paths:
+                - path: /
+                  pathType: Prefix
+                  overrideService:
+                    name: main
+                    port: 12321
+          tls:
+            - hosts:
+                - cs.mosquitto.${INGRESS_URL}
+              certificateIssuer: "cfcert"
+          integrations:
+            certManager:
+              enabled: true
+              certificateIssuer: "cfcert"
