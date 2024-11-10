@@ -12,3 +12,4 @@ resources:
   - fireflyiii-importer/ks.yaml
   - truenas-external-service/ks.yaml
   - esphome/ks.yaml
+  - piper/ks.yaml
