@@ -28,6 +28,10 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: ${PIPER_IP}
     ingress:
       main:
         enabled: true
