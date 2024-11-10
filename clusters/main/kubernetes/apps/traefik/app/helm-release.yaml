@@ -60,5 +60,5 @@ spec:
             certificateIssuer: "cfcert"
           homepage:
             enabled: true
-            href: https://traefik.${INGRESS_URL}/dashboard
+            href: https://traefik.${INGRESS_URL}/dashboard/
             group: Default
