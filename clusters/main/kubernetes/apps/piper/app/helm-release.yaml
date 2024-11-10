@@ -8,7 +8,7 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: piper
+      chart: wyoming-piper
       version: 6.2.1
       sourceRef:
         kind: HelmRepository
