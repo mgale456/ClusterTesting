@@ -81,6 +81,7 @@ spec:
       codeserver:
         enabled: true
         ingress:
+          enabled: true
           hosts:
             - host: cs.mosquitto.${INGRESS_URL}
               paths:
