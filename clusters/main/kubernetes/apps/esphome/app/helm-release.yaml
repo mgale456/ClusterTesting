@@ -36,13 +36,9 @@ spec:
             main:
               env:
                 ESPHOME_DASHBOARD_USE_PING: true
-    service:
-      main:
-        type: LoadBalancer
-        LoadBalancerIP: 192.168.0.75
     ingress:
       main:
-        enabled: false
+        enabled: true
         hosts:
           - host: esphome.${INGRESS_URL}
             paths:
