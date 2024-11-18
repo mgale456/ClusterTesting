@@ -7,8 +7,8 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: esphome
-      version: 21.7.3
+      chart: gatus
+      version: 1.1.0
       sourceRef:
         kind: HelmRepository
         name: gatus
