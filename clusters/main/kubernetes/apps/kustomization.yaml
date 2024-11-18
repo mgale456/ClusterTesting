@@ -13,3 +13,4 @@ resources:
   - truenas-external-service/ks.yaml
   - piper/ks.yaml
   - esphome/ks.yaml
+  - gatus/ks.yaml

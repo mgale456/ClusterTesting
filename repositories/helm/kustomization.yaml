@@ -29,4 +29,5 @@ resources:
   - topolvm.yaml
   - truecharts.yaml
   - fireflyiii.yaml
+  - gatus.yaml
 # more goes here!
