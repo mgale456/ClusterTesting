@@ -35,19 +35,19 @@ spec:
     service:
       dns:
         enabled: true
-        externalTrafficPolicy: Local
+        #externalTrafficPolicy: Local
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
         #sharedKey: blocky
       dot:
         enabled: true
-        externalTrafficPolicy: Local
+        #externalTrafficPolicy: Local
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
         #sharedKey: blocky
       https:
         enabled: true
-        externalTrafficPolicy: Local
+        #externalTrafficPolicy: Local
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
         #sharedKey: blocky
