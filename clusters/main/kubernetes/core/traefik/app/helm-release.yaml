@@ -39,6 +39,7 @@ spec:
     metrics:
       main:
         enabled: false
+    defaultCertificate: "domain-0-wildcard"
     ingress:
       main:
         enabled: true

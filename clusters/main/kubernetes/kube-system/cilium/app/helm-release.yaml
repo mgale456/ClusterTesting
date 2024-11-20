@@ -35,7 +35,7 @@ spec:
     keepHistory: false
   values:
     # autoDirectNodeRoutes: true
-    routingMode: native
+    routingMode: native # differs from ClusterTool default
     hubble:
       enabled: false
     cluster:
@@ -78,10 +78,3 @@ spec:
     operator:
       rollOutPods: true
     rollOutCiliumPods: true
-#    bpf:
-#      lbExternalClusterIP: true
-#    socketLB:
-#      # -- Enable socket LB
-#      enabled: false
-#      # -- Disable socket lb for non-root ns. This is used to enable Istio routing rules.
-#      hostNamespaceOnly: true

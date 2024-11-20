@@ -45,11 +45,11 @@ spec:
         tls:
           - hosts:
               - fireflyiii.${INGRESS_URL}
-            certificateIssuer: "cfcert"
+            certificateIssuer: "domain-0-le-prod"
         integrations:
           certManager:
             enabled: true
-            certificateIssuer: "cfcert"
+            certificateIssuer: "domain-0-le-prod"
           homepage:
             enabled: true
             group: Finance

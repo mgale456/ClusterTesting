@@ -51,11 +51,11 @@ spec:
         tls:
           - hosts:
               - kubernetes-dashboard.${INGRESS_URL}
-            certificateIssuer: "cfcert"
+            certificateIssuer: "domain-0-le-prod"
         integrations:
           certManager:
             enabled: true
-            certificateIssuer: "cfcert"
+            certificateIssuer: "domain-0-le-prod"
           homepage:
             enabled: true
             group: Default

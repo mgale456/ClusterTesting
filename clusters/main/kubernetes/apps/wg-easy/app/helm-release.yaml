@@ -47,7 +47,7 @@ spec:
                 pathType: "Prefix"
         integrations:
           certManager:
-            certificateIssuer: "cfcert"
+            certificateIssuer: "domain-0-le-prod"
             enabled: true
           homepage:
             enabled: true
