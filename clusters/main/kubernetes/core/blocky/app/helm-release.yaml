@@ -38,19 +38,19 @@ spec:
         externalTrafficPolicy: Local
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
-        sharedKey: blocky
+        #sharedKey: blocky
       dot:
         enabled: true
         externalTrafficPolicy: Local
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
-        sharedKey: blocky
+        #sharedKey: blocky
       https:
         enabled: true
         externalTrafficPolicy: Local
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
-        sharedKey: blocky
+        #sharedKey: blocky
 
     # -- set blocking settings using Lists
     # Primarily designed for inclusion in the TrueNAS SCALE GUI
