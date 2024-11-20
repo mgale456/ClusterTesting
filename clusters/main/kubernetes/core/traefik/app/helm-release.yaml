@@ -30,9 +30,6 @@ spec:
     keepHistory: false
   values:
     service:
-      main:
-        type: LoadBalancer
-        loadBalancerIP: ${TRAEFIK_IP}
       tcp:
         type: LoadBalancer
         loadBalancerIP: ${TRAEFIK_IP}
@@ -54,11 +51,11 @@ spec:
         tls:
           - hosts:
               - traefik.${INGRESS_URL}
-            certificateIssuer: "cfcert"
+            certificateIssuer: "domain-0-wildcard"
         integrations:
           certManager:
             enabled: true
-            certificateIssuer: "cfcert"
+            certificateIssuer: "domain-0-wildcard"
           homepage:
             enabled: true
             href: https://traefik.${INGRESS_URL}/dashboard/
