@@ -50,11 +50,10 @@ spec:
         tls:
           - hosts:
               - esphome.${INGRESS_URL}
-            certificateIssuer: "domain-0-le-prod"
+            clusterIssuer: "domain-0-le-prod"
         integrations:
           certManager:
             enabled: true
-            certificateIssuer: "domain-0-le-prod"
           homepage:
             enabled: true
             group: Home Automation
