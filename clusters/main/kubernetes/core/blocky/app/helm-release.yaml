@@ -38,16 +38,22 @@ spec:
         externalTrafficPolicy: Local
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
+        annotations:
+          metallb.universe.tf/allow-shared-ip: blocky
       dot:
         enabled: true
         externalTrafficPolicy: Local
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
+        annotations:
+          metallb.universe.tf/allow-shared-ip: blocky
       https:
         enabled: true
         externalTrafficPolicy: Local
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
+        annotations:
+          metallb.universe.tf/allow-shared-ip: blocky
 
     # -- set blocking settings using Lists
     # Primarily designed for inclusion in the TrueNAS SCALE GUI
