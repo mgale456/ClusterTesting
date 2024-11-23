@@ -36,6 +36,25 @@ spec:
             main:
               env:
                 ESPHOME_DASHBOARD_USE_PING: true
+    credentials:
+      mys3:
+        type: s3
+        url: "${S3URL}"
+        bucket: "${S3BUCKETNAME}"
+        #path: "/esphome"
+        accessKey: "${S3ID}"
+        secretKey: "${S3KEY}"
+        encrKey: "${S3KEY}"
+    persistence:
+      config:
+        volsync:
+          - name: b2
+            type: restic
+            credentials: mys3
+            dest:
+              enabled: false
+            src:
+              enabled: true
     ingress:
       main:
         enabled: true
