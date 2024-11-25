@@ -7,7 +7,7 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: clusters/main/kubernetes/apps/gatuscustom/app/chart
+      chart: clusters/main/kubernetes/apps/gatuscustom/app/chart/gatuscustom
       version: 1.1.0
       sourceRef:
         kind: GitRepository
