@@ -32,4 +32,4 @@ sources:
   - https://github.com/TwiN/gatus
   - https://github.com/truecharts/charts/tree/master/charts/stable/homepage
 type: application
-version: 0.0.1
+version: 0.0.2
