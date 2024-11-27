@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: charts/gatuscustom2
-      version: 0.0.5
+      version: 0.0.6
       sourceRef:
         kind: GitRepository
         name: cluster
@@ -59,6 +59,9 @@ spec:
     addons:
       codeserver:
         enabled: true
+        service:
+          enabled: true
+          type: LoadBalancer
         ingress:
           hosts:
             - host: cs.gatus2.${INGRESS_URL}

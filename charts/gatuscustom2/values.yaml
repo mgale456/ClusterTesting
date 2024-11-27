@@ -9,9 +9,16 @@ service:
         port: 80
         targetPort: 8080
 persistence:
-  config:
+  data:
     enabled: true
     mountPath: /data
+  config:
+    enabled: true
+    mountPath: /config/config.yaml
+    subPath: config.yaml
+    readOnly: true
+    type: "configmap"
+    objectName: config
 # workload?
 configmap:
   config:
