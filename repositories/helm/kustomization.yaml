@@ -30,4 +30,5 @@ resources:
   - truecharts.yaml
   - fireflyiii.yaml
   - gatus.yaml
+  - capacitor.yaml
 # more goes here!
