@@ -1,14 +1,14 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: gatuscustom
-  namespace: gatuscustom
+  name: gatuscustom2
+  namespace: gatuscustom2
 spec:
   interval: 15m
   chart:
     spec:
       chart: charts/gatuscustom2
-      version: 0.0.3
+      version: 0.0.4
       sourceRef:
         kind: GitRepository
         name: cluster
