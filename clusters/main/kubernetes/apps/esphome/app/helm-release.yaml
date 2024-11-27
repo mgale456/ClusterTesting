@@ -52,7 +52,7 @@ spec:
             type: restic
             credentials: mys3
             dest:
-              enabled: true
+              enabled: false
             src:
               enabled: true
     ingress:
