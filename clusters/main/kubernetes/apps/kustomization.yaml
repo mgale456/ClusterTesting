@@ -15,4 +15,4 @@ resources:
   - gatus/ks.yaml
   - gatuscustom/ks.yaml
   - gatuscustom2/ks.yaml
-  - gatuscustom3/ks.yaml
+  - gatustemplate/ks.yaml
