@@ -30,11 +30,12 @@ spec:
     keepHistory: false
   values:
     service:
-      type: LoadBalancer
-      port: 80
-      targetPort: 8080
-      annotations: {}
-      labels: {}
+      main:
+        type: LoadBalancer
+        port: 80
+        targetPort: 8080
+        annotations: {}
+        labels: {}
 
     ingress:
       main:
