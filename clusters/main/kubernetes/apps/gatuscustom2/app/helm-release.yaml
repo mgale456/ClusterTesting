@@ -32,10 +32,6 @@ spec:
     service:
       main:
         type: LoadBalancer
-        port: 80
-        targetPort: 8080
-        annotations: {}
-        labels: {}
 
     ingress:
       main:
@@ -55,6 +51,7 @@ spec:
         integrations:
           certManager:
             enabled: true
+            clusterIssuer: "domain-0-le-prod"
           homepage:
             enabled: true
             group: Default
