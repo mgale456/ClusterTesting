@@ -34,6 +34,11 @@ spec:
       tag: "v0.4.8"
       pullPolicy: IfNotPresent
 
+    # -- ServiceAccount
+    serviceAccount:
+      name: capacitor
+      annotations: {}
+
     # -- Resources
     resources:
       requests:
