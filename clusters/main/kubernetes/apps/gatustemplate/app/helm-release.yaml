@@ -55,6 +55,7 @@ spec:
         integrations:
           certManager:
             enabled: true
+            certificateIssuer: domain-0-le-prod
           homepage:
             enabled: true
             group: Default
