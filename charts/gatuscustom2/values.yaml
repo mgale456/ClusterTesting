@@ -2,8 +2,6 @@ image:
   repository: twinproduction/gatus
   pullPolicy: IfNotPresent
   tag: v5.13.1@sha256:977129a3cad3253906ef9c95d16a0f19a3ab5d3892404da809798b5b34bbd04d
-notes:
-  header: testing
 service:
   main:
     ports:
@@ -19,7 +17,14 @@ configmap:
   config:
     enabled: true
     data:
-      config.yaml: ENC[AES256_GCM,data:ojiDyUjAS4sboBD3+FjT8rOf8YY3JG1puZQMa2kGJQj1nImClm+l2ZLfy3k5FhwhQ2yZenFl5+c0yhaQZBM3Qbu0Jmmj1Ub2bwOYWt6x5gnMugQC6nCTSF3MNCAIAthhu9sKe1UIMswAZync2q2ygPWyQrh+z8/pSmyAsmKqSabElOPzXa5zVW2nSXCudROzprUW6Pv0XnpA8TgroA==,iv:1TxDjvoGZfmfIzk2splf29xqwimeQQJcUnoChkJZo2I=,tag:rl2BqjgbsxH8t6TSajMHwg==,type:str]
+      config.yaml: |
+        endpoints:
+          - name: example
+            url: https://example.org
+            interval: 60s
+            conditions:
+              - "[STATUS] == 200"
+              - "[BODY] == pat(*<h1>Example Domain</h1>*)"
 # Default values for gatuscustom.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.

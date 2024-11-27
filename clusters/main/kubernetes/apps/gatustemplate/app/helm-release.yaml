@@ -29,6 +29,26 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    image:
+      repository: twinproduction/gatus
+      pullPolicy: IfNotPresent
+      tag: v5.13.1@sha256:977129a3cad3253906ef9c95d16a0f19a3ab5d3892404da809798b5b34bbd04d
+    persistence:
+      config:
+        enabled: true
+        mountPath: /data
+    configmap:
+      config:
+        enabled: true
+        data:
+          config.yaml: |
+            endpoints:
+              - name: example
+                url: https://example.org
+                interval: 60s
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY] == pat(*<h1>Example Domain</h1>*)"
     service:
       main:
         type: LoadBalancer
