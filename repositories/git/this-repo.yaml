@@ -18,3 +18,4 @@ spec:
     # include flux directories
     !/clusters
     !/repositories
+    !/charts
