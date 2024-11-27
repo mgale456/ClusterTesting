@@ -55,3 +55,21 @@ spec:
           homepage:
             enabled: true
             group: Default
+
+    addons:
+      codeserver:
+        enabled: true
+        ingress:
+          hosts:
+            - host: cs.gatus2.${INGRESS_URL}
+              paths:
+                - path: /
+                  pathType: Prefix
+          tls:
+            - hosts:
+                - cs.gatus2.${INGRESS_URL}
+              certificateIssuer: "domain-0-le-prod"
+          integrations:
+            certManager:
+              enabled: true
+              certificateIssuer: "domain-0-le-prod"
