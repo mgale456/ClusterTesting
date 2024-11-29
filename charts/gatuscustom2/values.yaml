@@ -33,6 +33,11 @@ configmap:
               - "[STATUS] == 200"
               - "[BODY] == pat(*<h1>Example Domain</h1>*)"
 
+cnpg:
+  main:
+    enabled: true
+    user: gatus
+    database: gatus
 # Default values for gatuscustom.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.

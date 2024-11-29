@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: charts/gatuscustom2
-      version: 0.0.7
+      version: 0.0.8
       sourceRef:
         kind: GitRepository
         name: cluster
@@ -63,6 +63,7 @@ spec:
           enabled: true
           type: LoadBalancer
         ingress:
+          enabled: true
           hosts:
             - host: cs.gatus2.${INGRESS_URL}
               paths:
@@ -76,3 +77,24 @@ spec:
             certManager:
               enabled: true
               certificateIssuer: "domain-0-le-prod"
+
+    configmap:
+      config:
+        enabled: true
+        data:
+          config.yaml: |
+            storage:
+              type: postgres
+              path: {{ (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}
+            endpoints:
+              - name: example
+                url: https://example.org
+                interval: 60s
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY] == pat(*<h1>Example Domain</h1>*)"
+              - name: Home Assistant
+                url: http://${HASS_EXTERNAL_IP}:8123
+                interval: 300s
+                conditions:
+                  - "[STATUS] == 200"
