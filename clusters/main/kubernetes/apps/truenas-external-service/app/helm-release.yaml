@@ -59,7 +59,7 @@ spec:
               url: http://${TRUENAS_EXTERNAL_IP}:81
               custom:
                 key: ${TRUENAS_API_KEY} # not required if using username / password
-                enablePools: true # optional, defaults to false
+                enablePools: "true" # optional, defaults to false
                 nasType: scale # defaults to scale, must be set to 'core' if using enablePools with TrueNAS Core
 
     service:
