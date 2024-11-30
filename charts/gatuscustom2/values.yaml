@@ -9,9 +9,6 @@ service:
         port: 80
         targetPort: 8080
 persistence:
-  data:
-    enabled: true
-    mountPath: /data
   config:
     enabled: true
     mountPath: /config/config.yaml
@@ -19,12 +16,17 @@ persistence:
     readOnly: true
     type: "configmap"
     objectName: config
-# workload?
 configmap:
   config:
     enabled: true
     data:
       config.yaml: |
+        {{- if .Values.cnpg.main.enabled }}
+        storage:
+          type: postgres
+          path: {{ (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}
+        {{- end }}
+
         endpoints:
           - name: example
             url: https://example.org
@@ -38,8 +40,3 @@ cnpg:
     enabled: true
     user: gatus
     database: gatus
-# Default values for gatuscustom.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-#This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
-#serviceAccount:
