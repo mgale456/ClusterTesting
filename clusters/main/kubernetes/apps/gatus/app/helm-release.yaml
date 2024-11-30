@@ -8,10 +8,10 @@ spec:
   chart:
     spec:
       chart: gatus
-      version: 1.1.0
+      version: 0.0.1
       sourceRef:
         kind: HelmRepository
-        name: gatus
+        name: truecharts
         namespace: flux-system
       interval: 15m
   timeout: 20m
@@ -29,68 +29,47 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    podSecurityContext:
-      fsGroup: 65534
-
-    securityContext:
-      runAsNonRoot: true
-      runAsUser: 65534
-      runAsGroup: 65534
-      readOnlyRootFilesystem: true
-
-    # Expose the gatus service to be accessed from outside the cluster (LoadBalancer service)
-    # or access it from within the cluster (ClusterIP service). Set the service type and the port to serve it.
-    # ref: https://kubernetes.io/docs/concepts/services-networking/service/
-    service:
-      type: LoadBalancer
-      port: 80
-      targetPort: 8080
-      annotations: {}
-      labels: {}
-
     ingress:
-      enabled: false
-
-    # Extra environment variables that will be pass onto deployment pods
-    # Expects key: value
-    env:
-      {}
-      # GATUS_CONFIG_PATH: config/config.yaml
-      # SECRET_VAR:
-      #   valueFrom:
-      #     secretKeyRef:
-      #       name: gatus-secret
-      #       key: secret
-
-    # Enable persistence using Persistent Volume Claims
-    # ref: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
-    persistence:
-      enabled: false
-      size: 200Mi
-      mountPath: /data
-      # subPath: ""
-      accessModes:
-        - ReadWriteOnce
-      finalizers:
-        - kubernetes.io/pvc-protection
-      # annotations: {}
-      # selectorLabels: {}
-      # existingClaim: ""
-      # storageClassName: default
-
-    # Gatus configuration
-    # ref: https://github.com/TwiN/gatus#configuration
-    config:
-      endpoints:
-        - name: example
-          url: https://example.org
-          interval: 60s
-          conditions:
-            - "[STATUS] == 200"
-            - "[BODY] == pat(*<h1>Example Domain</h1>*)"
-        - name: frigate
-          url: http://frigate.frigate.svc.cluster.local:10500
-          interval: 60s
-          conditions:
-            - "[STATUS] == 200"
-            #- "[BODY] == pat(*<h1>Example Domain</h1>*)"
+      main:
+        enabled: true
+        hosts:
+          - host: gatus.${INGRESS_URL}
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - gatus.${INGRESS_URL}
+        integrations:
+          certManager:
+            enabled: true
+          homepage:
+            enabled: true
+            group: Default
+    cnpg:
+      main:
+        enabled: false
+    configmap:
+      config:
+        enabled: true
+        data:
+          config.yaml: |
+            endpoints:
+              - name: example
+                url: https://example.org
+                interval: 60s
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY] == pat(*<h1>Example Domain</h1>*)"
+              - name: Home Assistant
+                url: http://${HASS_EXTERNAL_IP}:8123
+                interval: 300s
+                conditions:
+                  - "[STATUS] == 200"
+              - name: Blocky DNS
+                url: ${BLOCKY_IP}
+                dns:
+                  query-name: google.com
+                  query-type: "A"
+                conditions:
+                  - "[DNS_RCODE] == NOERROR"
