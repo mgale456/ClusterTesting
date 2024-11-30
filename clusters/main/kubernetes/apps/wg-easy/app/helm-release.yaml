@@ -53,7 +53,8 @@ spec:
             enabled: true
             group: "Default"
             widget:
-              password: ${WG_EASY_PASSWORD}
+              custom:
+                password: ${WG_EASY_PASSWORD}
         tls:
           - hosts:
               - "wg-easy.${INGRESS_URL}"
