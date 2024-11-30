@@ -52,10 +52,15 @@ spec:
           homepage:
             enabled: true
             group: Default
-            icon: "https://truenas.michaelhome.xyz/ui/assets/images/truenas_scale_ondark_favicon.png"
+            icon: "https://truenas.${INGRESS_URL}/ui/assets/images/truenas_scale_ondark_favicon.png"
             name: "TrueNAS Scale"
             widget:
-              type: ""
+              type: truenas
+              url: https://truenas.${INGRESS_URL}
+              key: ${TRUENAS_API_KEY} # not required if using username / password
+              enablePools: true # optional, defaults to false
+              nasType: scale # defaults to scale, must be set to 'core' if using enablePools with TrueNAS Core
+
     service:
       main:
         type: ExternalIP
