@@ -55,6 +55,9 @@ spec:
           homepage:
             enabled: true
             group: Default
+    cnpg:
+      main:
+        enabled: false
     configmap:
       config:
         enabled: true
