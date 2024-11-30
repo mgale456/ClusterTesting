@@ -14,4 +14,3 @@ resources:
   - esphome/ks.yaml
   - gatus/ks.yaml
   - gatuscustom2/ks.yaml
-  - gatustemplate/ks.yaml
