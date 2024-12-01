@@ -56,21 +56,30 @@ spec:
         data:
           config.yaml: |
             endpoints:
-              - name: example
-                url: https://example.org
-                interval: 60s
-                conditions:
-                  - "[STATUS] == 200"
-                  - "[BODY] == pat(*<h1>Example Domain</h1>*)"
               - name: Home Assistant
+                group: Other
                 url: http://${HASS_EXTERNAL_IP}:8123
                 interval: 300s
                 conditions:
                   - "[STATUS] == 200"
               - name: Blocky DNS
+                group: Kubernetes
                 url: ${BLOCKY_IP}
+                interval: 300s
                 dns:
                   query-name: google.com
                   query-type: "A"
                 conditions:
                   - "[DNS_RCODE] == NOERROR"
+              - name: TrueNAS Scale
+                group: Other
+                url: http://${TRUENAS_EXTERNAL_IP}:81
+                interval: 300s
+                conditions:
+                  - "[STATUS] == 200"
+              - name: Piper
+                group: Kubernetes
+                url: http://${PIPER_IP}:10200
+                interval: 300s
+                conditions:
+                  - "[STATUS] == 200"
