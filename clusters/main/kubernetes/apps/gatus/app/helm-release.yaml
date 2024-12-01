@@ -77,9 +77,3 @@ spec:
                 interval: 300s
                 conditions:
                   - "[STATUS] == 200"
-              - name: Piper
-                group: Kubernetes
-                url: http://${PIPER_IP}:10200
-                interval: 300s
-                conditions:
-                  - "[STATUS] == 200"
