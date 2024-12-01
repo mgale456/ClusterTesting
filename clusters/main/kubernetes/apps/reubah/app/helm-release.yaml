@@ -43,3 +43,6 @@ spec:
         integrations:
           homepage:
             enabled: true
+            group: Default
+            widget:
+              type: ""
