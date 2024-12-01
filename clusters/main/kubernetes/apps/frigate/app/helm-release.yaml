@@ -115,6 +115,9 @@ spec:
           homepage:
             enabled: true
             group: Home Automation
+            widget:
+              custom:
+                enableRecentEvents: "true"
         tls:
           - hosts:
               - frigate.${INGRESS_URL}
