@@ -59,3 +59,4 @@ spec:
           homepage:
             enabled: true
             group: Default
+            weight: 2

@@ -44,5 +44,5 @@ spec:
           homepage:
             enabled: true
             group: Default
-            widget:
-              type: ""
+            weight: 1
+            widget: {}
