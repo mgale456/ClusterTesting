@@ -45,4 +45,5 @@ spec:
             enabled: true
             group: Default
             weight: 1
-            widget: {}
+            widget:
+              enabled: false
