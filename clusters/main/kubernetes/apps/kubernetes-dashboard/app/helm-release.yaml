@@ -59,4 +59,5 @@ spec:
           homepage:
             enabled: true
             group: Default
-            weight: 2
+            widget:
+              enabled: false
