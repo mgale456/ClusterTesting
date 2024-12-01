@@ -13,3 +13,4 @@ resources:
   - piper/ks.yaml
   - esphome/ks.yaml
   - gatus/ks.yaml
+  - reubah/ks.yaml
