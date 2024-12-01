@@ -53,3 +53,5 @@ spec:
           homepage:
             enabled: true
             group: Finance
+            widget:
+              enabled: false
