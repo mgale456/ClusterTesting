@@ -1,0 +1,45 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: triliumnext-notes
+  namespace: triliumnext-notes
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: charts/triliumnext-notes
+      version: 0.0.1
+      sourceRef:
+        kind: GitRepository
+        name: cluster
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: trilium.${INGRESS_URL}
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - trilium.${INGRESS_URL}
+        integrations:
+          homepage:
+            enabled: true
+            group: Default

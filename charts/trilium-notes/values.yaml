@@ -1,0 +1,24 @@
+image:
+  repository: triliumnext/notes
+  pullPolicy: IfNotPresent
+  tag: 0.90.12@sha256:6e00a1355e59689a8177ec3b784ce5d4e2b85b5a1b78c88e66e5fd1a4e42a740
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8080
+        port: 10156
+persistence:
+  config:
+    enabled: true
+    mountPath: "/home/node"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+    fsGroup: 1000
