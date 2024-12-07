@@ -160,8 +160,8 @@ spec:
                       icon: https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico
                 - Homepage docs:
                     - abbr: HP
-                      href: https://gethomepage.dev/main/
-                      icon: https://gethomepage.dev/main/assets/favicon.ico
+                      href: https://gethomepage.dev/configs/
+                      icon: https://gethomepage.dev/assets/favicon.ico
                 - TP Link Router:
                     - abbr: TP
                       href: http://tplinkwifi.net
