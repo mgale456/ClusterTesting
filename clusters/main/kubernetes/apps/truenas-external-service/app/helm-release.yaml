@@ -50,7 +50,7 @@ spec:
             enabled: true
             certificateIssuer: "domain-0-le-prod"
           homepage:
-            enabled: true
+            enabled: false
             group: Default
             icon: "https://truenas.${INGRESS_URL}/ui/assets/images/truenas_scale_ondark_favicon.png"
             name: "TrueNAS Scale"
