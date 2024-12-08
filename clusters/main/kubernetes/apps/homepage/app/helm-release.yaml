@@ -125,7 +125,7 @@ spec:
                 # Shows the node names as labels
                 labels: true
                 # Show the nodes
-                nodes: true
+                nodes: false
 
           services.yaml: |
             ---
@@ -163,7 +163,7 @@ spec:
                 - Longhorn:
                     href: http://${LONGHORN_IP}
                     description: A k8s Container Storage Interface (CSI)
-                    icon: http://192.168.0.58/favicon.ico
+                    icon: sh-rancher-longhorn
 
           bookmarks.yaml: |
             ---
