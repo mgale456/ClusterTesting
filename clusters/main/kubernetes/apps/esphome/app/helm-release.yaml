@@ -63,16 +63,10 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
-                overrideService:
-                  name: main
-                  port: 6052
         tls:
           - hosts:
               - esphome.${INGRESS_URL}
-            clusterIssuer: "domain-0-le-prod"
         integrations:
-          certManager:
-            enabled: true
           homepage:
             enabled: true
             group: Home Automation
