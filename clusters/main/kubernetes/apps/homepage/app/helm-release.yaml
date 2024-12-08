@@ -121,7 +121,7 @@ spec:
                 # Show the expanded view
                 expanded: true
                 # Shows a node representing the aggregate values
-                total: true
+                total: false
                 # Shows the node names as labels
                 labels: true
                 # Show the nodes
@@ -159,6 +159,12 @@ spec:
                             - field: receivable
                               label: Receivable Banano
                               format: float
+            - Default:
+                - Longhorn:
+                    href: http://${LONGHORN_IP}
+                    description: A k8s Container Storage Interface (CSI)
+                    icon: http://192.168.0.58/favicon.ico
+
           bookmarks.yaml: |
             ---
             # For configuration options and examples, please see:
