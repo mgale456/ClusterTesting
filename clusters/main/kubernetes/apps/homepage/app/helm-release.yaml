@@ -97,17 +97,6 @@ spec:
                 provider: duckduckgo
                 target: _blank
 
-            - kubernetes:
-                nodes:
-                  # Shows node-specific statistics
-                  show: true
-                  # Shows the CPU for each node
-                  cpu: true
-                  # Shows the memory for each node
-                  memory: true
-                  # Shows the label, which is always the node name
-                  showLabel: true
-
           services.yaml: |
             ---
             # For configuration options and examples, please see:
