@@ -14,3 +14,4 @@ resources:
   - esphome/ks.yaml
   - gatus/ks.yaml
   - reubah/ks.yaml
+  - trilliumnext-notes/ks.yaml
