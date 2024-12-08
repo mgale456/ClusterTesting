@@ -42,8 +42,8 @@ spec:
         url: "${S3URL}"
         bucket: "${S3BUCKETNAME}"
         #path: "/esphome"
-        accessKey: "${S3APIKEY}"
-        secretKey: "${S3KEY}"
+        accessKey: "${S3APIKEYID}"
+        secretKey: "${S3APIKEY}"
         encrKey: "${S3KEY}"
     persistence:
       config:
