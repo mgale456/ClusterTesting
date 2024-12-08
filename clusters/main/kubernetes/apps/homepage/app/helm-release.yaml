@@ -145,11 +145,15 @@ spec:
                     href: http://${LONGHORN_IP}
                     description: A k8s Container Storage Interface (CSI)
                     icon: sh-rancher-longhorn-light
-                    siteMonitor: http://${LONGHORN_IP}
+                    #siteMonitor: http://${LONGHORN_IP}
+                    app: longhorn
+                    namespace: longhorn-system
+                    podSelector: ""
                 - TrueNAS Scale1:
                     href: https://truenas.${INGRESS_URL}
                     description: Networked Attached Storage Appliance OS
                     icon: "https://truenas.${INGRESS_URL}/ui/assets/images/truenas_scale_ondark_favicon.png"
+                    ping: ${TRUENAS_EXTERNAL_IP}
                     widget:
                       type: truenas
                       url: http://${TRUENAS_EXTERNAL_IP}:81
