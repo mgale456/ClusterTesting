@@ -62,6 +62,10 @@ spec:
             providers:
               openweathermap: openweathermapapikey
               weatherapi: weatherapiapikey
+              longhorn:
+                #username: "longhorn-username" # optional
+                #password: "very-secret-longhorn-password" # optional
+                url: http://longhorn-backend.longhorn-system.svc.cluster.local:9500
 
             useEqualHeights: true
 
@@ -113,6 +117,15 @@ spec:
                   memory: true
                   # Shows the label, which is always the node name
                   showLabel: true
+            - longhorn:
+                # Show the expanded view
+                expanded: true
+                # Shows a node representing the aggregate values
+                total: true
+                # Shows the node names as labels
+                labels: true
+                # Show the nodes
+                nodes: true
 
           services.yaml: |
             ---

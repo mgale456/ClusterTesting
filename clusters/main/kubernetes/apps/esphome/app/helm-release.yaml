@@ -76,3 +76,4 @@ spec:
           homepage:
             enabled: true
             group: Home Automation
+            desccription: A system to control your ESP8266/ESP32s
