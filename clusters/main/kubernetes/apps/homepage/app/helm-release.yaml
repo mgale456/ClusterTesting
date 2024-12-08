@@ -98,16 +98,6 @@ spec:
                 target: _blank
 
             - kubernetes:
-                cluster:
-                  # Shows cluster-wide statistics
-                  show: true
-                  # Shows the aggregate CPU stats
-                  cpu: true
-                  # Shows the aggregate memory stats
-                  memory: true
-                  # Shows a custom label
-                  showLabel: true
-                  label: "cluster"
                 nodes:
                   # Shows node-specific statistics
                   show: true
@@ -117,15 +107,6 @@ spec:
                   memory: true
                   # Shows the label, which is always the node name
                   showLabel: true
-            - longhorn:
-                # Show the expanded view
-                expanded: true
-                # Shows a node representing the aggregate values
-                total: false
-                # Shows the node names as labels
-                labels: true
-                # Show the nodes
-                nodes: false
 
           services.yaml: |
             ---
@@ -163,7 +144,18 @@ spec:
                 - Longhorn:
                     href: http://${LONGHORN_IP}
                     description: A k8s Container Storage Interface (CSI)
-                    icon: sh-rancher-longhorn
+                    icon: sh-rancher-longhorn-light
+                    siteMonitor: http://${LONGHORN_IP}
+                - TrueNAS Scale1:
+                    href: https://truenas.${INGRESS_URL}
+                    description: Networked Attached Storage Appliance OS
+                    icon: "https://truenas.${INGRESS_URL}/ui/assets/images/truenas_scale_ondark_favicon.png"
+                    widget:
+                      type: truenas
+                      url: http://${TRUENAS_EXTERNAL_IP}:81
+                      key: ${TRUENAS_API_KEY} # not required if using username / password
+                      enablePools: "true" # optional, defaults to false
+                      nasType: scale # def
 
           bookmarks.yaml: |
             ---
