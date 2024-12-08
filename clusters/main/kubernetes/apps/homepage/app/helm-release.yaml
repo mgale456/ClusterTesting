@@ -70,10 +70,12 @@ spec:
                   icon: mdi-home
                   style: row
                   columns: 3
+              - Tools:
+                  icon: mdi-tools
               - Finance:
                   icon: mdi-cash-multiple
-                  style: row
-                  columns: 2
+                  #style: row
+                  #columns: 3
               - Default:
                   style: row
                   columns: 3

@@ -43,7 +43,7 @@ spec:
         integrations:
           homepage:
             enabled: true
-            group: Default
+            group: Tools
             weight: 1
             widget:
               enabled: false
