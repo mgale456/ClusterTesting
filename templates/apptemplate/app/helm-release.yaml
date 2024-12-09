@@ -40,17 +40,10 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
-                overrideService:
-                  name: main
-                  port: XXXXX
         tls:
           - hosts:
               - REPLACEME.${INGRESS_URL}
-            certificateIssuer: "cfcert"
         integrations:
-          certManager:
-            enabled: true
-            certificateIssuer: "cfcert"
           homepage:
             enabled: true
-            group: Home Automation
+            group: Default
