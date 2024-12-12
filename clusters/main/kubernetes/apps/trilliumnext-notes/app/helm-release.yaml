@@ -37,16 +37,6 @@ spec:
         accessKey: "${S3APIKEYID}"
         secretKey: "${S3APIKEY}"
         encrKey: "${S3KEY}"
-    persistence:
-      config:
-        volsync:
-          - name: b2
-            type: restic
-            credentials: mys3
-            dest:
-              enabled: false
-            src:
-              enabled: true
     ingress:
       main:
         enabled: true
