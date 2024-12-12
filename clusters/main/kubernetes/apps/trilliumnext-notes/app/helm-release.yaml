@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: charts/triliumnext-notes
-      version: 0.0.1
+      version: 0.0.3
       sourceRef:
         kind: GitRepository
         name: cluster
