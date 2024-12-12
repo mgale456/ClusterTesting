@@ -16,9 +16,9 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: Trilium Notes is a hierarchical note taking application with focus on building large personal knowledge bases.
+description: TriliumNext Notes is a hierarchical note taking application with focus on building large personal knowledge bases.
 home: https://truecharts.org/charts/stable/triliumnext-notes
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/trilium-notes.webp
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/triliumnext-notes.webp
 keywords:
   - trilium
   - triliumnext
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/triliumnext-notes
   - https://github.com/TriliumNext/Notes
 type: application
-version: 0.0.1
+version: 0.0.2
