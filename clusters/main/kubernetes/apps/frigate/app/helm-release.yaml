@@ -57,7 +57,7 @@ spec:
             - "rtsp://viewer:${FRIGATE_RTSP_PASS}@192.168.1.101:554/cam/realmonitor?\
               channel=1&subtype=0"
           camera1_sub:
-            - "rtsp://viewer:regular_example@192.168.1.101:554/cam/realmonitor?\
+            - "rtsp://viewer:${FRIGATE_RTSP_PASS}@192.168.1.101:554/cam/realmonitor?\
               channel=1&subtype=1"
         webrtc:
           candidates:
