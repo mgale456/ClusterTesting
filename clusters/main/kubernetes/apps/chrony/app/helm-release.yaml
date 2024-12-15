@@ -28,6 +28,10 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    image:
+      repository: simonrupf/chronyd
+      pullPolicy: IfNotPresent
+      tag: 0.6.1@sha256:c2242fb3153cf478c893c24694d61aad001f6f7df05aade88d5b6540a98f9fe5
     service:
       main:
         type: LoadBalancer
