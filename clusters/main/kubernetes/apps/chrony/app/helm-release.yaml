@@ -36,6 +36,10 @@ spec:
       main:
         type: LoadBalancer
         LoadBalancerIP: ${CHRONY_IP}
+        ports:
+          main:
+            port: 123
+            protocol: UDP
     ingress:
       main:
         enabled: false
