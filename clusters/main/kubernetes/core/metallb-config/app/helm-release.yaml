@@ -40,3 +40,8 @@ spec:
         avoidBuggyIPs: true
         addresses:
           - ${METALLB_RANGE}
+      - name: cameravlan
+        autoAssign: false
+        avoidBuggyIPs: true
+        addresses:
+          - ${CAMERA_VLAN_RANGE}
