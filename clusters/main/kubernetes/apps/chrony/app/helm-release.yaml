@@ -35,7 +35,7 @@ spec:
     service:
       main:
         type: LoadBalancer
-        LoadBalancerIP: ${CHRONY_IP}
+        loadBalancerIP: ${CHRONY_IP}
         ports:
           main:
             port: 123
