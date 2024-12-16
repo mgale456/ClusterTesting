@@ -39,7 +39,7 @@ spec:
         ports:
           main:
             port: 123
-            protocol: UDP
+            protocol: udp
     ingress:
       main:
         enabled: false
