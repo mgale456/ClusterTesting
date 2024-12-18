@@ -62,8 +62,8 @@ spec:
             main:
               probes:
                 liveness:
-                  type: udp
+                  enabled: false
                 readiness:
-                  type: udp
+                  enabled: false
                 startup:
-                  type: udp
+                  enabled: false
