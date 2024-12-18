@@ -55,3 +55,15 @@ spec:
         runAsUser: 0
         runAsGroup: 0
         privileged: true
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              probes:
+                liveness:
+                  type: udp
+                readiness:
+                  type: udp
+                startup:
+                  type: udp
