@@ -16,3 +16,4 @@ resources:
   - reubah/ks.yaml
   - trilliumnext-notes/ks.yaml
   - chrony/ks.yaml
+  - firefox/ks.yaml
