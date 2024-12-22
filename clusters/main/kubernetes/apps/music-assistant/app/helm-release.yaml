@@ -40,6 +40,7 @@ spec:
             port: 8095
             protocol: http
       stream:
+        enabled: true
         type: LoadBalancer
         LoadBalancerIP: ${MUSIC_ASSISTANT_IP}
         ports:
