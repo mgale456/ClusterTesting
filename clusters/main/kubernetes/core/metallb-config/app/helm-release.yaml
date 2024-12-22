@@ -36,7 +36,7 @@ spec:
           - main
     ipAddressPools:
       - name: main
-        autoAssign: false
+        autoAssign: true
         avoidBuggyIPs: true
         addresses:
           - ${METALLB_RANGE}
