@@ -43,7 +43,7 @@ spec:
         type: LoadBalancer
         LoadBalancerIP: ${MUSIC_ASSISTANT_IP}
         ports:
-          main:
+          stream:
             port: 8097
             protocol: http
     securityContext:
