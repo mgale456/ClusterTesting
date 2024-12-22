@@ -50,11 +50,12 @@ spec:
             protocol: http
     securityContext:
       container:
+        runAsNonRoot: false
         readOnlyRootFilesystem: false
-        runAsUser: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
-        fsGroup: 1000
+        privileged: true
+        allowPrivilegeEscalation: true
+        runAsUser: 0
+        runAsGroup: 0
     persistence:
       data:
         enabled: true
