@@ -51,6 +51,10 @@ spec:
     securityContext:
       container:
         readOnlyRootFilesystem: false
+        runAsUser: 1000
+        runAsGroup: 1000
+        runAsNonRoot: true
+        fsGroup: 1000
     persistence:
       data:
         enabled: true
