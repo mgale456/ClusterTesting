@@ -34,7 +34,7 @@ spec:
     service:
       main:
         type: LoadBalancer
-        LoadBalancerIP: ${MUSIC_ASSISTANT_IP}
+        loadBalancerIP: ${MUSIC_ASSISTANT_IP}
         ports:
           main:
             port: 8095
@@ -42,7 +42,7 @@ spec:
       stream:
         enabled: true
         type: LoadBalancer
-        LoadBalancerIP: ${MUSIC_ASSISTANT_IP}
+        loadBalancerIP: ${MUSIC_ASSISTANT_IP}
         ports:
           stream:
             enabled: true

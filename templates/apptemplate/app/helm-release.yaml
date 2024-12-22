@@ -31,7 +31,7 @@ spec:
     service:
       main:
         type: LoadBalancer
-        LoadBalancerIP: ${XXXXX_IP}
+        loadBalancerIP: ${XXXXX_IP}
     ingress:
       main:
         enabled: true
