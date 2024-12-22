@@ -56,6 +56,10 @@ spec:
         allowPrivilegeEscalation: true
         runAsUser: 0
         runAsGroup: 0
+    workload:
+      main:
+        podSpec:
+          hostNetwork: true
     persistence:
       data:
         enabled: true
