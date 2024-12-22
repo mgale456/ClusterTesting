@@ -39,6 +39,16 @@ spec:
           main:
             port: 8095
             protocol: http
+      stream:
+        type: LoadBalancer
+        LoadBalancerIP: ${MUSIC_ASSISTANT_IP}
+        ports:
+          main:
+            port: 8097
+            protocol: http
+    securityContext:
+      container:
+        readOnlyRootFilesystem: false
     persistence:
       data:
         enabled: true
