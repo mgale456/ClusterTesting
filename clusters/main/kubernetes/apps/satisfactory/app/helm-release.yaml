@@ -48,9 +48,6 @@ spec:
       logs:
         enabled: true
         mountPath: "/config/logs"
-      lostfound:
-        enabled: true
-        mountPath: "/config/lost+found"
     resources:
       limits:
         memory: 10Gi
