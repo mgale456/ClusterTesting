@@ -29,6 +29,10 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: ${ESPHOME_IP}
     workload:
       main:
         podSpec:
