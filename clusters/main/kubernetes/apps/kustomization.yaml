@@ -18,3 +18,4 @@ resources:
   - chrony/ks.yaml
   - firefox/ks.yaml
   - music-assistant/ks.yaml
+  - satisfactory/ks.yaml
