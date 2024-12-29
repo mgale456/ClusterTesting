@@ -32,3 +32,25 @@ spec:
       main:
         type: LoadBalancer
         loadBalancerIP: ${SATISFACTORY_IP}
+    persistence:
+      config:
+        enabled: false
+        mountPath: "/config"
+      backups:
+        enabled: true
+        mountPath: "/config/backups"
+      saved:
+        enabled: true
+        mountPath: "/config/saved"
+      gamefiles:
+        enabled: true
+        mountPath: "/config/gamefiles"
+      logs:
+        enabled: true
+        mountPath: "/config/logs"
+      lostfound:
+        enabled: true
+        mountPath: "/config/lost+found"
+    resources:
+      limits:
+        memory: 10Gi
