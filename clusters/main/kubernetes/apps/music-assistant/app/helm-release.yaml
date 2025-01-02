@@ -30,7 +30,7 @@ spec:
   values:
     image:
       repository: ghcr.io/music-assistant/server
-      tag: 2.3.4
+      tag: 2.3.5
     service:
       main:
         type: LoadBalancer
