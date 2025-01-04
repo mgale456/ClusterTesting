@@ -150,7 +150,7 @@ spec:
                       enablePools: "true" # optional, defaults to false
                       nasType: scale # def
                 - Satisfactory:
-                  #icon: emby.png
+                  icon: sh-rancher-longhorn-light
                   href: "http://emby.home/"
                   description: Satisfactory game server
                   namespace: satisfactory # The kubernetes namespace the app resides in
