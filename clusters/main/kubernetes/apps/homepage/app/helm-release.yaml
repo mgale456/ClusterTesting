@@ -138,7 +138,7 @@ spec:
                     app: longhorn
                     namespace: longhorn-system
                     podSelector: ""
-                - TrueNAS Scale1:
+                - TrueNAS Scale:
                     href: https://truenas.${INGRESS_URL}
                     description: Networked Attached Storage Appliance OS
                     icon: "https://truenas.${INGRESS_URL}/ui/assets/images/truenas_scale_ondark_favicon.png"
@@ -149,6 +149,12 @@ spec:
                       key: ${TRUENAS_API_KEY} # not required if using username / password
                       enablePools: "true" # optional, defaults to false
                       nasType: scale # def
+                - Satisfactory:
+                  #icon: emby.png
+                  href: "http://emby.home/"
+                  description: Satisfactory game server
+                  namespace: satisfactory # The kubernetes namespace the app resides in
+                  app: satisfactory # The name of the deployed app
 
           bookmarks.yaml: |
             ---
