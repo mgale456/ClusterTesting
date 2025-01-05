@@ -149,12 +149,6 @@ spec:
                       key: ${TRUENAS_API_KEY} # not required if using username / password
                       enablePools: "true" # optional, defaults to false
                       nasType: scale # def
-                - Satisfactory:
-                    icon: sh-rancher-longhorn-light
-                    href: "http://emby.home/"
-                    description: Satisfactory game server
-                    namespace: satisfactory # The kubernetes namespace the app resides in
-                    app: satisfactory # The name of the deployed app
 
           bookmarks.yaml: |
             ---
