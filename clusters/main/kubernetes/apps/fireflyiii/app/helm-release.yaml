@@ -33,9 +33,13 @@ spec:
         type: LoadBalancer
     cnpg:
       main:
+        mode: recovery
         backups:
           enabled: true
           revision: "1"
+          credentials: mys3
+        recovery:
+          # revision: "x"
           credentials: mys3
     credentials:
       mys3:
