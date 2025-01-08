@@ -32,6 +32,9 @@ spec:
       main:
         type: LoadBalancer
         loadBalancerIP: ${MINECRAFT_IP}
+      rcon:
+        type: LoadBalancer
+        loadBalancerIP: ${MINECRAFT_IP}
     ingress:
       main:
         enabled: true
