@@ -64,11 +64,17 @@ spec:
                     - mc-health
                 readiness:
                   enabled: true
+                  spec:
+                    timeoutSeconds: 10
+                    failureThreshold: 10
                   type: exec
                   command:
                     - mc-health
                 startup:
                   enabled: true
+                  spec:
+                    timeoutSeconds: 10
+                    failureThreshold: 100
                   type: exec
                   command:
                     - mc-health
