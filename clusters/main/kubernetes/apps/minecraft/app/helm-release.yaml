@@ -50,6 +50,9 @@ spec:
           homepage:
             enabled: true
             group: Default
+            widget:
+              type: minecraft
+              url: udp://${MINECRAFT_IP}:{{ .Values.service.main.ports.main.port }}
     workload:
       main:
         podSpec:
