@@ -42,6 +42,6 @@ spec:
         integrations:
           homepage:
             enabled: true
-            group: Default
+            group: Tools
             widget:
               enabled: false
