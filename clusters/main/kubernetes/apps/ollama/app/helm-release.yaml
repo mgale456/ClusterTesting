@@ -55,6 +55,7 @@ spec:
         enabled: false
       ui:
         enabled: true
+        primary: true
         type: Deployment
         podSpec:
           containers:
