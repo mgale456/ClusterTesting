@@ -2,14 +2,14 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: piper
-  namespace: piper
+  name: whisper
+  namespace: whisper
 spec:
   interval: 15m
   chart:
     spec:
-      chart: wyoming-piper
-      version: 6.5.1
+      chart: whisper
+      version: 7.7.1
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -31,26 +31,19 @@ spec:
     service:
       main:
         type: LoadBalancer
-        loadBalancerIP: ${PIPER_IP}
+        loadBalancerIP: ${WHISPER_IP}
     ingress:
       main:
         enabled: true
         hosts:
-          - host: piper.${INGRESS_URL}
+          - host: whisper.${INGRESS_URL}
             paths:
               - path: /
                 pathType: Prefix
-                overrideService:
-                  name: main
-                  port: 10200
         tls:
           - hosts:
-              - piper.${INGRESS_URL}
-            certificateIssuer: "domain-0-le-prod"
+              - whisper.${INGRESS_URL}
         integrations:
-          certManager:
-            enabled: true
-            certificateIssuer: "domain-0-le-prod"
           homepage:
             enabled: true
             group: Home Automation
