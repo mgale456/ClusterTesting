@@ -93,10 +93,10 @@ spec:
           tls:
             - hosts:
                 - cs.mosquitto.${INGRESS_URL}
-              certificateIssuer: "cfcert"
+              #certificateIssuer: "cfcert"
           integrations:
             certManager:
               enabled: true
-              certificateIssuer: "cfcert"
+              #certificateIssuer: "cfcert"
             traefik:
               enabled: true
