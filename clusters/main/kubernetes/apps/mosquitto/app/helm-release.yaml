@@ -64,6 +64,14 @@ spec:
             {{- if .Values.persistence.configinc.enabled }}
             include_dir {{ .Values.persistence.configinc.mountPath }}
             {{- end }}
+    credentials:
+      mys3:
+        type: s3
+        url: "${S3URL}"
+        bucket: "${S3BUCKETNAME}"
+        accessKey: "${S3APIKEYID}"
+        secretKey: "${S3APIKEY}"
+        encrKey: "${S3KEY}"
     persistence:
       data:
         enabled: true
@@ -71,6 +79,14 @@ spec:
       configinc:
         enabled: true
         mountPath: "/mosquitto/configinc"
+        volsync:
+          - name: b2
+            type: restic
+            credentials: mys3
+            dest:
+              enabled: false
+            src:
+              enabled: true
       mosquitto-config:
         enabled: true
         mountPath: "/mosquitto/config/mosquitto.conf"
