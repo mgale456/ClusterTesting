@@ -95,8 +95,8 @@ spec:
                 - cs.mosquitto.${INGRESS_URL}
               #certificateIssuer: "cfcert"
           integrations:
-            #certManager:
-            #enabled: true
-            #certificateIssuer: "cfcert"
+            certManager:
+              enabled: true
+              certificateIssuer: "domain-0-le-prod"
             traefik:
               enabled: true
