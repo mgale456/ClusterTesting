@@ -187,7 +187,7 @@ spec:
                 - TrueCharts:
                   - abbr: TC
                     icon: https://truecharts.org/svg/favicon.svg
-                    href: https://truecharts.org
+                    href: https://truecharts.org/charts/description-list/
                     description: "TrueCharts Website"
                 - Github:
                   - abbr: GH
