@@ -45,3 +45,6 @@ spec:
             group: Tools
             widget:
               enabled: false
+    persistence:
+      config:
+        enabled: false
