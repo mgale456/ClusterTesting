@@ -59,6 +59,15 @@ spec:
               enabled: true
             src:
               enabled: true
+      cache: #caches platformio packages to prevent excess downloads. https://github.com/esphome/esphome/blob/dev/docker/docker_entrypoint.sh
+        enabled: true
+        mountPath: /cache
+      build: #caches compiled code to not require rebuilds on restart
+        enabled: true
+        mountPath: /build
+        type: emptyDir
+      platformio:
+        enabled: false
     ingress:
       main:
         enabled: true
