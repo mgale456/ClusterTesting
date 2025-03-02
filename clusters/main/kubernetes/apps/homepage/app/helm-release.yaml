@@ -27,6 +27,9 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    persistence:
+      config:
+        enabled: false
     ingress:
       main:
         enabled: true
