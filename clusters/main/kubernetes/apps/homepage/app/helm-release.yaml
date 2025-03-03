@@ -29,7 +29,7 @@ spec:
   values:
     persistence:
       config:
-        enabled: false
+        type: emptyDir
     ingress:
       main:
         enabled: true
