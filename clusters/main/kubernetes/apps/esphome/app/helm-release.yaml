@@ -54,6 +54,7 @@ spec:
         volsync:
           - name: b2
             type: restic
+            cleanupCachePVC: true
             credentials: mys3
             dest:
               enabled: true
