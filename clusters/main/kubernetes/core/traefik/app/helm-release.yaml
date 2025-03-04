@@ -39,7 +39,7 @@ spec:
     defaultCertificate: "domain-0-wildcard"
     ingress:
       main:
-        enabled: true
+        enabled: false
         hosts:
           - host: traefik.${INGRESS_URL}
             paths:
