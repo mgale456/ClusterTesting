@@ -36,10 +36,10 @@ spec:
         mode: recovery
         backups:
           enabled: true
-          revision: "1"
+          revision: "2"
           credentials: mys3
         recovery:
-          # revision: "x"
+          revision: "1"
           credentials: mys3
     credentials:
       mys3:
