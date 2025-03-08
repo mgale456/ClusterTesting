@@ -36,6 +36,8 @@ spec:
   values:
     # autoDirectNodeRoutes: true
     routingMode: native # differs from ClusterTool default
+    operator:
+      replicas: 1 #differs from Cilium/ClusterTool default
     hubble:
       enabled: false
     cluster:
