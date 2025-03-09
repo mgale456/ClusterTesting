@@ -35,7 +35,9 @@ spec:
     keepHistory: false
   values:
     # autoDirectNodeRoutes: true
-    routingMode: native # differs from ClusterTool default
+    socketLB:
+      hostNamespaceOnly: true # differs from ClusterTool
+    #routingMode: native # differs from ClusterTool default
     hubble:
       enabled: false
     cluster:
