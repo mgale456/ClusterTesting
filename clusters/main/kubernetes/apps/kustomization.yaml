@@ -20,3 +20,4 @@ resources:
   - music-assistant/ks.yaml
   - ollama/ks.yaml
   - whisper/ks.yaml
+  - outline/ks.yaml
