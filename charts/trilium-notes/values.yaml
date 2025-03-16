@@ -1,7 +1,7 @@
 image:
   repository: triliumnext/notes
   pullPolicy: IfNotPresent
-  tag: 0.91.6@sha256:689bc855d50d5adc08423801fa30838e2549cb6695fdffd284a8fe788e9559fa
+  tag: 0.92.4@sha256:a9c4c251dd8443bae2b54acfa6867c87fb8545ae5eb82e894215ce4efb4b2b6b
 service:
   main:
     ports:
