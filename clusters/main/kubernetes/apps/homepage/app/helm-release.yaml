@@ -49,6 +49,18 @@ spec:
           certManager:
             enabled: true
             certificateIssuer: "domain-0-le-prod"
+    workload:
+      main:
+        podSpec:
+          automountServiceAccountToken: true
+          containers:
+            main:
+              env:
+                # Set this to your host (example: home.mydomain.com)
+                HOMEPAGE_ALLOWED_HOSTS: "homepage.${INGRESS_URL}"
+          initContainers:
+            init-config:
+              enabled: false
     configmap:
       config:
         enabled: true
