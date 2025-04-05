@@ -6,9 +6,7 @@ resources:
   - homepage/ks.yaml
   - wg-easy/ks.yaml
   - mosquitto/ks.yaml
-  - fireflyiii/ks.yaml
   - hass-external-service/ks.yaml
-  - fireflyiii-importer/ks.yaml
   - truenas-external-service/ks.yaml
   - piper/ks.yaml
   - esphome/ks.yaml
