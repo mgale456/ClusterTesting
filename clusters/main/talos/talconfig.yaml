@@ -56,6 +56,9 @@ controlPlane:
         officialExtensions:
           - siderolabs/util-linux-tools
           - siderolabs/iscsi-tools
+          - siderolabs/realtek-firmware
+          - siderolabs/amd-ucode
+          - siderolabs/amdgpu
   #          - siderolabs/qemu-guest-agent
   machineFiles:
     - content: |
@@ -95,6 +98,9 @@ worker:
         officialExtensions:
           - siderolabs/util-linux-tools
           - siderolabs/iscsi-tools
+          - siderolabs/realtek-firmware
+          - siderolabs/amd-ucode
+          - siderolabs/amdgpu
   #          - siderolabs/qemu-guest-agent
   machineFiles:
     - content: |
