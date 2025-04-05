@@ -23,7 +23,7 @@ patches:
   - "@./patches/wg-easy-sysctls.yaml"
 nodes:
   # We would adivce to always stick to a "k8s-something-1" style naming scheme
-  - hostname: k8s-control-1
+  - hostname: k8s-control-2
     ipAddress: ${MASTER1IP_IP}
     controlPlane: true
     nameservers:
@@ -41,12 +41,6 @@ nodes:
             gateway: ${GATEWAY}
         vip:
           ip: ${VIP}
-      - interface: eth1
-        addresses:
-          - 192.168.1.2/24
-        routes:
-          - network: 192.168.1.0/24
-        dhcp: false
 controlPlane:
   patches:
     - "@./patches/controlplane.yaml"
