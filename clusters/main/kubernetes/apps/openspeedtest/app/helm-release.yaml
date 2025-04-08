@@ -1,0 +1,51 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: openspeedtest
+  namespace: openspeedtest
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: openspeedtest
+      version: 10.5.1
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  driftDetection:
+    mode: warn
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: 192.168.0.75
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: openspeedtest.${INGRESS_URL}
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - openspeedtest.${INGRESS_URL}
+        integrations:
+          homepage:
+            enabled: true
+            group: Tools
+            #description: "A system to control your ESP8266/ESP32s"

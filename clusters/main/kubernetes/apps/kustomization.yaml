@@ -21,3 +21,4 @@ resources:
   - ollama/ks.yaml
   - whisper/ks.yaml
   - outline/ks.yaml
+  - openspeedtest/ks.yaml
