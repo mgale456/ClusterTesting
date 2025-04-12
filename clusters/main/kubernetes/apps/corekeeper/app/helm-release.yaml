@@ -28,32 +28,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    service:
-      main:
-        enabled: false
-        type: LoadBalancer
-        loadBalancerIP: ${COREKEEPER_IP}
-        ports:
-          main:
-            enabled: true
-            port: 27015
-            targetPort: 27015
-            protocol: tcp
-    ingress:
-      main:
-        enabled: false
-        hosts:
-          - host: corekeeper.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - corekeeper.${INGRESS_URL}
-        integrations:
-          homepage:
-            enabled: true
-            group: Default
     workload:
       main:
         podSpec:
@@ -67,3 +41,22 @@ spec:
                 VALIDATE: "false"
                 WORLD_INDEX: "0"
                 WORLD_NAME: "Synda's Core Keeper"
+    persistence:
+      serverfiles:
+        volsync:
+          - name: b2
+            type: restic
+            cleanupCachePVC: true
+            credentials: mys3
+            dest:
+              enabled: true
+            src:
+              enabled: true
+    credentials:
+      mys3:
+        type: s3
+        url: "${S3URL}"
+        bucket: "${S3BUCKETNAME}"
+        accessKey: "${S3APIKEYID}"
+        secretKey: "${S3APIKEY}"
+        encrKey: "${S3KEY}"
