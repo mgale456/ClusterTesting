@@ -30,7 +30,7 @@ spec:
   values:
     service:
       main:
-        enabled: true
+        enabled: false
         type: LoadBalancer
         loadBalancerIP: ${COREKEEPER_IP}
         ports:
@@ -41,7 +41,7 @@ spec:
             protocol: tcp
     ingress:
       main:
-        enabled: true
+        enabled: false
         hosts:
           - host: corekeeper.${INGRESS_URL}
             paths:
@@ -61,9 +61,9 @@ spec:
             main:
               env:
                 GAME_ID: "1963720"
-                GAME_PARAMS: "-gameid 1234567"
+                GAME_PARAMS: "-gameid ${COREKEEPER_GAME_ID}"
                 PASSWRD: ""
                 USERNAME: ""
                 VALIDATE: "false"
                 WORLD_INDEX: "0"
-                WORLD_NAME: Core Keeper Container
+                WORLD_NAME: "Synda's Core Keeper"
