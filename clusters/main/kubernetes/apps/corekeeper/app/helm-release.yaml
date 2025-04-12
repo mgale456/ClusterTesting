@@ -38,6 +38,7 @@ spec:
             enabled: true
             port: 27015
             targetPort: 27015
+            protocol: tcp
     ingress:
       main:
         enabled: true
