@@ -44,7 +44,7 @@ spec:
     persistence:
       serverfiles:
         volsync:
-          - name: April2025
+          - name: april2025
             type: restic
             cleanupCachePVC: true
             credentials: mys3
@@ -52,6 +52,8 @@ spec:
               enabled: true
             src:
               enabled: true
+              trigger:
+                schedule: "0 7 * * *"
     credentials:
       mys3:
         type: s3
