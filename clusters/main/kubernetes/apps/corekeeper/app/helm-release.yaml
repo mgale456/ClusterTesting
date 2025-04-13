@@ -44,7 +44,7 @@ spec:
     persistence:
       serverfiles:
         volsync:
-          - name: b2
+          - name: April2025
             type: restic
             cleanupCachePVC: true
             credentials: mys3
@@ -57,7 +57,6 @@ spec:
         type: s3
         url: "${S3URL}"
         bucket: "${S3BUCKETNAME}"
-        path: "/April2025"
         accessKey: "${S3APIKEYID}"
         secretKey: "${S3APIKEY}"
         encrKey: "${S3KEY}"
