@@ -35,7 +35,7 @@ spec:
             main:
               env:
                 GAME_ID: "1963720"
-                GAME_PARAMS: "-gameid ${COREKEEPER_GAME_ID}"
+                GAME_PARAMS: "-gameid ${COREKEEPER_GAME_ID} -worldmode Hard"
                 PASSWRD: ""
                 USERNAME: ""
                 VALIDATE: "false"
