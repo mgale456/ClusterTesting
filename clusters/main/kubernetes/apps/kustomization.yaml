@@ -23,3 +23,4 @@ resources:
   - outline/ks.yaml
   - openspeedtest/ks.yaml
   - corekeeper/ks.yaml
+  - proxmox-external-service/ks.yaml
