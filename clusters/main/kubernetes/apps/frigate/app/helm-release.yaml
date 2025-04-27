@@ -123,3 +123,8 @@ spec:
         tls:
           - hosts:
               - frigate.${INGRESS_URL}
+    workload:
+      main:
+        podSpec:
+          nodeSelector:
+            ${INGRESS_URL}.node-restriction.kubernetes.io/camera-nic: "true"
