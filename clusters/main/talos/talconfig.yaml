@@ -47,6 +47,22 @@ nodes:
         routes:
           - network: 192.168.1.0/24
         dhcp: false
+  - hostname: k8s-worker-2
+    ipAddress: ${WORKER2IP_IP}
+    controlPlane: false
+    nameservers:
+      - 1.1.1.1
+      - 8.8.8.8
+    installDiskSelector:
+      size: <= 740GB
+    networkInterfaces:
+      # suffix is the adapter mac adres.
+      - interface: ens18
+        addresses:
+          - ${WORKER2IP_CIDR}
+        routes:
+          - network: 0.0.0.0/0
+            gateway: ${GATEWAY}
 controlPlane:
   patches:
     - "@./patches/controlplane.yaml"
