@@ -36,6 +36,8 @@ spec:
       tcp:
         type: LoadBalancer
         loadBalancerIP: ${TRAEFIK_IP}
+        annotations:
+          metallb.io/allow-shared-ip: traefik
     metrics:
       main:
         enabled: false
