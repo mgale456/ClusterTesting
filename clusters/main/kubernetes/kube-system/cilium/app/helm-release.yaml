@@ -79,5 +79,5 @@ spec:
     localRedirectPolicy: true
     operator:
       rollOutPods: true
-      replicas: 1 #differs from Cilium/ClusterTool default
+      replicas: 2 #differs from Cilium/ClusterTool default
     rollOutCiliumPods: true
