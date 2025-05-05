@@ -94,7 +94,7 @@ spec:
         type: nfs
         mountPath: /media
         path: /mnt/MainPool/media/frigate
-        server: 192.168.0.109
+        server: ${TRUENAS_EXTERNAL_IP}
       config:
         enabled: true
         mountPath: /config
