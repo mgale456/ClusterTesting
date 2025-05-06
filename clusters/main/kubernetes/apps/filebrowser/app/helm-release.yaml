@@ -78,3 +78,5 @@ spec:
           homepage:
             enabled: true
             group: Tools
+            widget:
+              enabled: false
