@@ -31,4 +31,5 @@ resources:
   - fireflyiii.yaml
   - gatus.yaml
   - capacitor.yaml
+  - home-ops-mirror.yaml
 # more goes here!
