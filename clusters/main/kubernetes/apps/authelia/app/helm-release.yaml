@@ -104,6 +104,7 @@ spec:
           # above user password in plain text
           password: ${LLDAP_MANAGER_PASS}
       notifier:
+        disable_startup_check: true
         # smtp setup (example is gmail)
         smtp:
           address: submission://smtp.gmail.com:587
