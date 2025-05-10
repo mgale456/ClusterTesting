@@ -56,6 +56,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: "wg-easy.${INGRESS_URL}"
             paths:
@@ -65,6 +66,8 @@ spec:
                 path: "/"
                 pathType: "Prefix"
         integrations:
+          traefik:
+            enabled: false
           certManager:
             certificateIssuer: "domain-0-le-prod"
             enabled: true

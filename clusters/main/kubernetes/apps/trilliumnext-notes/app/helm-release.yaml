@@ -40,6 +40,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: trilium.${INGRESS_URL}
             paths:
@@ -49,6 +50,8 @@ spec:
           - hosts:
               - trilium.${INGRESS_URL}
         integrations:
+          traefik:
+            enabled: false
           homepage:
             enabled: true
             group: Tools

@@ -36,6 +36,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: openspeedtest.${INGRESS_URL}
             paths:
@@ -45,6 +46,8 @@ spec:
           - hosts:
               - openspeedtest.${INGRESS_URL}
         integrations:
+          traefik:
+            enabled: false
           homepage:
             enabled: true
             group: Tools

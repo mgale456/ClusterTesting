@@ -53,6 +53,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: fireflyiii.${INGRESS_URL}
             paths:
@@ -66,6 +67,8 @@ spec:
               - fireflyiii.${INGRESS_URL}
             certificateIssuer: "domain-0-le-prod"
         integrations:
+          traefik:
+            enabled: false
           certManager:
             enabled: true
             certificateIssuer: "domain-0-le-prod"

@@ -66,6 +66,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: external
         hosts:
           - host: filebrowser.${INGRESS_URL}
             paths:
@@ -75,6 +76,8 @@ spec:
           - hosts:
               - filebrowser.${INGRESS_URL}
         integrations:
+          traefik:
+            enabled: false
           homepage:
             enabled: true
             group: Tools

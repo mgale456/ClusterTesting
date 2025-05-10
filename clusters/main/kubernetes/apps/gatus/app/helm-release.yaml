@@ -32,6 +32,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: gatus.${INGRESS_URL}
             paths:
@@ -41,6 +42,8 @@ spec:
           - hosts:
               - gatus.${INGRESS_URL}
         integrations:
+          traefik:
+            enabled: false
           certManager:
             enabled: true
             certificateIssuer: "domain-0-wildcard"

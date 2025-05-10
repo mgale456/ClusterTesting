@@ -34,6 +34,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         targetSelector:
           main: main
         hosts:
@@ -45,6 +46,8 @@ spec:
           - hosts:
               - ollama.${INGRESS_URL}
         integrations:
+          traefik:
+            enabled: false
           homepage:
             enabled: true
             group: Tools

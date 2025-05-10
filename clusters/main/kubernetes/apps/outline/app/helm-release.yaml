@@ -31,6 +31,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: outline.${INGRESS_URL}
             paths:
@@ -40,6 +41,8 @@ spec:
           - hosts:
               - outline.${INGRESS_URL}
         integrations:
+          traefik:
+            enabled: false
           homepage:
             enabled: true
             group: Default

@@ -31,6 +31,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: reubah.${INGRESS_URL}
             paths:
@@ -41,6 +42,8 @@ spec:
               - reubah.${INGRESS_URL}
             clusterIssuer: "domain-0-wildcard"
         integrations:
+          traefik:
+            enabled: false
           homepage:
             enabled: true
             group: Tools
