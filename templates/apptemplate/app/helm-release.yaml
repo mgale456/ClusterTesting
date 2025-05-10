@@ -35,6 +35,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: REPLACEME.${INGRESS_URL}
             paths:
@@ -44,6 +45,8 @@ spec:
           - hosts:
               - REPLACEME.${INGRESS_URL}
         integrations:
+          traefik:
+            enabled: false
           homepage:
             enabled: true
             group: Default

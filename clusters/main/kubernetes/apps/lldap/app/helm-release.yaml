@@ -1,0 +1,86 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: lldap
+  namespace: lldap
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: lldap
+      version: 7.6.1
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    credentials:
+      mys3:
+        type: s3
+        url: "${S3URL}"
+        bucket: "${S3BUCKETNAME}"
+        accessKey: "${S3APIKEYID}"
+        secretKey: "${S3APIKEY}"
+        encrKey: "${S3KEY}"
+    workload:
+      main:
+        podSpec:
+          containers:
+            env:
+              LLDAP_LDAP_BASE_DN: "dc=${BASE_DN},dc=xyz"
+              # ADMIN
+              LLDAP_LDAP_USER_DN: "admin"
+              LLDAP_LDAP_USER_PASS: "${LLDAP_ADMIN_PASS}"
+    persistence:
+      data:
+        volsync:
+          - name: b2
+            type: restic
+            cleanupCachePVC: true
+            credentials: mys3
+            dest:
+              enabled: true
+            src:
+              enabled: true
+    cnpg:
+      main:
+        mode: recovery
+        backups:
+          enabled: true
+          revision: "1"
+          credentials: mys3
+        recovery:
+          #revision: "1"
+          credentials: mys3
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: internal
+        hosts:
+          - host: lldap.${INGRESS_URL}
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - lldap.${INGRESS_URL}
+        integrations:
+          traefik:
+            enabled: false
+          homepage:
+            enabled: true
+            group: Default
