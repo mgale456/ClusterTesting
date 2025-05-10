@@ -40,11 +40,12 @@ spec:
       main:
         podSpec:
           containers:
-            env:
-              LLDAP_LDAP_BASE_DN: "dc=${BASE_DN},dc=xyz"
-              # ADMIN
-              LLDAP_LDAP_USER_DN: "admin"
-              LLDAP_LDAP_USER_PASS: "${LLDAP_ADMIN_PASS}"
+            main:
+              env:
+                LLDAP_LDAP_BASE_DN: "dc=${BASE_DN},dc=xyz"
+                # ADMIN
+                LLDAP_LDAP_USER_DN: "admin"
+                LLDAP_LDAP_USER_PASS: "${LLDAP_ADMIN_PASS}"
     persistence:
       data:
         volsync:
