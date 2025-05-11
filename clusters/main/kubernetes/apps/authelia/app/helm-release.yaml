@@ -126,4 +126,10 @@ spec:
               - "*.${INGRESS_URL}"
               - ${INGRESS_URL}
             policy: one_factor
+            subject: "group:lldap_strict_readonly"
+          # basic rule for one factor (username/password) login for users in the admin group
+          - domain:
+              - "*.${INGRESS_URL}"
+              - ${INGRESS_URL}
+            policy: one_factor
             subject: "group:admin"
