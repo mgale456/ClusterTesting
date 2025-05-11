@@ -88,3 +88,9 @@ spec:
             group: Tools
             widget:
               enabled: false
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              command: "/filebrowser config set --auth.method=proxy --auth.header=Remote-User"
