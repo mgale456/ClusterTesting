@@ -93,4 +93,5 @@ spec:
         podSpec:
           containers:
             main:
-              command: "/filebrowser config set --auth.method=proxy --auth.header=Remote-User"
+              command: "sleep 90000"
+    #          command: "/filebrowser config set --auth.method=proxy --auth.header=Remote-User"
