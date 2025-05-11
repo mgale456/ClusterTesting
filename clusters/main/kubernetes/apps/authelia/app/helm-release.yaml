@@ -46,6 +46,8 @@ spec:
           homepage:
             enabled: true
             group: Default
+            widget:
+              enabled: false
     workload:
       main:
         podSpec:
