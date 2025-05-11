@@ -88,12 +88,12 @@ spec:
             group: Tools
             widget:
               enabled: false
-    workload:
-      main:
-        podSpec:
-          containers:
-            main:
-              command:
-                - "sleep"
-                - "90000"
-    #          command: "/filebrowser config set --auth.method=proxy --auth.header=Remote-User"
+#    workload:
+#      main:
+#        podSpec:
+#          containers:
+#            main:
+#              command:
+#                - "sleep"
+#                - "90000"
+#          command: "/filebrowser config set --auth.method=proxy --auth.header=Remote-User"
