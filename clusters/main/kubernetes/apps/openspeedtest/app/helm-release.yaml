@@ -51,4 +51,5 @@ spec:
           homepage:
             enabled: true
             group: Tools
-            #description: "A system to control your ESP8266/ESP32s"
+            widget:
+              enabled: false
