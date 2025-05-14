@@ -157,7 +157,7 @@ spec:
           jwks:
             - algorithm: "RS256"
               use: "sig"
-              key: {{ genPrivateKey "rsa" }}
+              key: '{{ genPrivateKey "rsa" }}'
           clients:
             - client_id: ${OUTLINE_OIDC_CLIENT_ID}
               client_name: "Outline"
