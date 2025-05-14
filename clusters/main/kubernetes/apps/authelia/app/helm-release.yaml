@@ -102,6 +102,13 @@ spec:
         data:
           private.pem: |
             {{ genPrivateKey "rsa" }}
+      test-secret:
+        enabled: true
+        data:
+          private.pem: |
+            random stuff
+            multi-line string
+            hello
     # All configuration options should be put under this. Supports all upstream options
     authelia:
       session:
