@@ -50,6 +50,7 @@ spec:
               enabled: false
     workload:
       main:
+        replicas: 1
         podSpec:
           containers:
             main:
