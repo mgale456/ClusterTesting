@@ -101,7 +101,7 @@ spec:
         enabled: true
         data:
           private.pem: |
-            ${AUTHELIA_OIDC_RSA_KEY}
+            {{- genPrivateKey "rsa" | b64enc }}
       test-secret:
         enabled: true
         data:
