@@ -85,7 +85,7 @@ spec:
         subPath: private.pem
         readOnly: true
         type: secret
-        objectName: private-pem-secret
+        objectName: test-secret
     cnpg:
       main:
         #mode: recovery
