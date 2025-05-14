@@ -97,11 +97,11 @@ spec:
           #revision: "1"
           credentials: mys3
     secret:
-      #private-pem-secret:
-      #  enabled: true
-      #  data:
-      #    private.pem: |
-      #      {{ genPrivateKey "rsa" }}
+      private-pem-secret:
+        enabled: true
+        data:
+          private.pem: |
+            {{ genPrivateKey "rsa" }}
       test-secret:
         enabled: true
         data:
