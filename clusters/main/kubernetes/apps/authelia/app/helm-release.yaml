@@ -143,7 +143,7 @@ spec:
           clients:
             - client_id: ${OUTLINE_OIDC_CLIENT_ID}
               client_name: "Outline"
-              client_secret: "${OUTLINE_OIDC_CLIENT_SECRET}" # The digest of 'insecure_secret'.
+              client_secret: "${OUTLINE_HASHED_OIDC_CLIENT_SECRET}"
               public: false
               authorization_policy: "one_factor"
               redirect_uris:
