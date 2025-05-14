@@ -80,12 +80,12 @@ spec:
             src:
               enabled: true
       private-key:
-        enabled: false
+        enabled: true
         mountPath: /private.pem
         subPath: private.pem
         readOnly: true
         type: secret
-        objectName: test-secret
+        objectName: private-pem-secret
     cnpg:
       main:
         #mode: recovery
