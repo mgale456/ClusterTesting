@@ -108,7 +108,7 @@ spec:
           private.pem: |
             random stuff
             multi-line string
-            hello
+            hello2
     # All configuration options should be put under this. Supports all upstream options
     authelia:
       session:
