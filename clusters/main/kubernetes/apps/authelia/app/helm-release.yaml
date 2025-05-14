@@ -80,8 +80,8 @@ spec:
             src:
               enabled: true
       private-key:
-        enabled: true
-        mountPath: /opt/keys/private.pem
+        enabled: false
+        mountPath: /private.pem
         subPath: private.pem
         readOnly: true
         type: secret
