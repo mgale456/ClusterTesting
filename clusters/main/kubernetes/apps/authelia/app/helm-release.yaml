@@ -79,14 +79,6 @@ spec:
               enabled: true
             src:
               enabled: true
-      private-pem-vol:
-        enabled: false
-        type: configmap
-        objectName: private-pem
-        mountPath: /opt/keys/private.pem
-        items:
-          - key: private.pem
-            path: private.pem
       privateKey:
         enabled: true
         mountPath: /opt/keys/private.pem
@@ -104,13 +96,6 @@ spec:
         recovery:
           #revision: "1"
           credentials: mys3
-    configmap:
-      private-pem:
-        enabled: true
-        namespace: authelia
-        data:
-          private.pem: |
-            ${AUTHELIA_OIDC_RSA_KEY}
     secret:
       private-pem-secret:
         enabled: true
@@ -172,7 +157,7 @@ spec:
           jwks:
             - algorithm: "RS256"
               use: "sig"
-              key: '{{ secret "/opt/keys/private.pem" | mindent 10 "|" | msquote }}'
+              key: {{ genPrivateKey "rsa" }}
           clients:
             - client_id: ${OUTLINE_OIDC_CLIENT_ID}
               client_name: "Outline"
