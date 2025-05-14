@@ -116,7 +116,7 @@ spec:
         enabled: true
         data:
           private.pem: |
-            {{ genPrivateKey rsa }}
+            {{ genPrivateKey "rsa" }}
     # All configuration options should be put under this. Supports all upstream options
     authelia:
       session:
