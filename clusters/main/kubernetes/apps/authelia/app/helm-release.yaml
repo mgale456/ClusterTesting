@@ -101,7 +101,7 @@ spec:
         enabled: true
         data:
           private.pem: |
-            {{ genPrivateKey "rsa" | b64enc | quote }}
+            {{ genPrivateKey "rsa" | b64enc }}
       test-secret:
         enabled: true
         data:
