@@ -59,7 +59,7 @@ spec:
                 AUTHELIA_SESSION_SECRET: ${AUTHELIA_SESSION_SECRET}
                 AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET: ${AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET}
                 AUTHELIA_STORAGE_ENCRYPTION_KEY: ${AUTHELIA_STORAGE_ENCRYPTION_KEY}
-                X_AUTHELIA_CONFIG_FILTERS: template
+                X_AUTHELIA_CONFIG_FILTERS: "template"
     credentials:
       mys3:
         type: s3
@@ -85,7 +85,7 @@ spec:
         subPath: /opt/keys/private.pem
         readOnly: true
         type: secret
-        objectName: private-pem-secret
+        objectName: test-secret
     cnpg:
       main:
         #mode: recovery
@@ -97,11 +97,11 @@ spec:
           #revision: "1"
           credentials: mys3
     secret:
-      private-pem-secret:
-        enabled: true
-        data:
-          private.pem: |
-            {{ genPrivateKey "rsa" }}
+      #private-pem-secret:
+      #  enabled: true
+      #  data:
+      #    private.pem: |
+      #      {{ genPrivateKey "rsa" }}
       test-secret:
         enabled: true
         data:
