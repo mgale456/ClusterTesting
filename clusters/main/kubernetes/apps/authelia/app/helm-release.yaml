@@ -79,10 +79,10 @@ spec:
               enabled: true
             src:
               enabled: true
-      private_pem-vol:
+      private-pem-vol:
         enabled: false
         type: configmap
-        objectName: private_pem
+        objectName: private-pem
         mountPath: /opt/keys/private.pem
         items:
           - key: private.pem
@@ -93,7 +93,7 @@ spec:
         subPath: /opt/keys/private.pem
         readOnly: true
         type: secret
-        objectName: private_pem_secret
+        objectName: private-pem-secret
     cnpg:
       main:
         #mode: recovery
@@ -105,14 +105,14 @@ spec:
           #revision: "1"
           credentials: mys3
     configmap:
-      private_pem:
+      private-pem:
         enabled: true
         namespace: authelia
         data:
           private.pem: |
             ${AUTHELIA_OIDC_RSA_KEY}
     secret:
-      private_pem_secret:
+      private-pem-secret:
         enabled: true
         data:
           private.pem: |
