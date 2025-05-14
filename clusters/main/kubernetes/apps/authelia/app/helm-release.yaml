@@ -140,6 +140,10 @@ spec:
       identity_providers:
         oidc:
           hmac_secret: "${AUTHELIA_HMAC_SECRET}"
+          jwks:
+            - algorithm: "RS256"
+              use: "sig"
+              key: ${AUTHELIA_OIDC_RSA_KEY}
           clients:
             - client_id: ${OUTLINE_OIDC_CLIENT_ID}
               client_name: "Outline"
