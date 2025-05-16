@@ -102,7 +102,7 @@ spec:
         enabled: true
         data:
           private.pem: |
-            {{ genPrivateKey "rsa" | nindent 2 }}
+            {{ genPrivateKey "rsa" | nindent 2 | trim }}
       test-secret:
         enabled: true
         data:
