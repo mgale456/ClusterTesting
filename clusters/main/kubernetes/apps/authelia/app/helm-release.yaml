@@ -51,6 +51,7 @@ spec:
     workload:
       main:
         replicas: 1
+        strategy: Recreate
         podSpec:
           containers:
             main:
