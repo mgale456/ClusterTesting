@@ -81,11 +81,11 @@ spec:
               enabled: true
       private-key:
         enabled: true
-        mountPath: /private.pem
+        mountPath: /opt/mg/private.pem
         subPath: private.pem
         readOnly: true
         type: secret
-        objectName: test-secret
+        objectName: private-pem-secret
     cnpg:
       main:
         #mode: recovery
@@ -97,7 +97,7 @@ spec:
           #revision: "1"
           credentials: mys3
     secret:
-      private-pem-testsecret:
+      private-pem-secret:
         enabled: true
         data:
           private.pem: |
