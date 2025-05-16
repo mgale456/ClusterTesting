@@ -102,7 +102,7 @@ spec:
         enabled: true
         data:
           private.pem: |
-            {{ genPrivateKey "rsa" }}
+            {{ genPrivateKey "rsa" | indent 6 }}
       test-secret:
         enabled: true
         data:
