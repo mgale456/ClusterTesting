@@ -169,9 +169,8 @@ spec:
           jwks:
             - algorithm: "RS256"
               use: "sig"
-              key: |
-                123
-                456
+              key: |-
+                {{ secret "/opt/mg/private.pem" | nindent 10 "|" | msquote }}
           clients:
             - client_id: ${OUTLINE_OIDC_CLIENT_ID}
               client_name: "Outline"
