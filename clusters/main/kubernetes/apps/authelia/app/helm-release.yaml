@@ -80,13 +80,6 @@ spec:
               enabled: true
             src:
               enabled: true
-      configfile:
-        enabled: true
-        mountPath: /configuration.yaml
-        subPath: configuration.yaml
-        readOnly: true
-        type: configmap
-        objectName: authelia-configmap
       private-key:
         enabled: true
         mountPath: /opt/mg/private.pem
@@ -94,13 +87,6 @@ spec:
         readOnly: true
         type: secret
         objectName: private-pem-secret
-      configmaptest-key:
-        enabled: true
-        mountPath: /opt/mg/configuration.yaml
-        subPath: configuration.yaml
-        readOnly: true
-        type: configmap
-        objectName: authelia-configmap
     cnpg:
       main:
         #mode: recovery
