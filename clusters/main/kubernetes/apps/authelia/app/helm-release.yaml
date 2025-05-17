@@ -80,6 +80,13 @@ spec:
               enabled: true
             src:
               enabled: true
+      configfile:
+        enabled: true
+        mountPath: /configuration.yaml
+        subPath: configuration.yaml
+        readOnly: true
+        type: configmap
+        objectName: authelia-configmap
       private-key:
         enabled: true
         mountPath: /opt/mg/private.pem
