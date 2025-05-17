@@ -169,8 +169,58 @@ spec:
           jwks:
             - algorithm: "RS256"
               use: "sig"
-              key: |-
-                {{- secret "/opt/mg/private.pem" | nindent 10 | squote }}
+              key: |
+                -----BEGIN RSA PRIVATE KEY-----
+                MIIJKwIBAAKCAgEAzoIrAkTXGDQfAmP1dJ880moALsPAcdE5XJqD6ykurzgRbKts
+                d7C9iw3tbeCp/Zagms49ltmvKt45Vcisg2hXZLQWPnjX8owtrN9SitXuN3be61LT
+                VwXfdVvMZ2bFKu6m1NoMfcqg9nMWnKwkq2WU0YiPISmuErtUUhkbZqakeGc9Yw48
+                y5ZF+oajfPkJZy7XmFlt5TSxijnzQMc5545s5gb1RLu/BO4Ob/DR8p78ex0E7TUf
+                LphifMBJK4WslPsbJDRhHJ0Cq368SR/VC0onNDUuVRnb1bwqB1Qf3bXPeTK0zpwv
+                5aBl5DEMnV6PWpyeiWav93u2Nbcmuj4V/hDN9FcJJP9M4JQRJCfLtJQz16VS/7py
+                01R8b2w9VAuqWdRdxO01JvicHTaMIzutHYqdZWGurz9TBMHhnOVOD0fLd2DGrbPC
+                JomxiMT8jeplh38GQ61fhr8HxGs7TqM8CUq+2b0L/ibj32eZpSJdP7gaschtvCkT
+                hKaaORERZ65n2p1vCSJP+dvrZ9JT+t7QylQSTJ+xiAslEv4q/j6+KbgXMUZMz6eA
+                itNBFOcSWx3UHFW1S78KApYi5Pb7jN2DROWkAR2iyWxW9m5/+ge/D+dHsolw9XmB
+                Im5O/tP510KEmqiSUzSbrg7cMd/fNiQg7dZkF3b7yNaReAk3S22WMjBXYbUCAwEA
+                AQKCAgEAtrZC2WoRKbAL87B/XyT4ym7RJI87+TgV2ZI4v9sbHBquiAiQGsI8ogi7
+                lukdXmpkRTPPGGYX7wTZk8XOpSGvmUEhITsITeirDPY2cPJhJ5+8Eleg97ERiiOj
+                kaVDM/4di9w1CyM6EXO4gPxqIV/qMQ3zHXNkOdyW+WCPdt5gTMuDa94P+k1GMyfn
+                BM7O/AVc6cXOTuq1XshxKlJbMD46qbdkUOEQXItIKNDY4SK73y3IyxuiMDbRhPEY
+                jDJkhRg7ZmgVuBxPXW7vpn9MnwWH9FBNYyxS7iPix8Mtwpt3KxOrF9bnJfMp06F2
+                ONKOYayLNKSvcnd5usMGt+fwy28Q2NUCie9AAUfDLbzhEGvvY6njzHors8l4OflZ
+                +YMC3ZWWNTyMp7cnCVk6OnEIl89Cy5Sn34nE+TEOK7L13XvevSuauKKcY50ACSYG
+                u6sAiwevXyNzBH2D62LL4GB3aCLSF+w6bU5m11dRNiyh5+2v3SJV+1+NnauEEEYc
+                +oWYGxsDgQCpXgiVtuvEKMW86Z0UAet94VzyIeO6EnX3y1g31nBWTpxioR1YAPFr
+                OELm1CHQTH6E8h0E3Hfd5n3k7CbRNzhAhCKeRd6iPFx377qb7zn507nsu9KxgOUK
+                hU7ieFX1ZY1ujJKR4LNWpLmo2+DWp2qvtVawxHyAxLal4Ag9ui0CggEBAN4/grra
+                yanXAz+P/zCBh9e9radboG10Sxg2FlTFa+Ub7kNHLS0ks1CWzs4VYM9AzcKKnMJk
+                VB89kwX7JfpYKQxVx9LYaNqOHJQ8hyokMmF9HUFbTPlNeKz9c8CtvmeOJwdCF/xH
+                3xRWs7uxWDiF8etXGUMP/5WhUkHrTivQ3Lt8jw5eJ6UGdT/WScFC5J7Bw6X5vsfE
+                aHtrcdilPPQVxztdLdJyAso3yvpTAxJrO0gWwH2SBM+/HPZ5dIna7D0r2T7q9y2K
+                DiO9qzAopv7V8JPL+YH/kE8b9VZAwVgzPBQ3iRCLrK+adcM5PmC6DE1niByACJMi
+                m67dlSX/zMjKnNsCggEBAO3evMwyQ86ZzWliWwZJQpejurVrDCbeBqBc3EpFnkhj
+                BZ9CWTGMt8owtAuseZFwcCeQlyiMJzmJiEn9mX6z014z8b6T93OrtgRGSlF+DQph
+                yYzXQoQZEBk+2h6jvxeKoITnq8ncHtlyU4hSYDIWLJAXaQQuWRxR4HAJabs7DDDd
+                qQ52y8FugqEijU5t015gmv2YWRthabRb6U54z7ukkLQar9Q2YyBmTAP+6n3pHpy6
+                Pw8mVrWmAM0jh6r99MRUlH0S+GYJ3v6dOhoh7gCrrGpBgz3UYOA0pDpOGxQ4kd2s
+                tfzJbHyZ0gWzzvEDsDMVM/i8dwx9HIOUlG7TJ+ZG+K8CggEBAIC9U3H/yK98YGJS
+                fGVRsynSsyPt3KlqoxFcS2VBkvV9T3Bja5Tp3IFDSnpwQcrsZARcHOAyE9Sg62ic
+                iexRYz3E9uJ4/4wSpBVuVnGf1BtKyUaRp64GJXA3xPSI8HG2E3+N1q0JyPxUGPsR
+                iOP9GxzTMEv7mXbIowiSUI7rBuIIDiopeleKvSKEc+biY+JepYGggNXhPRC5NZJk
+                bUGK2ATYPfHYnysaVJbavT3PJeDlZQ2YJvdcYl+YDVzJluz8WHSs0Q/tF7G2bdKQ
+                yeN2dEx47IhUTPi2XlBfZGA+FYA0h04xSo/SLoMuxqZrPzMbVOoFdHIeqwYJTxta
+                6Poq+98CggEBANReazLnoZA/0pvG2zuWhqS54gT8qKG+0i20Gl0ZIMLB3ZAdfWJ2
+                ntQefXB6sSK/PvKj7cCeuJpvBsYAa10qkYhmWetrUZ7s7BmO4+Uz49KkEXzz5ofn
+                lG7lpXl7ei07cCqYZ9BV/RjoMFniKc4t6+VNcU3xT0+wbe+5B7PIeQ7bp4apWyq8
+                TlYscfpWpUJ6f4Xv0YZXhzcmY/rSc6y0tRiHRvnxALk5e56JpbN6QQFuasRM11df
+                +REtKn/oMfJjDRtJp4n6QCQUHX6dUk849jr7eH/oMAGcHg+MEjMQenJuMyCYeIoa
+                Dt9WdGjLgTFqObdWE/eLb7yuF4OGc/Xs4TMCggEBAIo4OSSYl/T0HbFko6uLu9ls
+                /RmbtU8O6v0lfkq7OKM4bm/D7eAoWeq8+OANFFlwhX/3SjpEc/D2XswuWS+7Is/2
+                xmXWETCbyYjbdCbY84u67IfXuNYFzEggkY5S5wsc041p+YWTRRNzgDvTL5cHEvLz
+                qDe5/3B2gZCSccvN323iRTpT4xK2OkM5o844iBIrkF1N4m9JlR5cCiTLWnKSmRR9
+                WYq+oE/h91HLWh6NTS2gUkoOqPFHaxIb9ruYRkIPkv8Z79RzG4cEDg6axTe4vo52
+                eIhkbrvETTXpNmuirMWjpcqbvdIO0zBAuflWzgkPvkPnSkCm/cFVeZtOVz131mo=
+                -----END RSA PRIVATE KEY-----
           clients:
             - client_id: ${OUTLINE_OIDC_CLIENT_ID}
               client_name: "Outline"
