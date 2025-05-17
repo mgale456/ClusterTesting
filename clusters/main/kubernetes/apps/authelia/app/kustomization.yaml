@@ -3,3 +3,9 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - helm-release.yaml
+configMapGenerator:
+  - name: authelia-configmap
+    files:
+      - configuration.yaml=./config/configuration.yaml
+generatorOptions:
+  disableNameSuffixHash: true
