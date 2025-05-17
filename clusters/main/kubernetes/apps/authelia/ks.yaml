@@ -4,10 +4,10 @@ metadata:
   name: authelia
   namespace: flux-system
 spec:
+  targetNamespace: authelia
   interval: 10m
   path: clusters/main/kubernetes/apps/authelia/app
   prune: true
   sourceRef:
     kind: GitRepository
     name: cluster
-
