@@ -170,7 +170,7 @@ spec:
             - algorithm: "RS256"
               use: "sig"
               key: |
-                {{ secret "/opt/mg/private.pem" | mindent 10 "|" | msquote }}
+                {{ secret "/opt/mg/private.pem" | nindent 10 "|" | msquote }}
           clients:
             - client_id: ${OUTLINE_OIDC_CLIENT_ID}
               client_name: "Outline"
