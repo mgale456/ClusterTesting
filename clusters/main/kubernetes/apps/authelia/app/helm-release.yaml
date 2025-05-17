@@ -158,3 +158,26 @@ spec:
               - ${INGRESS_URL}
             policy: one_factor
             subject: "group:admin"
+      identity_providers:
+        oidc:
+          hmac_secret: "${AUTHELIA_HMAC_SECRET}"
+          jwks:
+            - algorithm: "RS256"
+              use: "sig"
+              key: |
+                {{ secret "/opt/mg/private.pem" | mindent 10 "|" | msquote }}
+          clients:
+            - client_id: ${OUTLINE_OIDC_CLIENT_ID}
+              client_name: "Outline"
+              client_secret: "${OUTLINE_HASHED_OIDC_CLIENT_SECRET}"
+              public: false
+              authorization_policy: "one_factor"
+              redirect_uris:
+                - "https://outline.${DOMAIN_0}/auth/oidc.callback"
+              scopes:
+                - "openid"
+                - "offline_access"
+                - "profile"
+                - "email"
+              userinfo_signed_response_alg: "none"
+              token_endpoint_auth_method: "client_secret_post"
