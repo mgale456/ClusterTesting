@@ -158,6 +158,8 @@ spec:
               - ${INGRESS_URL}
             policy: one_factor
             subject: "group:admin"
+      log:
+        level: "trace"
       identity_providers:
         oidc:
           hmac_secret: "${AUTHELIA_HMAC_SECRET}"
