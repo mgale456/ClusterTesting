@@ -14,7 +14,6 @@ resources:
   - esphome/ks.yaml
   - gatus/ks.yaml
   - reubah/ks.yaml
-  - trilliumnext-notes/ks.yaml
   - chrony/ks.yaml
   - firefox/ks.yaml
   - music-assistant/ks.yaml
