@@ -32,8 +32,6 @@ spec:
       main:
         enabled: true
         ingressClassName: internal
-        annotations:
-          traefik.frontend.passHostHeader: "false"
         hosts:
           - host: truenas.${INGRESS_URL}
             paths:
@@ -41,7 +39,7 @@ spec:
                 pathType: Prefix
                 overrideService:
                   name: main
-                  port: 444
+                  port: 81
         tls:
           - hosts:
               - truenas.${INGRESS_URL}
@@ -72,8 +70,8 @@ spec:
         useSlice: false
         ports:
           main:
-            protocol: https
-            port: 444
+            protocol: http
+            port: 81
             # Target port is the port of the "external service"
             # Defaults to "port" if not set
     workload:
