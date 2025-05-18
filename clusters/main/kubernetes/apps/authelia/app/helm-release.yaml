@@ -50,8 +50,8 @@ spec:
               enabled: false
     workload:
       main:
-        replicas: 1
-        strategy: Recreate
+        replicas: 2
+        strategy: RollingUpdate
         podSpec:
           containers:
             main:
