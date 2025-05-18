@@ -71,6 +71,7 @@ spec:
         encrKey: "${S3KEY}"
     persistence:
       config:
+        enabled: false
         volsync:
           - name: b2
             type: restic
