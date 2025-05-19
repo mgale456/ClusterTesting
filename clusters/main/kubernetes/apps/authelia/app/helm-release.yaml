@@ -158,7 +158,7 @@ spec:
               - "*.${INGRESS_URL}"
               - "${INGRESS_URL}"
             policy: one_factor
-            subject: "group:admin"
+            subject: "group:lldap_admin"
       log:
         level: "trace"
       identity_providers:
