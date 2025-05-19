@@ -145,18 +145,18 @@ spec:
             minimum_version: TLS1.2
             skip_verify: false
       access_control:
-        default_policy: "one_factor"
+        default_policy: "deny"
         rules:
           # basic rule for one factor (username/password) login for users in the admin group
           - domain:
               - "*.${INGRESS_URL}"
-              - ${INGRESS_URL}
+              - "${INGRESS_URL}"
             policy: one_factor
             subject: "group:lldap_strict_readonly"
           # basic rule for one factor (username/password) login for users in the admin group
           - domain:
               - "*.${INGRESS_URL}"
-              - ${INGRESS_URL}
+              - "${INGRESS_URL}"
             policy: one_factor
             subject: "group:admin"
       log:
