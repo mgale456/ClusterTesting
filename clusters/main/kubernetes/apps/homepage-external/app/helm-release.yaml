@@ -33,7 +33,12 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: internal
+        ingressClassName: external
+        annotations:
+          nginx.ingress.kubernetes.io/auth-method: "GET"
+          nginx.ingress.kubernetes.io/auth-url: "http://authelia.authelia.svc.cluster.local:9091/api/verify"
+          nginx.ingress.kubernetes.io/auth-signin: "https://auth.${DOMAIN_0}?rm=$request_method"
+          nginx.ingress.kubernetes.io/auth-response-headers: "Remote-User,Remote-Name,Remote-Groups,Remote-Email"
         hosts:
           - host: ${INGRESS_URL}
             paths:
@@ -125,7 +130,7 @@ spec:
             # For configuration options and examples, please see:
             # https://gethomepage.dev/latest/configs/bookmarks
 
-            - Michael:
+            - Bookmarks:
                 - Cluster Repo:
                     - abbr: GH
                       href: https://github.com/mgale456/ClusterTesting
