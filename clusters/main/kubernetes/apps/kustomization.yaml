@@ -4,6 +4,7 @@ resources:
   - kubernetes-dashboard/ks.yaml
   - frigate/ks.yaml
   - homepage/ks.yaml
+  - homepage-external/ks.yaml
   - wg-easy/ks.yaml
   - mosquitto/ks.yaml
   - fireflyiii/ks.yaml

@@ -1,0 +1,165 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: homepage-external
+  namespace: homepage-external
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: homepage
+      version: 10.2.0
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    persistence:
+      config:
+        type: emptyDir
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: internal
+        hosts:
+          - host: ${INGRESS_URL}
+            paths:
+              - path: /
+                pathType: Prefix
+                overrideService:
+                  name: main
+                  port: 10352
+        tls:
+          - hosts:
+              - ${INGRESS_URL}
+            certificateIssuer: "domain-0-le-prod"
+        integrations:
+          traefik:
+            enabled: false
+          certManager:
+            enabled: true
+            certificateIssuer: "domain-0-le-prod"
+    workload:
+      main:
+        podSpec:
+          automountServiceAccountToken: true
+          containers:
+            main:
+              env:
+                # Set this to your host (example: home.mydomain.com)
+                HOMEPAGE_ALLOWED_HOSTS: "${INGRESS_URL}"
+          initContainers:
+            init-config:
+              enabled: false
+    configmap:
+      config:
+        enabled: true
+        data:
+          custom.js: ""
+          custom.css: ""
+          kubernetes.yaml: |
+            mode: cluster
+            ingress: true
+          settings.yaml: |
+            ---
+            # For configuration options and examples, please see:
+            # https://gethomepage.dev/latest/configs/settings
+
+            instanceName: external
+
+            providers:
+              openweathermap: openweathermapapikey
+              weatherapi: weatherapiapikey
+
+            useEqualHeights: true
+
+            layout:
+              - Home Automation:
+                  icon: mdi-home
+                  style: row
+                  columns: 3
+              - Tools:
+                  icon: mdi-tools
+              - Finance:
+                  icon: mdi-cash-multiple
+                  #style: row
+                  #columns: 3
+              - Default:
+                  style: row
+                  columns: 3
+          widgets.yaml: |
+            ---
+            # For configuration options and examples, please see:
+            # https://gethomepage.dev/latest/configs/widgets
+
+            - resources:
+                cpu: true
+                memory: true
+                disk: /
+
+            - search:
+                provider: duckduckgo
+                target: _blank
+
+          services.yaml: |
+            ---
+            # For configuration options and examples, please see:
+            # https://gethomepage.dev/latest/configs/services
+            #
+
+          bookmarks.yaml: |
+            ---
+            # For configuration options and examples, please see:
+            # https://gethomepage.dev/latest/configs/bookmarks
+
+            - Michael:
+                - Cluster Repo:
+                    - abbr: GH
+                      href: https://github.com/mgale456/ClusterTesting
+                      icon: https://github.githubassets.com/favicons/favicon-dark.svg
+                - Jumprocks.tk:
+                    - abbr: JR
+                      href: https://jumprocks.tk
+                      icon: https://jumprocks.tk/favicon.ico
+
+            - TrueCharts:
+                - TrueCharts:
+                  - abbr: TC
+                    icon: https://truecharts.org/svg/favicon.svg
+                    href: https://truecharts.org/charts/description-list/
+                    description: "TrueCharts Website"
+                - Github:
+                  - abbr: GH
+                    icon: https://github.com/fluidicon.png
+                    href: https://github.com/truecharts
+                    description: "TrueCharts GitHub"
+                - MrPuffin's Cluster Repo:
+                  - abbr: GH
+                    href: https://github.com/PrivatePuffin/cluster
+                    icon: https://github.com/fluidicon.png
+                    description: "Cluster Repo"
+                - Open Collective:
+                  - abbr: TC
+                    icon: https://opencollective.com/favicon.ico
+                    href: https://opencollective.com/truecharts
+                    description: "TrueCharts Open Collective"
+                - Discord:
+                  - abbr: DC
+                    icon: https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://discord.com&size=32
+                    href: https://truecharts.org/s/discord
+                    description: "TrueCharts Discord"
+
+    forceConfigFromValues: true
