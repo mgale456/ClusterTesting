@@ -69,6 +69,8 @@ spec:
       main:
         enabled: true
         ingressClassName: internal
+        annotations:
+          gethomepage.dev/instance: "internal"
         hosts:
           - host: esphome.${INGRESS_URL}
             paths:

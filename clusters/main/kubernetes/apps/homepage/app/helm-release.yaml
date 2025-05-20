@@ -78,6 +78,8 @@ spec:
             # For configuration options and examples, please see:
             # https://gethomepage.dev/latest/configs/settings
 
+            instanceName: internal
+
             providers:
               openweathermap: openweathermapapikey
               weatherapi: weatherapiapikey
