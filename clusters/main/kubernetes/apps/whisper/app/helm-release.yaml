@@ -35,6 +35,9 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
+        annotations:
+          gethomepage.dev/instance: "internal"
         hosts:
           - host: whisper.${INGRESS_URL}
             paths:
@@ -44,6 +47,8 @@ spec:
           - hosts:
               - whisper.${INGRESS_URL}
         integrations:
+          traefik:
+            enabled: false
           homepage:
             enabled: true
             group: Home Automation

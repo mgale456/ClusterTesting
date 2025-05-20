@@ -57,6 +57,8 @@ spec:
       main:
         enabled: true
         ingressClassName: internal
+        annotations:
+          gethomepage.dev/instance: "internal"
         hosts:
           - host: "wg-easy.${INGRESS_URL}"
             paths:

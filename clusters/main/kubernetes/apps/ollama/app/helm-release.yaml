@@ -35,6 +35,8 @@ spec:
       main:
         enabled: true
         ingressClassName: internal
+        annotations:
+          gethomepage.dev/instance: "internal"
         targetSelector:
           main: main
         hosts:

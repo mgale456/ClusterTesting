@@ -103,6 +103,8 @@ spec:
       main:
         enabled: true
         ingressClassName: internal
+        annotations:
+          gethomepage.dev/instance: "internal"
         hosts:
           - host: frigate.${INGRESS_URL}
             paths:

@@ -35,6 +35,9 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
+        annotations:
+          gethomepage.dev/instance: "internal"
         hosts:
           - host: piper.${INGRESS_URL}
             paths:
@@ -48,6 +51,8 @@ spec:
               - piper.${INGRESS_URL}
             certificateIssuer: "domain-0-le-prod"
         integrations:
+          traefik:
+            enabled: false
           certManager:
             enabled: true
             certificateIssuer: "domain-0-le-prod"

@@ -32,6 +32,8 @@ spec:
       main:
         enabled: true
         ingressClassName: external
+        annotations:
+          gethomepage.dev/instance: "internal"
         hosts:
           - host: auth.${INGRESS_URL}
             paths:

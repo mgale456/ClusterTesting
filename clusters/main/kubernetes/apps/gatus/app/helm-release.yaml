@@ -33,6 +33,8 @@ spec:
       main:
         enabled: true
         ingressClassName: internal
+        annotations:
+          gethomepage.dev/instance: "internal"
         hosts:
           - host: gatus.${INGRESS_URL}
             paths:
