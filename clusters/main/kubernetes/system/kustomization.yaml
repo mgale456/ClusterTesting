@@ -12,3 +12,4 @@ resources:
   - snapshot-controller/ks.yaml
   - volsync/ks.yaml
   - spegel/ks.yaml
+  - kube-prometheus-stack/ks.yaml
