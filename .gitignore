@@ -4,7 +4,7 @@ age.agekey
 ^clustertool
 *clustertool.exe
 clustertool.exe
-clustertool
+*clustertool
 sopssecret.yaml
 sopssecret*
 *sopssecret*
