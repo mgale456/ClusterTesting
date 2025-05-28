@@ -59,6 +59,7 @@ spec:
               enabled: true
     cnpg:
       main:
+        mode: recovery
         backups:
           enabled: true
           revision: "1"
