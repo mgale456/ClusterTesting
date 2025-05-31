@@ -63,26 +63,6 @@ spec:
                 AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET: ${AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET}
                 AUTHELIA_STORAGE_ENCRYPTION_KEY: ${AUTHELIA_STORAGE_ENCRYPTION_KEY}
                 X_AUTHELIA_CONFIG_FILTERS: "template"
-    credentials:
-      mys3:
-        type: s3
-        url: "${S3URL}"
-        bucket: "${S3BUCKETNAME}"
-        accessKey: "${S3APIKEYID}"
-        secretKey: "${S3APIKEY}"
-        encrKey: "${S3KEY}"
-    persistence:
-      config:
-        enabled: false
-        volsync:
-          - name: b2
-            type: restic
-            cleanupCachePVC: true
-            credentials: mys3
-            dest:
-              enabled: true
-            src:
-              enabled: true
       private-key:
         enabled: true
         mountPath: /opt/mg/private.pem
@@ -90,29 +70,12 @@ spec:
         readOnly: true
         type: secret
         objectName: private-pem-secret
-    cnpg:
-      main:
-        mode: recovery
-        backups:
-          enabled: true
-          revision: "2"
-          credentials: mys3
-        recovery:
-          revision: "1"
-          credentials: mys3
     secret:
       private-pem-secret:
         enabled: true
         data:
           private.pem: |
             {{ genPrivateKey "rsa" | nindent 2 | trim }}
-      test-secret:
-        enabled: true
-        data:
-          private.pem: |
-            random stuff
-            multi-line string
-            hello2
     # All configuration options should be put under this. Supports all upstream options
     authelia:
       session:
