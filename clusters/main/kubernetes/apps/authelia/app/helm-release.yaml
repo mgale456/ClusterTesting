@@ -28,9 +28,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    persistence:
-      config:
-        enabled: false
     ingress:
       main:
         enabled: true
@@ -66,6 +63,9 @@ spec:
                 AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET: ${AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET}
                 AUTHELIA_STORAGE_ENCRYPTION_KEY: ${AUTHELIA_STORAGE_ENCRYPTION_KEY}
                 X_AUTHELIA_CONFIG_FILTERS: "template"
+    persistence:
+      config:
+        enabled: false
       private-key:
         enabled: true
         mountPath: /opt/mg/private.pem
