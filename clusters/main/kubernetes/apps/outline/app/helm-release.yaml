@@ -67,3 +67,31 @@ spec:
             group: Tools
             widget:
               enabled: false
+    cnpg:
+      main:
+        #mode: recovery
+        backups:
+          enabled: true
+          revision: "1"
+          credentials: mys3
+        recovery:
+          #revision: "2"
+          credentials: mys3
+    credentials:
+      mys3:
+        type: s3
+        url: "${S3URL}"
+        bucket: "${S3BUCKETNAME}"
+        accessKey: "${S3APIKEYID}"
+        secretKey: "${S3APIKEY}"
+        encrKey: "${S3KEY}"
+    persistence:
+      data:
+        volsync:
+          - name: b2
+            type: restic
+            credentials: mys3
+            dest:
+              enabled: true
+            src:
+              enabled: true
