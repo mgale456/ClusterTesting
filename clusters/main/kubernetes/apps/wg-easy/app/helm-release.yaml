@@ -77,7 +77,9 @@ spec:
             enabled: true
             group: "Default"
             widget:
+              version: 2
               custom:
+                username: admin
                 password: ${WG_EASY_PASSWORD}
         tls:
           - hosts:
