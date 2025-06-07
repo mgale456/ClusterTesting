@@ -28,6 +28,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    TZ: America/Chicago
     credentials:
       mys3:
         type: s3
