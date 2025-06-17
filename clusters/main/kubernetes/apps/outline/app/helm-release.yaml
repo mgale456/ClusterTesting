@@ -37,6 +37,7 @@ spec:
               env:
                 URL: https://outline.${DOMAIN_0}
                 FORCE_HTTPS: true
+                FILE_STORAGE: local
                 OIDC_CLIENT_ID: ${OUTLINE_OIDC_CLIENT_ID}
                 OIDC_CLIENT_SECRET: ${OUTLINE_OIDC_CLIENT_SECRET}
                 OIDC_AUTH_URI: https://auth.${DOMAIN_0}/api/oidc/authorization
