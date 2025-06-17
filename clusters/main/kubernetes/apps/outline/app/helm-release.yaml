@@ -45,6 +45,7 @@ spec:
                 OIDC_DISPLAY_NAME: Authelia
                 OIDC_SCOPES: openid offline_access profile email
                 OIDC_LOGOUT_URI: https://auth.${DOMAIN_0}/logout
+                LOG_LEVEL: debug
     ingress:
       main:
         enabled: true
