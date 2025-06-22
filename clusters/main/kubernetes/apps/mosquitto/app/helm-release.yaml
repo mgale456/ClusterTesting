@@ -94,26 +94,3 @@ spec:
         subPath: "mosquitto.conf"
         type: configmap
         objectName: config
-    addons:
-      codeserver:
-        enabled: true
-        ingress:
-          enabled: true
-          hosts:
-            - host: cs.mosquitto.${INGRESS_URL}
-              paths:
-                - path: /
-                  pathType: Prefix
-          #                  overrideService:
-          #                    name: main
-          #                    port: 12321
-          tls:
-            - hosts:
-                - cs.mosquitto.${INGRESS_URL}
-              #certificateIssuer: "cfcert"
-          integrations:
-            certManager:
-              enabled: true
-              certificateIssuer: "domain-0-le-prod"
-            traefik:
-              enabled: true
