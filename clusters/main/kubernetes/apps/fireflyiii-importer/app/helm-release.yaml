@@ -49,3 +49,16 @@ spec:
     service:
       type: LoadBalancer
       port: 80
+
+    ingress:
+      enabled: true
+      className: "internal"
+      annotations: {}
+        # kubernetes.io/ingress.class: nginx
+        # kubernetes.io/tls-acme: "true"
+      hosts:
+        - fireflyiii-importer.${INGRESS_URL}
+      tls: []
+      #  - secretName: chart-example-tls
+      #    hosts:
+      #      - chart-example.local
