@@ -61,6 +61,6 @@ spec:
       hosts:
         - fireflyiii-importer.${INGRESS_URL}
       tls:
-        - secretName: certificate-issuer-domain-0-wildcard
+        - secretName: fireflyiii-importer-tls-0
           hosts:
             - fireflyiii-importer.${INGRESS_URL}
