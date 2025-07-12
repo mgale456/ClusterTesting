@@ -53,12 +53,14 @@ spec:
     ingress:
       enabled: true
       className: "internal"
-      annotations: {}
+      annotations:
+        cert-manager.io/cluster-issuer: domain-0-le-prod
+        cert-manager.io/private-key-rotation-policy: Always
         # kubernetes.io/ingress.class: nginx
         # kubernetes.io/tls-acme: "true"
       hosts:
         - fireflyiii-importer.${INGRESS_URL}
-      tls: []
-      #  - secretName: chart-example-tls
-      #    hosts:
-      #      - chart-example.local
+      tls:
+        - secretName: certificate-issuer-domain-0-wildcard
+          hosts:
+            - fireflyiii-importer.${INGRESS_URL}
