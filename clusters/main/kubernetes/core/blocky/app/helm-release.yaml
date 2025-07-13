@@ -37,29 +37,29 @@ spec:
       dns:
         enabled: true
         #externalTrafficPolicy: Local
-        loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
         integration:
           metallb:
             enabled: true
+            loadBalancerIP: ${BLOCKY_IP}
         #sharedKey: blocky
       dot:
         enabled: true
         #externalTrafficPolicy: Local
-        loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
         integration:
           metallb:
             enabled: true
+            loadBalancerIP: ${BLOCKY_IP}
         #sharedKey: blocky
       https:
         enabled: true
         #externalTrafficPolicy: Local
-        loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
         integration:
           metallb:
             enabled: true
+            loadBalancerIP: ${BLOCKY_IP}
         #sharedKey: blocky
 
     # -- set blocking settings using Lists
