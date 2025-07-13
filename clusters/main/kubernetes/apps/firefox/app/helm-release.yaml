@@ -43,8 +43,6 @@ spec:
           - hosts:
               - firefox.${INGRESS_URL}
         integrations:
-          traefik:
-            enabled: false
           homepage:
             enabled: true
             group: Tools
