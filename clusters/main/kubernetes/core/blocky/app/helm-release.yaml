@@ -39,18 +39,27 @@ spec:
         #externalTrafficPolicy: Local
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
+        integration:
+          metallb:
+            enabled: true
         #sharedKey: blocky
       dot:
         enabled: true
         #externalTrafficPolicy: Local
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
+        integration:
+          metallb:
+            enabled: true
         #sharedKey: blocky
       https:
         enabled: true
         #externalTrafficPolicy: Local
         loadBalancerIP: ${BLOCKY_IP}
         type: LoadBalancer
+        integration:
+          metallb:
+            enabled: true
         #sharedKey: blocky
 
     # -- set blocking settings using Lists
