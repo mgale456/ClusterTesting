@@ -114,8 +114,6 @@ spec:
                 path: /
                 pathType: Prefix
         integrations:
-          traefik:
-            enabled: false
           certManager:
             certificateIssuer: domain-0-le-prod
             enabled: true
