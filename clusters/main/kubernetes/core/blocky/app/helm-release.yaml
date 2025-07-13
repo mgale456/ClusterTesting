@@ -28,6 +28,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    TZ: ${TZ}
     # -- some general blocky settings
     blocky:
       # -- Enable prometheus annotations
@@ -74,8 +75,7 @@ spec:
       # --  Add blocky whitelists
       # `default` name is reservered for TrueCharts included default whitelist
       # example shows the structure, though name should be changed when used
-      whitelist:
-        []
+      whitelist: []
         # - name: default
         #  lists:
         #   - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/optional-list.txt
@@ -85,8 +85,7 @@ spec:
       # -- Blocky blacklists
       # `default` name is reservered for TrueCharts included default blacklist
       # example shows the structure, though name should be changed when used
-      blacklist:
-        []
+      blacklist: []
         # - name: default
         #  lists:
         #   - https://big.oisd.nl/domainswild

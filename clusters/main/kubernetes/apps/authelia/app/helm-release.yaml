@@ -28,6 +28,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    TZ: ${TZ}
     ingress:
       main:
         enabled: true
@@ -43,8 +44,6 @@ spec:
           - hosts:
               - auth.${INGRESS_URL}
         integrations:
-          traefik:
-            enabled: false
           homepage:
             enabled: true
             group: Default

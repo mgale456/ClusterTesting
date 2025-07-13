@@ -28,6 +28,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    TZ: ${TZ}
     cloudflareddns:
       api_token: ${DOMAIN_0_CLOUDFLARE_TOKEN}
       host_zone_record:
