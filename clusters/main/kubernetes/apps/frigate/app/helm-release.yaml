@@ -29,6 +29,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    TZ: ${TZ}
     # When this is defined, the contents will be mounted
     # as configmap into the container at /config/config.yml.
     frigateConfig:
