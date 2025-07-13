@@ -38,7 +38,8 @@ spec:
         enabled: true
         #externalTrafficPolicy: Local
         type: LoadBalancer
-        integration:
+        loadBalancerIP: ${BLOCKY_IP}
+        integrations:
           metallb:
             enabled: true
             loadBalancerIP: ${BLOCKY_IP}
@@ -47,7 +48,8 @@ spec:
         enabled: true
         #externalTrafficPolicy: Local
         type: LoadBalancer
-        integration:
+        loadBalancerIP: ${BLOCKY_IP}
+        integrations:
           metallb:
             enabled: true
             loadBalancerIP: ${BLOCKY_IP}
@@ -56,7 +58,8 @@ spec:
         enabled: true
         #externalTrafficPolicy: Local
         type: LoadBalancer
-        integration:
+        loadBalancerIP: ${BLOCKY_IP}
+        integrations:
           metallb:
             enabled: true
             loadBalancerIP: ${BLOCKY_IP}
