@@ -28,7 +28,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    TZ: America/Chicago
+    TZ: ${TZ}
     workload:
       main:
         podSpec:
@@ -74,7 +74,7 @@ spec:
               enabled: false
     cnpg:
       main:
-        #mode: recovery
+        mode: recovery
         backups:
           enabled: true
           revision: "5"
