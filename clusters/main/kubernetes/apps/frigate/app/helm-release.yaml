@@ -78,17 +78,25 @@ spec:
       main:
         type: LoadBalancer
         loadBalancerIP: ${FRIGATE_IP}
+        integration:
+          metallb:
+            enabled: true
       rtmp:
         enabled: false
       rtsp:
         type: LoadBalancer
         loadBalancerIP: ${FRIGATE_IP}
         enabled: true
+        integration:
+          metallb:
+            enabled: true
       webrtc:
         enabled: true
         type: LoadBalancer
         loadBalancerIP: ${FRIGATE_IP}
-
+        integration:
+          metallb:
+            enabled: true
     persistence:
       media:
         enabled: true
