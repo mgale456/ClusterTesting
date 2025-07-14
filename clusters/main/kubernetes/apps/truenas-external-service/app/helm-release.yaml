@@ -45,8 +45,6 @@ spec:
               - truenas.${INGRESS_URL}
             certificateIssuer: "domain-0-le-prod"
         integrations:
-          traefik:
-            enabled: false
           certManager:
             enabled: true
             certificateIssuer: "domain-0-le-prod"

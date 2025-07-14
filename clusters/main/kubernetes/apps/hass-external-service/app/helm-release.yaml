@@ -32,8 +32,6 @@ spec:
       main:
         enabled: true
         ingressClassName: internal
-        annotations:
-          traefik.frontend.passHostHeader: "false"
         hosts:
           - host: hass.${INGRESS_URL}
             paths:
@@ -47,8 +45,6 @@ spec:
               - hass.${INGRESS_URL}
             certificateIssuer: "domain-0-le-prod"
         integrations:
-          traefik:
-            enabled: false
           certManager:
             enabled: true
             certificateIssuer: "domain-0-le-prod"
