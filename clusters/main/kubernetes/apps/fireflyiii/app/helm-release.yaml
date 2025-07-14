@@ -28,6 +28,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    TZ: ${TZ}
     cnpg:
       main:
         mode: recovery
@@ -66,8 +67,6 @@ spec:
               - fireflyiii.${INGRESS_URL}
             certificateIssuer: "domain-0-le-prod"
         integrations:
-          traefik:
-            enabled: false
           certManager:
             enabled: true
             certificateIssuer: "domain-0-le-prod"

@@ -28,7 +28,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    TZ: America/Chicago
+    TZ: ${TZ}
     credentials:
       mys3:
         type: s3
@@ -68,11 +68,11 @@ spec:
       main:
         enabled: true
         ingressClassName: external
-        annotations:
-          nginx.ingress.kubernetes.io/auth-method: "GET"
-          nginx.ingress.kubernetes.io/auth-url: "http://authelia.authelia.svc.cluster.local:9091/api/verify"
-          nginx.ingress.kubernetes.io/auth-signin: "https://auth.${DOMAIN_0}?rm=$request_method"
-          nginx.ingress.kubernetes.io/auth-response-headers: "Remote-User,Remote-Name,Remote-Groups,Remote-Email"
+        #        annotations:
+        #          nginx.ingress.kubernetes.io/auth-method: "GET"
+        #          nginx.ingress.kubernetes.io/auth-url: "http://authelia.authelia.svc.cluster.local:9091/api/verify"
+        #          nginx.ingress.kubernetes.io/auth-signin: "https://auth.${DOMAIN_0}?rm=$request_method"
+        #          nginx.ingress.kubernetes.io/auth-response-headers: "Remote-User,Remote-Name,Remote-Groups,Remote-Email"
         hosts:
           - host: filebrowser.${INGRESS_URL}
             paths:
@@ -82,8 +82,12 @@ spec:
           - hosts:
               - filebrowser.${INGRESS_URL}
         integrations:
-          traefik:
-            enabled: false
+          nginx:
+            enabled: true
+            auth:
+              type: "authelia"
+              internalHost: "authelia.authelia.svc.cluster.local:9091"
+              externalHost: "auth.${DOMAIN_0}"
           homepage:
             enabled: true
             group: Tools
