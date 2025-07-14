@@ -28,10 +28,14 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    TZ: ${TZ}
     service:
       main:
         type: LoadBalancer
         loadBalancerIP: ${WHISPER_IP}
+        integrations:
+          metallb:
+            enabled: true
     ingress:
       main:
         enabled: true
@@ -47,8 +51,6 @@ spec:
           - hosts:
               - whisper.${INGRESS_URL}
         integrations:
-          traefik:
-            enabled: false
           homepage:
             enabled: true
             group: Home Automation

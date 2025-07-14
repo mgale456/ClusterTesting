@@ -28,10 +28,14 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    TZ: ${TZ}
     service:
       main:
         type: LoadBalancer
         loadBalancerIP: ${PIPER_IP}
+        integrations:
+          metallb:
+            enabled: true
     ingress:
       main:
         enabled: true
@@ -51,8 +55,6 @@ spec:
               - piper.${INGRESS_URL}
             certificateIssuer: "domain-0-le-prod"
         integrations:
-          traefik:
-            enabled: false
           certManager:
             enabled: true
             certificateIssuer: "domain-0-le-prod"
