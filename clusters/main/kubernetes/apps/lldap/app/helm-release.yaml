@@ -28,6 +28,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    TZ: ${TZ}
     credentials:
       mys3:
         type: s3
@@ -82,8 +83,6 @@ spec:
           - hosts:
               - lldap.${INGRESS_URL}
         integrations:
-          traefik:
-            enabled: false
           homepage:
             enabled: true
             group: Default

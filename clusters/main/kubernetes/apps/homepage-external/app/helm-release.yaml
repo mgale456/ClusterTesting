@@ -27,6 +27,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    TZ: ${TZ}
     persistence:
       config:
         type: emptyDir
@@ -52,8 +53,6 @@ spec:
               - ${INGRESS_URL}
             certificateIssuer: "domain-0-le-prod"
         integrations:
-          traefik:
-            enabled: false
           certManager:
             enabled: true
             certificateIssuer: "domain-0-le-prod"
