@@ -78,7 +78,7 @@ spec:
       main:
         type: LoadBalancer
         loadBalancerIP: ${FRIGATE_IP}
-        integration:
+        integrations:
           metallb:
             enabled: true
       rtmp:

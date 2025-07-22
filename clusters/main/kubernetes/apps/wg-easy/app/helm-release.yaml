@@ -68,8 +68,6 @@ spec:
                 path: "/"
                 pathType: "Prefix"
         integrations:
-          traefik:
-            enabled: false
           certManager:
             certificateIssuer: "domain-0-le-prod"
             enabled: true
@@ -88,6 +86,9 @@ spec:
       vpn:
         type: LoadBalancer
         loadBalancerIP: ${WG_EASY_IP}
+        integrations:
+          metallb:
+            enabled: true
     workload:
       main:
         podSpec:

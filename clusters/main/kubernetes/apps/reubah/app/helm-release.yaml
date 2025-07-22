@@ -44,8 +44,6 @@ spec:
               - reubah.${INGRESS_URL}
             clusterIssuer: "domain-0-wildcard"
         integrations:
-          traefik:
-            enabled: false
           homepage:
             enabled: true
             group: Tools
