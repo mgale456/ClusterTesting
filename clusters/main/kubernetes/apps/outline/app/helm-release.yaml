@@ -77,10 +77,10 @@ spec:
         mode: recovery
         backups:
           enabled: true
-          revision: "5"
+          revision: "6"
           credentials: mys3
         recovery:
-          revision: "4"
+          revision: "5"
           credentials: mys3
     credentials:
       mys3:
