@@ -29,10 +29,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    service:
-      main:
-        type: LoadBalancer
-        loadBalancerIP: 192.168.0.75
     ingress:
       main:
         enabled: true
@@ -46,8 +42,6 @@ spec:
           - hosts:
               - openspeedtest.${INGRESS_URL}
         integrations:
-          traefik:
-            enabled: false
           homepage:
             enabled: true
             group: Tools
