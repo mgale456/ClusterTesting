@@ -74,13 +74,11 @@ spec:
               enabled: false
     cnpg:
       main:
-        mode: recovery
+        #mode: recovery
         backups:
           enabled: true
-          revision: "6"
           credentials: mys3
         recovery:
-          revision: "5"
           credentials: mys3
     credentials:
       mys3:
