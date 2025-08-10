@@ -48,8 +48,6 @@ spec:
           - hosts:
               - ollama.${INGRESS_URL}
         integrations:
-          traefik:
-            enabled: false
           homepage:
             enabled: true
             group: Tools
