@@ -65,8 +65,6 @@ spec:
           - hosts:
               - outline.${INGRESS_URL}
         integrations:
-          traefik:
-            enabled: false
           homepage:
             enabled: true
             group: Tools
