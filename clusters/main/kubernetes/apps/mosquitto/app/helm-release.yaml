@@ -28,13 +28,20 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    TZ: ${TZ}
     service:
       main:
         type: LoadBalancer
         loadBalancerIP: ${MOSQUITTO_IP}
+        integrations:
+          metallb:
+            enabled: true
       websockets:
         type: LoadBalancer
         loadBalancerIP: ${MOSQUITTO_IP}
+        integrations:
+          metallb:
+            enabled: true
     auth:
       # -- By enabling this, `allow_anonymous` gets set to `false` in the mosquitto config.
       enabled: true
