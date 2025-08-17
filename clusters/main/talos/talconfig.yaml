@@ -65,6 +65,8 @@ nodes:
         routes:
           - network: 0.0.0.0/0
             gateway: ${GATEWAY}
+    nodeLabels:
+      ${INGRESS_URL}.node-restriction.kubernetes.io/music-assistant: "true"
 controlPlane:
   patches:
     - "@./patches/controlplane.yaml"
