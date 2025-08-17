@@ -28,6 +28,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    TZ: ${TZ}
     image:
       repository: simonrupf/chronyd
       pullPolicy: IfNotPresent
@@ -36,6 +37,9 @@ spec:
       main:
         type: LoadBalancer
         loadBalancerIP: ${CHRONY_IP}
+        integrations:
+          metallb:
+            enabled: true
         ports:
           main:
             port: 123
