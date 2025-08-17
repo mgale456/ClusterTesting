@@ -87,14 +87,14 @@ spec:
         type: LoadBalancer
         loadBalancerIP: ${FRIGATE_IP}
         enabled: true
-        integration:
+        integrations:
           metallb:
             enabled: true
       webrtc:
         enabled: true
         type: LoadBalancer
         loadBalancerIP: ${FRIGATE_IP}
-        integration:
+        integrations:
           metallb:
             enabled: true
     persistence:
