@@ -68,7 +68,7 @@ spec:
         podSpec:
           hostNetwork: true
           nodeSelector:
-            ${INGRESS_URL}.node-restriction.kubernetes.io/music-assistant: "true"
+            ${INGRESS_URL}/music-assistant: "true"
     persistence:
       data:
         enabled: true
