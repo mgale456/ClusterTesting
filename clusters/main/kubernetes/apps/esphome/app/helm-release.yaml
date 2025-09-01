@@ -86,3 +86,10 @@ spec:
             enabled: true
             group: Home Automation
             description: "A system to control your ESP8266/ESP32s"
+    resources:
+      limits:
+        cpu: 4000m
+        memory: 8Gi
+      requests:
+        cpu: 10m
+        memory: 50Mi
