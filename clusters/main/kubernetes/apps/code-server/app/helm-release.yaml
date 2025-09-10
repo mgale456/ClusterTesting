@@ -1,0 +1,52 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: code-server
+  namespace: code-server
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: code-server
+      version: 14.6.1
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: internal
+        annotations:
+          gethomepage.dev/instance: "internal"
+          nginx.ingress.kubernetes.io/auth-method: "GET"
+          nginx.ingress.kubernetes.io/auth-url: "http://authelia.authelia.svc.cluster.local:9091/api/verify"
+          nginx.ingress.kubernetes.io/auth-signin: "https://auth.${DOMAIN_0}?rm=$request_method"
+          nginx.ingress.kubernetes.io/auth-response-headers: "Remote-User,Remote-Name,Remote-Groups,Remote-Email"
+        hosts:
+          - host: code-server.${INGRESS_URL}
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - code-server.${INGRESS_URL}
+        integrations:
+          homepage:
+            enabled: true
+            group: Tools

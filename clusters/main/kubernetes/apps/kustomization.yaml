@@ -26,3 +26,4 @@ resources:
   - filebrowser/ks.yaml
   - authelia/ks.yaml
   - lldap/ks.yaml
+  - code-server/ks.yaml
