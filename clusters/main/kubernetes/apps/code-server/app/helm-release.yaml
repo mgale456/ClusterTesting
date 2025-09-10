@@ -50,3 +50,23 @@ spec:
           homepage:
             enabled: true
             group: Tools
+    persistence:
+      meg-files:
+        enabled: true
+        mountPath: /meg/files
+        volsync:
+          - name: b2
+            type: restic
+            credentials: mys3
+            dest:
+              enabled: true
+            src:
+              enabled: true
+    credentials:
+      mys3:
+        type: s3
+        url: "${S3URL}"
+        bucket: "${S3BUCKETNAME}"
+        accessKey: "${S3APIKEYID}"
+        secretKey: "${S3APIKEY}"
+        encrKey: "${S3KEY}"
