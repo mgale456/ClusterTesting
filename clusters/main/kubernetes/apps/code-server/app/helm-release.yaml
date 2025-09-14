@@ -31,7 +31,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: internal
+        ingressClassName: external
         annotations:
           gethomepage.dev/instance: "internal"
           nginx.ingress.kubernetes.io/auth-method: "GET"
