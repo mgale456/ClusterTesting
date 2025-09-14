@@ -70,3 +70,10 @@ spec:
         accessKey: "${S3APIKEYID}"
         secretKey: "${S3APIKEY}"
         encrKey: "${S3KEY}"
+    resources:
+      limits:
+        cpu: 4000m
+        memory: 8Gi
+      requests:
+        cpu: 10m
+        memory: 3Gi
