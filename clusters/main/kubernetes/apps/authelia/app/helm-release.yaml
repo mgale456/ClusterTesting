@@ -114,6 +114,12 @@ spec:
       access_control:
         default_policy: "deny"
         rules:
+          # deny all access to code-server
+          - domain:
+              - "code-server.${INGRESS_URL}"
+              - "${INGRESS_URL}"
+            policy: deny
+            #subject: "group:lldap_strict_readonly"
           # basic rule for one factor (username/password) login for users in the admin group
           - domain:
               - "*.${INGRESS_URL}"
