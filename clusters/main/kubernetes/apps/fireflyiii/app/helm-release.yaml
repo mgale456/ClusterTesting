@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: fireflyiii
-      version: 30.11.0
+      version: 30.11.2
       sourceRef:
         kind: HelmRepository
         name: truecharts
