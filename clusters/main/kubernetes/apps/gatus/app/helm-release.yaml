@@ -67,7 +67,7 @@ spec:
             main:
               imageSelector: image
               env:
-                GATUS_CONFIG_PATH: "{{ .Values.persistence.config.mountPath }}"
+                GATUS_CONFIG_PATH: "{{ .Values.persistence.config-dir.mountPath }}"
             #initContainers:
             config-init:
               enabled: true
