@@ -73,10 +73,17 @@ spec:
               enabled: true
               #type: init
               imageSelector: configInitImage
+              probes:
+                liveness:
+                  enabled: false
+                readiness:
+                  enabled: false
+                startup:
+                  enabled: false
               args:
                 - --auto-ingresses=true
-                #- --auto-routes=false
-                #- --auto-services=false
+                - --auto-routes=false
+                - --auto-services=false
                 - --auto-group=true
                 #- --output=/config/gatus-sidecar.yaml
                 #- --default-dns=tcp://blocky-dns.blocky.svc.cluster.local:53
