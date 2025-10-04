@@ -68,6 +68,7 @@ spec:
               imageSelector: image
               env:
                 GATUS_CONFIG_PATH: /config
+                GATUS_DELAY_START_SECONDS: 5
             #initContainers:
             config-init:
               enabled: true
