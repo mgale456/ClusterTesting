@@ -90,9 +90,16 @@ spec:
     persistence:
       config-dir:
         enabled: true
-        mountPath: /config
+        #mountPath: /config
         type: emptyDir
-        targetSelectAll: true
+        #targetSelectAll: true
+        targetSelector:
+          main:
+            main:
+              mountPath: /config/sidecar
+              readOnly: true
+            config-init:
+              mountPath: /config
       config-test:
         enabled: true
         mountPath: /config/config-test.yaml
