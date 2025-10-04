@@ -100,6 +100,7 @@ spec:
         readOnly: true
         type: "configmap"
         objectName: config-test
+        targetSelectAll: true
     # -- Whether Role Based Access Control objects like roles and rolebindings should be created
     rbac:
       main:
