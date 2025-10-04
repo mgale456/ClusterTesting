@@ -71,6 +71,7 @@ spec:
           initContainers:
             config-init:
               enabled: true
+              type: init
               imageSelector: configInitImage
               args:
                 - --auto-ingresses=true
