@@ -82,9 +82,9 @@ spec:
                   enabled: false
               args:
                 - --auto-ingress=true
-                - --auto-routes=false
-                - --auto-services=false
-                - --auto-group=true
+                #- --auto-routes=false
+                #- --auto-services=false
+                #- --auto-group=true
                 #- --output=/config/gatus-sidecar.yaml
                 #- --default-dns=tcp://blocky-dns.blocky.svc.cluster.local:53
     persistence:
