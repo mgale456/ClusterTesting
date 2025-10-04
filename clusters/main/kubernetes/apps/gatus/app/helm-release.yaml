@@ -36,6 +36,8 @@ spec:
         ingressClassName: internal
         annotations:
           gethomepage.dev/instance: "internal"
+          gatus.home-operations.com/endpoint: |
+            enabled: false
         hosts:
           - host: gatus.${INGRESS_URL}
             paths:
@@ -54,6 +56,68 @@ spec:
     cnpg:
       main:
         enabled: false
+    configInitImage:
+      repository: ghcr.io/home-operations/gatus-sidecar
+      pullPolicy: IfNotPresent
+      tag: 0.0.4@sha256:be7ec7fe1f6efc6090856a1ba4d1b9b023c38a0895314c8bc46d4343b91f2b22
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              imageSelector: image
+              env:
+                GATUS_CONFIG_PATH: "{{ .Values.persistence.config.mountPath }}"
+          initContainers:
+            config-init:
+              enabled: true
+              imageSelector: configInitImage
+              args:
+                - --auto-ingresses=true
+                #- --auto-routes=false
+                #- --auto-services=false
+                - --auto-group=true
+                #- --output=/config/gatus-sidecar.yaml
+                #- --default-dns=tcp://blocky-dns.blocky.svc.cluster.local:53
+    persistence:
+      config-dir:
+        enabled: true
+        mountPath: /config
+        type: emptyDir
+        targetSelectAll: true
+    # -- Whether Role Based Access Control objects like roles and rolebindings should be created
+    rbac:
+      main:
+        enabled: true
+        primary: true
+        clusterWide: true
+        rules:
+          - apiGroups:
+              - "networking.k8s.io"
+            resources:
+              - "ingresses"
+            verbs:
+              - "get"
+              - "list"
+              - "watch"
+          - apiGroups: [""]
+            resources:
+              - "configmaps"
+              - "secrets"
+              - "services"
+            verbs:
+              - "get"
+              - "list"
+              - "watch"
+    # -- The service account the pods will use to interact with the Kubernetes API
+    serviceAccount:
+      main:
+        enabled: true
+        primary: true
+
+    podOptions:
+      automountServiceAccountToken: true
+
     configmap:
       config:
         enabled: true
