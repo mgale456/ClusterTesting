@@ -90,16 +90,9 @@ spec:
     persistence:
       config-dir:
         enabled: true
-        #mountPath: /config
-        type: emptyDir
-        #targetSelectAll: true
-        targetSelector:
-          main:
-            main:
-              mountPath: /config/sidecar
-              readOnly: true
-            config-init:
-              mountPath: /config
+        mountPath: /config
+        type: pvc
+        targetSelectAll: true
       config-test:
         enabled: true
         mountPath: /config/config-test.yaml
@@ -107,7 +100,6 @@ spec:
         readOnly: true
         type: "configmap"
         objectName: config-test
-        targetSelectAll: true
     # -- Whether Role Based Access Control objects like roles and rolebindings should be created
     rbac:
       main:
