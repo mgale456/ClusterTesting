@@ -93,6 +93,13 @@ spec:
         mountPath: /config
         type: emptyDir
         targetSelectAll: true
+      configTest:
+        enabled: true
+        mountPath: /config/configTest.yaml
+        subPath: configTest.yaml
+        readOnly: true
+        type: "configmap"
+        objectName: configTest
     # -- Whether Role Based Access Control objects like roles and rolebindings should be created
     rbac:
       main:
@@ -135,6 +142,17 @@ spec:
       automountServiceAccountToken: true
 
     configmap:
+      configTest:
+        enabled: true
+        data:
+          configTest.yaml: |
+            endpoints:
+              - name: Testing
+                group: Home Automation
+                url: https://google.com
+                interval: 300s
+                conditions:
+                  - "[STATUS] == 200"
       config:
         enabled: true
         data:
