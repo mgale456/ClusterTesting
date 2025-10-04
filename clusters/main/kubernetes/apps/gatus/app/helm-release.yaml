@@ -68,10 +68,10 @@ spec:
               imageSelector: image
               env:
                 GATUS_CONFIG_PATH: "{{ .Values.persistence.config.mountPath }}"
-          initContainers:
+            #initContainers:
             config-init:
               enabled: true
-              type: init
+              #type: init
               imageSelector: configInitImage
               args:
                 - --auto-ingresses=true
