@@ -81,7 +81,7 @@ spec:
                 startup:
                   enabled: false
               args:
-                - --auto-ingresses=true
+                - --auto-ingress=true
                 - --auto-routes=false
                 - --auto-services=false
                 - --auto-group=true
@@ -117,6 +117,14 @@ spec:
               - "get"
               - "list"
               - "watch"
+          - apiGroups:
+              - gateway.networking.k8s.io
+            resources:
+              - httproutes
+            verbs:
+              - get
+              - watch
+              - list
     # -- The service account the pods will use to interact with the Kubernetes API
     serviceAccount:
       main:
