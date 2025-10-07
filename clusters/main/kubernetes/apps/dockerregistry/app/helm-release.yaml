@@ -27,6 +27,13 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: ${DOCKER_REGISTRY_IP}
+        integrations:
+          metallb:
+            enabled: true
     ingress:
       main:
         enabled: true
