@@ -58,7 +58,7 @@ spec:
         enabled: false
     configInitImage:
       repository: dockerregistry.${INGRESS_URL}/mgale-gatus-sidecar
-      pullPolicy: always
+      pullPolicy: Always
       tag: latest
     workload:
       main:
