@@ -44,6 +44,13 @@ spec:
         name: internal
         default: true
         controllerValue: k8s.io/internal
+        annotations:
+          gatus.home-operations.com/endpoint: |-
+            group: internal
+            guarded: true
+            ui:
+              hide-hostname: true
+              hide-url: true
       config:
         allow-snippet-annotations: true
         annotations-risk-level: Critical
