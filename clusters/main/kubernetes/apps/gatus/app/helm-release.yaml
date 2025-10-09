@@ -59,7 +59,7 @@ spec:
     configInitImage:
       repository: ghcr.io/home-operations/gatus-sidecar
       pullPolicy: IfNotPresent
-      tag: 0.0.8
+      tag: 0.0.9
     workload:
       main:
         podSpec:
