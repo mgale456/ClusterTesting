@@ -57,9 +57,9 @@ spec:
       main:
         enabled: false
     configInitImage:
-      repository: ${DOCKER_REGISTRY_IP}:5000/mgale-gatus-sidecar
-      pullPolicy: Always
-      tag: latest
+      repository: ghcr.io/home-operations/gatus-sidecar
+      pullPolicy: IfNotPresent
+      tag: 0.0.8
     workload:
       main:
         podSpec:
@@ -112,6 +112,7 @@ spec:
               - "networking.k8s.io"
             resources:
               - "ingresses"
+              - "ingressclasses"
             verbs:
               - "get"
               - "list"
