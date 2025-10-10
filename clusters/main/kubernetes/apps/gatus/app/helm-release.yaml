@@ -80,6 +80,7 @@ spec:
                   enabled: false
               args:
                 - --auto-ingress=true
+                - --enable-ingress=true
                 - --enable-httproute=false
                 - --enable-service=false
                 #- --auto-routes=false
