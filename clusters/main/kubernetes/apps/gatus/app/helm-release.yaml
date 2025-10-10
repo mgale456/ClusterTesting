@@ -83,6 +83,7 @@ spec:
                 - --enable-ingress=true
                 - --enable-httproute=false
                 - --enable-service=false
+                - --default-interval=5m
                 #- --auto-routes=false
                 #- --auto-services=false
                 #- --auto-group=true
@@ -92,7 +93,7 @@ spec:
       config-dir:
         enabled: true
         mountPath: /config
-        type: pvc
+        type: emptyDir
         targetSelectAll: true
     # -- Whether Role Based Access Control objects like roles and rolebindings should be created
     rbac:
