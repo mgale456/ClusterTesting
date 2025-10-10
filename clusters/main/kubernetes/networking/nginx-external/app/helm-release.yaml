@@ -44,6 +44,9 @@ spec:
         name: external
         default: false
         controllerValue: k8s.io/external
+        annotations:
+          gatus.home-operations.com/endpoint: |-
+            group: Nginx-External
       config:
         allow-snippet-annotations: true
         annotations-risk-level: Critical
