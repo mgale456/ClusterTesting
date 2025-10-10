@@ -56,7 +56,7 @@ spec:
     cnpg:
       main:
         enabled: false
-    configInitImage:
+    configSidecarImage:
       repository: ghcr.io/home-operations/gatus-sidecar
       pullPolicy: IfNotPresent
       tag: 0.0.9@sha256:31a52dd0e579c1f865b2580a4bb715d2a893deb1351fedeaba73598e9a578cbe
@@ -65,15 +65,12 @@ spec:
         podSpec:
           containers:
             main:
-              imageSelector: image
               env:
                 GATUS_CONFIG_PATH: /config
                 GATUS_DELAY_START_SECONDS: 5
-            #initContainers:
-            config-init:
+            config-sidecar:
               enabled: true
-              #type: init
-              imageSelector: configInitImage
+              imageSelector: configSidecarImage
               probes:
                 liveness:
                   enabled: false
@@ -83,6 +80,8 @@ spec:
                   enabled: false
               args:
                 - --auto-ingress=true
+                - --enable-httproute=false
+                - --enable-service=false
                 #- --auto-routes=false
                 #- --auto-services=false
                 #- --auto-group=true
@@ -94,13 +93,6 @@ spec:
         mountPath: /config
         type: pvc
         targetSelectAll: true
-      config-test:
-        enabled: true
-        mountPath: /config/config-test.yaml
-        subPath: config-test.yaml
-        readOnly: true
-        type: "configmap"
-        objectName: config-test
     # -- Whether Role Based Access Control objects like roles and rolebindings should be created
     rbac:
       main:
@@ -144,17 +136,6 @@ spec:
       automountServiceAccountToken: true
 
     configmap:
-      config-test:
-        enabled: true
-        data:
-          config-test.yaml: |
-            endpoints:
-              - name: Testing
-                group: Home Automation
-                url: https://google.com
-                interval: 300s
-                conditions:
-                  - "[STATUS] == 200"
       config:
         enabled: true
         data:
