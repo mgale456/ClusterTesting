@@ -48,6 +48,8 @@ spec:
           gatus.home-operations.com/endpoint: |-
             group: Nginx-Internal
             guarded: true
+            alerts:
+              - type: matrix
       config:
         allow-snippet-annotations: true
         annotations-risk-level: Critical
