@@ -47,8 +47,8 @@ spec:
         annotations:
           gatus.home-operations.com/endpoint: |-
             group: Nginx-Internal
-            alerts:
-              - type: matrix
+            conditions:
+              - "[STATUS] == 404"
       config:
         allow-snippet-annotations: true
         annotations-risk-level: Critical
