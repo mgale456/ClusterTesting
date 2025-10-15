@@ -47,7 +47,6 @@ spec:
         annotations:
           gatus.home-operations.com/endpoint: |-
             group: Nginx-Internal
-            guarded: true
             alerts:
               - type: matrix
       config:
