@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: outline
-      version: 16.23.0
+      version: 16.25.0
       sourceRef:
         kind: HelmRepository
         name: truecharts
