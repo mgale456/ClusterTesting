@@ -59,7 +59,7 @@ nodes:
       size: <= 1200GB
     networkInterfaces:
       # suffix is the adapter mac adres.
-      - interface: ens18
+      - interface: enp4s0
         addresses:
           - ${WORKER2IP_CIDR}
         routes:
@@ -119,9 +119,9 @@ worker:
     customization:
       systemExtensions:
         officialExtensions:
-          - siderolabs/util-linux-tools
+          - siderolabs/amd-ucode
           - siderolabs/iscsi-tools
-          - siderolabs/qemu-guest-agent
+          - siderolabs/util-linux-tools
   machineFiles:
     - content: |
         [plugins."io.containerd.grpc.v1.cri"]
