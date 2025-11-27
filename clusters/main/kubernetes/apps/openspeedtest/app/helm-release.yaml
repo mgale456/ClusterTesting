@@ -42,6 +42,12 @@ spec:
           - hosts:
               - openspeedtest.${INGRESS_URL}
         integrations:
+          nginx:
+            enabled: true
+            auth:
+              type: "authelia"
+              internalHost: "authelia.authelia.svc.cluster.local:9091"
+              externalHost: "auth.${DOMAIN_0}"
           homepage:
             enabled: true
             group: Tools
