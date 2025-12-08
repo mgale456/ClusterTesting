@@ -28,3 +28,4 @@ resources:
   - lldap/ks.yaml
   - code-server/ks.yaml
   - dockerregistry/ks.yaml
+  - home-assistant/ks.yaml
