@@ -71,7 +71,7 @@ spec:
           main:
             main: {}
             codeserver:
-              mountPath: /config/data
+              mountPath: /config/workspace
       venv-cache:
         enabled: true
         mountPath: /config/.venv
