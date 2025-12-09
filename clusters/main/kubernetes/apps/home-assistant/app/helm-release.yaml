@@ -36,6 +36,9 @@ spec:
       main:
         type: LoadBalancer
         loadBalancerIP: ${HOME_ASSISTANT_IP}
+        integrations:
+          metallb:
+            enabled: true
         ports:
           main:
             port: 8123
