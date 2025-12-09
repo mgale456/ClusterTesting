@@ -32,6 +32,9 @@ spec:
       main:
         type: LoadBalancer
         loadBalancerIP: ${XXXXX_IP}
+        integrations:
+          metallb:
+            enabled: true
     ingress:
       main:
         enabled: true
@@ -47,8 +50,6 @@ spec:
           - hosts:
               - REPLACEME.${INGRESS_URL}
         integrations:
-          traefik:
-            enabled: false
           homepage:
             enabled: true
             group: Default
