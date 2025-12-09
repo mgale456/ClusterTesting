@@ -67,7 +67,11 @@ spec:
       config:
         enabled: true
         mountPath: /config
-        targetSelectAll: true
+        targetSelector:
+          main:
+            main: {}
+            codeserver:
+              mountPath: /config/data
       venv-cache:
         enabled: true
         mountPath: /config/.venv
