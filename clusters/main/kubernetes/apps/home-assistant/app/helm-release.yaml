@@ -68,3 +68,24 @@ spec:
         enabled: true
         mountPath: /config
         targetSelectAll: true
+      venv-cache:
+        enabled: true
+        mountPath: /config/.venv
+        targetSelectAll: true
+    addons:
+      codeserver:
+        # -- Enable running a code-server container in the pod
+        enabled: true
+
+        ingress:
+          # -- Enable an ingress for the code-server add-on.
+          enabled: true
+          ingressClassName: internal
+          hosts:
+            - host: cs-home-assistant.${INGRESS_URL}
+              paths:
+                - path: /
+                  pathType: Prefix
+          tls:
+            - hosts:
+                - cs-home-assistant.${INGRESS_URL}
