@@ -29,6 +29,9 @@ spec:
     keepHistory: false
   values:
     TZ: ${TZ}
+    workload:
+      main:
+        replicas: 0
     ingress:
       main:
         enabled: true
