@@ -59,6 +59,7 @@ spec:
         enabled: false
       ui:
         enabled: true
+        replicas: 0
         primary: true
         type: Deployment
         podSpec:
