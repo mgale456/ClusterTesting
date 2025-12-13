@@ -63,6 +63,17 @@ spec:
     # See values below for more examples
     dashboards:
       grafana:
+        node-exporter:
+          enabled: true
+          failOnError: false
+          b64content: false
+          datasource:
+            - name: "$${DS_PROMETHEUS}"
+              value: Prometheus
+          marketplace:
+            # renovate: depName="Node Exporter Full"
+            id: 1860
+            revision: 42
         cert-manager:
           enabled: true
           failOnError: false
