@@ -48,8 +48,9 @@ spec:
             group: Default
             widget:
               version: 2
-              username: admin
-              password: testpassword
+              custom:
+                username: admin
+                password: testpassword
 
     # Define extra dashboards to be provisioned
     # Supports 2 formats:
