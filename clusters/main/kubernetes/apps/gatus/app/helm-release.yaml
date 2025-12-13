@@ -47,9 +47,6 @@ spec:
           - hosts:
               - gatus.${INGRESS_URL}
         integrations:
-          certManager:
-            enabled: true
-            certificateIssuer: "domain-0-wildcard"
           homepage:
             enabled: true
             group: Default
