@@ -47,10 +47,10 @@ spec:
             enabled: true
             group: Default
             widget:
-              version: 2
               custom:
                 username: admin
                 password: testpassword
+                version: 2
 
     # Define extra dashboards to be provisioned
     # Supports 2 formats:
