@@ -29,3 +29,4 @@ resources:
   - code-server/ks.yaml
   - dockerregistry/ks.yaml
   - home-assistant/ks.yaml
+  - grafana/ks.yaml
