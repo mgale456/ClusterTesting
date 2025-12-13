@@ -143,27 +143,22 @@ spec:
                 - TrueCharts:
                   - abbr: TC
                     icon: https://truecharts.org/svg/favicon.svg
-                    href: https://truecharts.org/charts/description-list/
+                    href: https://truecharts.org/truetech/truecharts/charts/stable/frigate/
                     description: "TrueCharts Website"
-                - Github:
+                - TrueCharts Github:
                   - abbr: GH
-                    icon: https://github.com/fluidicon.png
-                    href: https://github.com/truecharts
+                    icon: https://github.githubassets.com/favicons/favicon-dark.svg
+                    href: https://github.com/trueforge-org/truecharts/tree/master/charts/stable
                     description: "TrueCharts GitHub"
                 - MrPuffin's Cluster Repo:
                   - abbr: GH
                     href: https://github.com/PrivatePuffin/cluster
-                    icon: https://github.com/fluidicon.png
+                    icon: https://github.githubassets.com/favicons/favicon-dark.svg
                     description: "Cluster Repo"
-                - Open Collective:
-                  - abbr: TC
-                    icon: https://opencollective.com/favicon.ico
-                    href: https://opencollective.com/truecharts
-                    description: "TrueCharts Open Collective"
-                - Discord:
-                  - abbr: DC
-                    icon: https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://discord.com&size=32
-                    href: https://truecharts.org/s/discord
-                    description: "TrueCharts Discord"
+                - ContainerForge Github:
+                  - abbr: GH
+                    icon: https://github.githubassets.com/favicons/favicon-dark.svg
+                    href: https://github.com/trueforge-org/containerforge/tree/main/apps
+                    description: "ContainerForge GitHub"
 
     forceConfigFromValues: true
