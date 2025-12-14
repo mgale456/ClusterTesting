@@ -50,7 +50,7 @@ spec:
               custom:
                 username: admin
                 password: testpassword
-                version: 2
+                version: "2"
 
     # Define extra dashboards to be provisioned
     # Supports 2 formats:
