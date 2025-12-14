@@ -72,9 +72,64 @@ spec:
             - name: "$${DS_PROMETHEUS}"
               value: Prometheus
           marketplace:
-            # renovate: depName="Node Exporter Full"
+            # renovate: depName="node-exporter-full"
             id: 1860
             revision: 42
+        k8s-views-pods: #https://github.com/dotdc/grafana-dashboards-kubernetes/tree/master
+          enabled: true
+          failOnError: false
+          b64content: false
+          datasource:
+            - name: "$${DS_PROMETHEUS}"
+              value: Prometheus
+          marketplace:
+            # renovate: depName="kubernetes-views-pods"
+            id: 15760
+            revision: 37
+        etcd:
+          enabled: true
+          failOnError: false
+          b64content: false
+          datasource:
+            - name: "$${DS_PROMETHEUS}"
+              value: Prometheus
+          marketplace:
+            # renovate: depName="etcd"
+            id: 22236
+            revision: 4
+        k8s-views-nodes: # https://github.com/dotdc/grafana-dashboards-kubernetes/tree/master
+          enabled: true
+          failOnError: false
+          b64content: false
+          datasource:
+            - name: "$${DS_PROMETHEUS}"
+              value: Prometheus
+          marketplace:
+            # renovate: depName="kubernetes-views-nodes"
+            id: 15759
+            revision: 39
+        k8s-views-global: # https://github.com/dotdc/grafana-dashboards-kubernetes/tree/master
+          enabled: true
+          failOnError: false
+          b64content: false
+          datasource:
+            - name: "$${DS_PROMETHEUS}"
+              value: Prometheus
+          marketplace:
+            # renovate: depName="kubernetes-views-nodes"
+            id: 15757
+            revision: 43
+        k8s-views-namespaces: # https://github.com/dotdc/grafana-dashboards-kubernetes/tree/master
+          enabled: true
+          failOnError: false
+          b64content: false
+          datasource:
+            - name: "$${DS_PROMETHEUS}"
+              value: Prometheus
+          marketplace:
+            # renovate: depName="kubernetes-views-nodes"
+            id: 15758
+            revision: 44
         cert-manager:
           enabled: true
           failOnError: false
@@ -87,7 +142,7 @@ spec:
             id: 20842
             revision: 3
         cnpg:
-          enabled: true
+          enabled: false
           failOnError: false
           b64content: false
           datasource:
@@ -98,7 +153,7 @@ spec:
             id: 20417
             revision: 4
         flux-cluster:
-          enabled: true
+          enabled: false
           failOnError: false
           b64content: false
           datasource:
@@ -106,7 +161,7 @@ spec:
               value: Prometheus
           url: https://github.com/fluxcd/flux2-monitoring-example/raw/82c37257787bba13a40b17bed9bd8191ee7aa049/monitoring/configs/dashboards/cluster.json
         flux-control-plane:
-          enabled: true
+          enabled: false
           failOnError: false
           b64content: false
           datasource:
@@ -114,7 +169,7 @@ spec:
               value: Prometheus
           url: https://github.com/fluxcd/flux2-monitoring-example/raw/82c37257787bba13a40b17bed9bd8191ee7aa049/monitoring/configs/dashboards/control-plane.json
         metallb:
-          enabled: true
+          enabled: false
           failOnError: false
           b64content: false
           datasource:
@@ -125,7 +180,7 @@ spec:
             id: 20162
             revision: 6
         nginx:
-          enabled: true
+          enabled: false
           failOnError: false
           b64content: false
           datasource:
