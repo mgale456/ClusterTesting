@@ -37,6 +37,10 @@ spec:
           revision: "3"
           credentials: mys3
         recovery:
+          ## Point in time recovery target. Specify one of the following:
+          pitrTarget:
+            # Time in RFC3339 format
+          time: "2025-12-02T22:14:08.000"
           revision: "3"
           credentials: mys3
     credentials:
