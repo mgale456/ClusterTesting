@@ -29,6 +29,13 @@ spec:
     keepHistory: false
   values:
     TZ: ${TZ}
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                HF_HOME: "/data" # https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfhome
     service:
       main:
         type: LoadBalancer
