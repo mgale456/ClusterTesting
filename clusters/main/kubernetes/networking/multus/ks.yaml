@@ -1,0 +1,28 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: multus
+  namespace: flux-system
+spec:
+  interval: 1h
+  path: clusters/main/kubernetes/networking/multus/app
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: cluster
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: multus-networks
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: multus
+  wait: true
+  interval: 1h
+  path: clusters/main/kubernetes/networking/multus/networks
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: cluster
