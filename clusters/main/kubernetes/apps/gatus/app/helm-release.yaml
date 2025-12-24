@@ -30,8 +30,6 @@ spec:
     keepHistory: false
   values:
     TZ: ${TZ}
-    podOptions:
-      hostUsers: true
     ingress:
       main:
         enabled: true
@@ -135,6 +133,7 @@ spec:
 
     podOptions:
       automountServiceAccountToken: true
+      hostUsers: true
 
     configmap:
       config:
