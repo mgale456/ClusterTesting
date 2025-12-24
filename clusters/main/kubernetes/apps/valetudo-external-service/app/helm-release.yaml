@@ -52,7 +52,7 @@ spec:
     service:
       main:
         type: ExternalIP
-        externalIP: "${PROXMOX_EXTERNAL_IP}"
+        externalIP: "192.168.0.208"
         useSlice: false
         ports:
           main:
