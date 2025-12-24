@@ -31,6 +31,8 @@ spec:
     keepHistory: false
   values:
     TZ: ${TZ}
+    podOptions:
+      hostUsers: true
     service:
       main:
         type: LoadBalancer
