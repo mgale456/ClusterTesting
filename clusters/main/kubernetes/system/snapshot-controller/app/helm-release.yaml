@@ -27,3 +27,8 @@ spec:
   values:
     podOptions:
       hostUsers: true
+    persistence:
+      meg-test:
+        enabled: true
+        type: emptyDir
+        mountPath: /meg
