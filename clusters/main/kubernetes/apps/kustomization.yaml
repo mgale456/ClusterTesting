@@ -22,7 +22,7 @@ resources:
   - whisper/ks.yaml
   - outline/ks.yaml
   - openspeedtest/ks.yaml
-  - proxmox-external-service/ks.yaml
+  - valetudo-external-service/ks.yaml
   - filebrowser/ks.yaml
   - authelia/ks.yaml
   - lldap/ks.yaml
