@@ -28,6 +28,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    podOptions:
+      hostUsers: true
     ingress:
       main:
         enabled: true
