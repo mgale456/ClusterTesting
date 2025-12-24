@@ -31,4 +31,4 @@ spec:
     keepHistory: false
   values:
     podOptions:
-    hostUsers: true
+      hostUsers: true
