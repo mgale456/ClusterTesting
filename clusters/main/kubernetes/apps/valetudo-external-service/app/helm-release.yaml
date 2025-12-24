@@ -47,6 +47,7 @@ spec:
           homepage:
             enabled: true
             icon: http://192.168.0.208/favicon.ico
+            group: Home Automation
             widget:
               enabled: false
     service:
