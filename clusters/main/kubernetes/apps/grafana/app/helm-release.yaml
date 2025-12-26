@@ -92,7 +92,7 @@ spec:
           b64content: false
           datasource:
             - name: "$${DS_PROMETHEUS}"
-              value: Prometheus
+              value: "$${datasource}"
           marketplace:
             # renovate: depName="etcd"
             id: 22236
@@ -169,7 +169,7 @@ spec:
               value: Prometheus
           url: https://github.com/fluxcd/flux2-monitoring-example/raw/82c37257787bba13a40b17bed9bd8191ee7aa049/monitoring/configs/dashboards/control-plane.json
         metallb:
-          enabled: false
+          enabled: true
           failOnError: false
           b64content: false
           datasource:
