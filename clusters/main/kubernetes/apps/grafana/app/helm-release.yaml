@@ -90,9 +90,9 @@ spec:
           enabled: true
           failOnError: false
           b64content: false
-          datasource:
-            - name: "$${DS_PROMETHEUS}"
-              value: "$${datasource}"
+          #datasource:
+          #  - name: "$${DS_PROMETHEUS}"
+          #    value: "$${datasource}"
           marketplace:
             # renovate: depName="etcd"
             id: 22236
