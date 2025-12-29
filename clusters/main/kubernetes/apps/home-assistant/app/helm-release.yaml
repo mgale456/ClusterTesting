@@ -31,7 +31,7 @@ spec:
     image:
       repository: ghcr.io/home-operations/home-assistant
       pullPolicy: IfNotPresent
-      tag: "2025.12.4"
+      tag: "2025.12.5"
     service:
       main:
         type: LoadBalancer
