@@ -29,23 +29,6 @@ spec:
     keepHistory: false
   values:
     TZ: ${TZ}
-    persistence:
-      cache:
-        enabled: true
-        mountPath: /.cache/huggingface
-    securityContext:
-      container:
-        runAsUser: 568
-        runAsGroup: 568
-        readOnlyRootFilesystem: true
-        allowPrivilegeEscalation: false
-    workload:
-      main:
-        podSpec:
-          containers:
-            main:
-              env:
-                #HF_HOME: "/data" # https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfhome
     service:
       main:
         type: LoadBalancer
