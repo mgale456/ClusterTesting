@@ -46,7 +46,7 @@ spec:
         integrations:
           homepage:
             enabled: true
-            icon: https://github.com/Hypfer/Valetudo/blob/99a91f68b0148bc888a93615c6a5b7e7cd95577b/assets/logo/valetudo_icon.svg
+            icon: https://raw.githubusercontent.com/Hypfer/Valetudo/99a91f68b0148bc888a93615c6a5b7e7cd95577b/assets/logo/valetudo_icon.svg
             group: Home Automation
             widget:
               enabled: false

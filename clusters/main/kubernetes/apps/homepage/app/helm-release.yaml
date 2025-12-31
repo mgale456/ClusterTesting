@@ -134,7 +134,7 @@ spec:
                 - UW Credit Union:
                     href: https://www.uwcu.org/
                     description: Online Banking
-                    icon: https://www.uwcu.org/favicon.ico
+                    icon: https://www.uwcu.org/ui/www/assets/favicon/apple-touch-icon.png
                 - The Banano Stand:
                     href: https://thebananostand.com/
                     description: Online Banano wallet
