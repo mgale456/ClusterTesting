@@ -193,17 +193,13 @@ spec:
                 - TP Link Router:
                     - abbr: TP
                       href: http://tplinkwifi.net
-                      icon: http://tplinkwifi.net/webpages/themes/default/img/logo/favicon.ico
+                      icon: https://static.tp-link.com/assets/images/icon/favicon-152px.png
 
             - Mattie:
-                - Library:
-                    - abbr: VL
-                      href: https://www.veronapubliclibrary.org/
-                      icon: https://www.veronapubliclibrary.org/sites/www.veronapubliclibrary.org/themes/custom/bootstrap_ver/favicon.ico
                 - Fitchburg Library:
                     - abbr: FL
-                      href: http://fitchburgwi.gov/2775/Library
-                      icon: http://fitchburgwi.gov/images/favicon.ico
+                      href: https://fitchburgwi.gov/2775/Library
+                      icon: https://fitchburgwi.gov/images/favicon.ico
 
             - TrueCharts:
                 - TrueCharts:
