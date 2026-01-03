@@ -50,10 +50,10 @@ spec:
                 PORT: *port
     resources:
       limits:
-        cpu: 100m
+        cpu: 500m
         memory: 128Mi
       requests:
-        cpu: 10m
+        cpu: 100m
         memory: 50Mi
     ingress:
       main:
@@ -69,7 +69,3 @@ spec:
         tls:
           - hosts:
               - hypermind.${INGRESS_URL}
-        integrations:
-          homepage:
-            enabled: true
-            group: Default
