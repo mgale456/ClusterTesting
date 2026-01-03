@@ -48,6 +48,13 @@ spec:
             main:
               env:
                 PORT: *port
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 10m
+        memory: 50Mi
     ingress:
       main:
         enabled: true
