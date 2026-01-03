@@ -171,6 +171,19 @@ spec:
                       key: ${TRUENAS_API_KEY} # not required if using username / password
                       enablePools: "true" # optional, defaults to false
                       nasType: scale # def
+                - Hypermind:
+                    href: https://hypermind.${INGRESS_URL}
+                    description: Decentralized P2P count of active nodes
+                    icon: https://hypermind.michaelhome.xyz/favicon.ico
+                    widget:
+                      type: customapi
+                      url: http://hypermind-app-template.hypermind.svc.cluster.local:3000/api/stats
+                      method: GET
+                      mappings:
+                        - field: count
+                          label: Swarm Size
+                        - field: direct
+                          label: Friends
 
           bookmarks.yaml: |
             ---
