@@ -28,6 +28,10 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    image:
+      repository: ghcr.io/lklynet/hypermind
+      pullPolicy: IfNotPresent
+      tag: latest@sha256:b9542c6f40aa83220549d37a198009d1cde39963cb5d7f8456518e13654f3158
     securityContext:
       container:
         readOnlyRootFilesystem: false
