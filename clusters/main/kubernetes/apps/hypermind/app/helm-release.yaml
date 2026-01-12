@@ -31,7 +31,7 @@ spec:
     image:
       repository: ghcr.io/lklynet/hypermind
       pullPolicy: IfNotPresent
-      tag: 0.11.0@sha256:978869cc8d10f5c9bcb74de06590e05a48b1acc84abd0b0df0822cbeb392e00f
+      tag: 0.11.1@sha256:99f9baf87ee8e27e436c5ec3c8e59b35e0102beec2090d2863440f9d267ff1fd
     securityContext:
       container:
         readOnlyRootFilesystem: false
