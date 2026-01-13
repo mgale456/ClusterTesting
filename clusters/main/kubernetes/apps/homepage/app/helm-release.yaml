@@ -174,7 +174,7 @@ spec:
                 - Hypermind:
                     href: https://hypermind.${INGRESS_URL}
                     description: Decentralized P2P count of active nodes
-                    icon: https://hypermind.michaelhome.xyz/favicon.ico
+                    icon: https://hypermind.michaelhome.xyz/hypernode.svg
                     widget:
                       type: customapi
                       url: http://hypermind-app-template.hypermind.svc.cluster.local:3000/api/stats
