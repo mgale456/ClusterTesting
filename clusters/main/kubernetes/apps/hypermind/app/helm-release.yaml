@@ -51,7 +51,7 @@ spec:
                 ENABLE_CHAT: true
                 ENABLE_MAP: true
                 VISUAL_LIMIT: 1000
-                MAX_CONNECTIONS: 100
+                MAX_CONNECTIONS: 15
     resources:
       limits:
         cpu: 1000m
