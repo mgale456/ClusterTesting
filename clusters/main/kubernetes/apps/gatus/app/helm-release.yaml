@@ -55,7 +55,7 @@ spec:
         enabled: false
 
     sidecar:
-      enabled: true
+      enable: true
       enableIngress: true
       autoIngress: true
     persistence:
