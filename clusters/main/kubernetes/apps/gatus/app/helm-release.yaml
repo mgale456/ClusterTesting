@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: gatus
-      version: 2.27.7
+      version: 3.1.4
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -53,87 +53,14 @@ spec:
     cnpg:
       main:
         enabled: false
-    configSidecarImage:
-      repository: ghcr.io/home-operations/gatus-sidecar
-      pullPolicy: IfNotPresent
-      tag: 0.0.12@sha256:83bf82d422e9b0529a8076cb584d557a12158d9d8a4c373b4d27afcb87a17569
-    workload:
-      main:
-        podSpec:
-          containers:
-            main:
-              env:
-                GATUS_CONFIG_PATH: /config
-                GATUS_DELAY_START_SECONDS: 5
-            config-sidecar:
-              enabled: true
-              imageSelector: configSidecarImage
-              probes:
-                liveness:
-                  enabled: false
-                readiness:
-                  enabled: false
-                startup:
-                  enabled: false
-              args:
-                - --auto-ingress=true
-                - --enable-ingress=true
-                - --enable-httproute=false
-                - --enable-service=false
-                - --default-interval=5m
-                #- --auto-routes=false
-                #- --auto-services=false
-                #- --auto-group=true
-                #- --output=/config/gatus-sidecar.yaml
-                #- --default-dns=tcp://blocky-dns.blocky.svc.cluster.local:53
-    persistence:
-      config-dir:
-        enabled: true
-        mountPath: /config
-        type: emptyDir
-        targetSelectAll: true
-    # -- Whether Role Based Access Control objects like roles and rolebindings should be created
-    rbac:
-      main:
-        enabled: true
-        primary: true
-        clusterWide: true
-        rules:
-          - apiGroups:
-              - "networking.k8s.io"
-            resources:
-              - "ingresses"
-              - "ingressclasses"
-            verbs:
-              - "get"
-              - "list"
-              - "watch"
-          - apiGroups: [""]
-            resources:
-              - "configmaps"
-              - "secrets"
-              - "services"
-            verbs:
-              - "get"
-              - "list"
-              - "watch"
-          - apiGroups:
-              - gateway.networking.k8s.io
-            resources:
-              - httproutes
-            verbs:
-              - get
-              - watch
-              - list
-    # -- The service account the pods will use to interact with the Kubernetes API
-    serviceAccount:
-      main:
-        enabled: true
-        primary: true
 
-    podOptions:
-      automountServiceAccountToken: true
-      hostUsers: true
+    sidecar:
+      enabled: true
+      enableIngress: true
+      autoIngress: true
+    persistence:
+      configmain:
+        type: emptyDir
 
     configmap:
       config:
