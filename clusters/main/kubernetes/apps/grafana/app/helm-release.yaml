@@ -193,7 +193,7 @@ spec:
           b64content: false
           datasource:
             - name: "$${DS_PROMETHEUS}"
-              value: Prometheus
+              value: prometheus
           marketplace:
             # renovate: depName="smartctl-exporter-dashboard"
             id: 22604
