@@ -31,3 +31,4 @@ resources:
   - home-assistant/ks.yaml
   - grafana/ks.yaml
   - hypermind/ks.yaml
+  - smartctl-exporter/ks.yaml
