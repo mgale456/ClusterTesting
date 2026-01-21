@@ -194,7 +194,7 @@ spec:
           marketplace:
             # renovate: depName="smartctl-exporter-dashboard"
             id: 22604
-            revision: 22
+            revision: 2
     workload:
       main:
         replicas: 1
