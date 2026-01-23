@@ -28,8 +28,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    podOptions:
-      hostUsers: true
     service:
       main:
         ports:
@@ -75,6 +73,7 @@ spec:
 
     podOptions:
       automountServiceAccountToken: true
+      hostUsers: true
     ingress:
       main:
         enabled: true
