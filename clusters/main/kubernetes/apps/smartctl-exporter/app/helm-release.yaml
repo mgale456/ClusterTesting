@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: smartctl-exporter
-      version: 5.13.17
+      version: 5.14.0
       sourceRef:
         kind: HelmRepository
         name: truecharts
