@@ -31,3 +31,4 @@ resources:
   - grafana/ks.yaml
   - hypermind/ks.yaml
   - smartctl-exporter/ks.yaml
+  - continuwuity/ks.yaml
