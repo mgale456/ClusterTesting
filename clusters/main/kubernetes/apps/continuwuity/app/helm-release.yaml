@@ -52,6 +52,7 @@ spec:
                 CONDUWUIT_ALLOW_ENCRYPTION: true
                 CONTINUWUITY_ALLOW_FEDERATION: false
                 CONTINUWUITY_ALLOW_REGISTRATION: true
+                CONTINUWUITY_SUSPEND_ON_REGISTER: true
                 CONTINUWUITY_ALLOW_LEGACY_MEDIA: false
                 CONTINUWUITY_WELL_KNOWN__CLIENT: https://matrix.${INGRESS_URL}
                 CONTINUWUITY_WELL_KNOWN__SERVER: matrix.${INGRESS_URL}:443
@@ -87,7 +88,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: internal
+        ingressClassName: external
         annotations:
           gethomepage.dev/instance: "internal"
         hosts:
