@@ -75,7 +75,7 @@ spec:
             enabled: true
             port: 80
             targetPort: *port
-            protocol: HTTP
+            protocol: http
         integrations:
           metallb:
             enabled: true
