@@ -32,4 +32,5 @@ resources:
   - gatus.yaml
   - capacitor.yaml
   - home-ops-mirror.yaml
+  - stunner.yaml
 # more goes here!
