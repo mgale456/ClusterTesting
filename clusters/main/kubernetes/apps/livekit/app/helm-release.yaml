@@ -64,6 +64,13 @@ spec:
                 LIVEKIT_KEY: ${LK_MATRIX_KEY}
                 LIVEKIT_SECRET: ${LK_MATRIX_SECRET}
                 LIVEKIT_FULL_ACCESS_HOMESERVERS: ${INGRESS_URL}
+              probes:
+                liveness: &probes
+                  enabled: true
+                  type: http
+                  port: 8081
+                  path: /healthz
+                readiness: *probes
 
     service:
       main:
