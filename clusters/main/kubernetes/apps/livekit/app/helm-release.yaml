@@ -73,7 +73,7 @@ spec:
                 liveness: &probes
                   enabled: true
                   type: http
-                  port: 8081
+                  port: 8080
                   path: /healthz
                 readiness: *probes
                 startup: *probes
@@ -96,7 +96,7 @@ spec:
           jwt:
             enabled: true
             protocol: http
-            port: 8081
+            port: 8080
     ingress:
       main:
         enabled: true
