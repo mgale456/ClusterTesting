@@ -25,6 +25,7 @@ spec:
   loadBalancerServiceAnnotations:
     metallb.io/ip-allocated-from-pool: main
     metallb.io/loadBalancerIPs: ${STUNNER_UDP_IP}
+    metallb.io/allow-shared-ip: stunner
     #coredns.io/hostname: turn.${INGRESS_URL}
 
 ---
@@ -42,6 +43,11 @@ spec:
     - name: tls
       port: 5349
       protocol: TURN-TLS
+      tls:
+        certificateRefs:
+          - kind: Secret
+            name: certificate-issuer-domain-0-wildcard
+            namespace: clusterissuer
 
 ---
 apiVersion: stunner.l7mp.io/v1
