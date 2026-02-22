@@ -93,9 +93,10 @@ spec:
       config-vol:
         enabled: true
         type: configmap
-        items:
-          - key: config-map
-            path: /etc/livekit.yaml
+        mountPath: /etc/livekit.yaml
+        subPath: livekit.yaml
+        readOnly: true
+        objectName: config-map
     configmap:
       config-map:
         enabled: true
