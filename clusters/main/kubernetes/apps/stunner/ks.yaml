@@ -1,13 +1,12 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: continuwuity
+  name: stunner
   namespace: flux-system
 spec:
   interval: 10m
-  path: clusters/main/kubernetes/apps/continuwuity/app
+  path: clusters/main/kubernetes/apps/stunner/app
   prune: true
   sourceRef:
     kind: GitRepository
     name: cluster
-
