@@ -43,7 +43,7 @@ spec:
         podSpec:
           containers:
             main:
-              args: --config /etc/livekit.yaml
+              args: "--config /etc/livekit.yaml"
               enabled: true
               primary: true
               env: {}
