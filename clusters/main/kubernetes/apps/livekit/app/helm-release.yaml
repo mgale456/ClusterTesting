@@ -63,14 +63,16 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+                overrideService:
+                  port: 7880
         tls:
           - hosts:
               - livekit.${INGRESS_URL}
       jwt:
         enabled: true
         ingressClassName: internal
-#        targetSelector:
-#          service-name: jwt
+        #        targetSelector:
+        #          service-name: jwt
         hosts:
           - host: livekit.${INGRESS_URL}
             paths:
@@ -99,11 +101,8 @@ livekit:
     tcp_port: 7881
     port_range_start: 50100
     port_range_end: 50200
-    use_external_ip: true
+    use_external_ip: false
     enable_loopback_candidate: false
-  keys:
-    &{LK_MATRIX_KEY}: &{LK_MATRIX_SECRET}
-  rtc:
     turn_servers:
       - host: livekit.${INGRESS_URL}
         port: 3478
@@ -117,3 +116,9 @@ livekit:
         port: 3478
         protocol: udp
         secret: "${LK_TURN_SECRET}"
+  room:
+    auto_create: false
+  turn:
+    enabled: false
+  keys:
+    ${LK_MATRIX_KEY}: "&{LK_MATRIX_SECRET}"
