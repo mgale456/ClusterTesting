@@ -102,7 +102,7 @@ spec:
         enabled: true
         data:
           livekit.yaml: |
-            {{- .Values.livekit | toYaml | nindent 12 }}
+            {{- .Values.livekit | toYaml | nindent 4 }}
 
     livekit:
       port: 7880
