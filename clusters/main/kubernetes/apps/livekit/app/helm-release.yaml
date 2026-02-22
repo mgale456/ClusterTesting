@@ -93,32 +93,32 @@ spec:
           livekit.yaml: |
             {{- .Values.livekit | toYaml | nindent 12 }}
 
-livekit:
-  port: 7880
-  bind_addresses:
-    - ""
-  rtc:
-    tcp_port: 7881
-    port_range_start: 50100
-    port_range_end: 50200
-    use_external_ip: false
-    enable_loopback_candidate: false
-    turn_servers:
-      - host: livekit.${INGRESS_URL}
-        port: 3478
-        protocol: tcp
-        secret: "${LK_TURN_SECRET}"
-      - host: livekit.${INGRESS_URL}
-        port: 5349
-        protocol: tls # Only if you've set up TLS in your coturn
-        secret: "${LK_TURN_SECRET}"
-      - host: livekit.${INGRESS_URL}
-        port: 3478
-        protocol: udp
-        secret: "${LK_TURN_SECRET}"
-  room:
-    auto_create: false
-  turn:
-    enabled: false
-  keys:
-    ${LK_MATRIX_KEY}: "&{LK_MATRIX_SECRET}"
+    livekit:
+      port: 7880
+      bind_addresses:
+        - ""
+      rtc:
+        tcp_port: 7881
+        port_range_start: 50100
+        port_range_end: 50200
+        use_external_ip: false
+        enable_loopback_candidate: false
+        turn_servers:
+          - host: livekit.${INGRESS_URL}
+            port: 3478
+            protocol: tcp
+            secret: "${LK_TURN_SECRET}"
+          - host: livekit.${INGRESS_URL}
+            port: 5349
+            protocol: tls # Only if you've set up TLS in your coturn
+            secret: "${LK_TURN_SECRET}"
+          - host: livekit.${INGRESS_URL}
+            port: 3478
+            protocol: udp
+            secret: "${LK_TURN_SECRET}"
+      room:
+        auto_create: false
+      turn:
+        enabled: false
+      keys:
+        ${LK_MATRIX_KEY}: "&{LK_MATRIX_SECRET}"
