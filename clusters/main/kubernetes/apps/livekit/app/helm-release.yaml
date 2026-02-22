@@ -57,6 +57,7 @@ spec:
           containers:
             jwt:
               enabled: true
+              primary: true
               env:
                 LIVEKIT_JWT_BIND: 8081
                 LIVEKIT_URL: wss://livekit.${INGRESS_URL}
