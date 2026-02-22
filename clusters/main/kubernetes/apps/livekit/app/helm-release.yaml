@@ -63,7 +63,7 @@ spec:
               primary: true
               imageSelector: jwt-image
               env:
-                LIVEKIT_JWT_BIND: 8081
+                #LIVEKIT_JWT_BIND: 8081
                 LIVEKIT_URL: wss://livekit.${INGRESS_URL}
                 LIVEKIT_KEY: ${LK_MATRIX_KEY}
                 LIVEKIT_SECRET: ${LK_MATRIX_SECRET}
