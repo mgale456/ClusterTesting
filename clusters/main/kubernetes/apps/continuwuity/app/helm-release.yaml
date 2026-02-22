@@ -50,7 +50,7 @@ spec:
                 CONTINUWUITY_DATABASE_PATH: "/data/db"
                 CONTINUWUITY_ADDRESS: "0.0.0.0"
                 CONDUWUIT_ALLOW_ENCRYPTION: true
-                CONTINUWUITY_ALLOW_FEDERATION: false
+                CONTINUWUITY_ALLOW_FEDERATION: true
                 CONTINUWUITY_ALLOW_REGISTRATION: true
                 CONTINUWUITY_SUSPEND_ON_REGISTER: true
                 CONTINUWUITY_ALLOW_LEGACY_MEDIA: false
