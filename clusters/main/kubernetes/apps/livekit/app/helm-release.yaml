@@ -71,6 +71,7 @@ spec:
                   port: 8081
                   path: /healthz
                 readiness: *probes
+                startup: *probes
 
     service:
       main:
