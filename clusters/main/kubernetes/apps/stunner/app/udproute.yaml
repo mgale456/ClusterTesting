@@ -40,7 +40,7 @@ apiVersion: stunner.l7mp.io/v1
 kind: UDPRoute
 metadata:
   name: livekit-media-plane
-  namespace: stunner
+  namespace: stunner-system
 spec:
   parentRefs:
     - name: udp-gateway
