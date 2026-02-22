@@ -22,6 +22,9 @@ spec:
   realm: stunner.l7mp.io
   authType: ephemeral
   sharedSecret: ${LK_TURN_SECRET}
+  loadBalancerServiceAnnotations:
+    metallb.io/ip-allocated-from-pool: main
+    metallb.io/loadBalancerIPs: ${STUNNER_UDP_IP}
 
 ---
 apiVersion: gateway.networking.k8s.io/v1
