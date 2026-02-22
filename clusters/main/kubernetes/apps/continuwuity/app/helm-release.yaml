@@ -68,6 +68,7 @@ spec:
                   ["matrix.org"]
                 CONTINUWUITY_ALLOW_ANNOUNCEMENTS_CHECK: true
                 CONTINUWUITY_REGISTRATION_TOKEN: ${CONTINUWUITY_REGISTRATION_TOKEN}
+                CONTINUWUITY_CONFIG: /config/config.toml
     service:
       main:
         type: LoadBalancer
@@ -86,6 +87,13 @@ spec:
         enabled: true
         type: pvc
         mountPath: /data
+      config:
+        enabled: true
+        type: configmap
+        mountPath: /config/config.toml
+        subPath: config.toml
+        readOnly: true
+        objectName: continuwuity-config
     ingress:
       main:
         enabled: true
