@@ -1,0 +1,120 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: livekit
+  namespace: livekit
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: livekit
+      version: 15.31.4
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    TZ: ${TZ}
+    image:
+      repository: livekit/livekit-server
+      tag: main@sha256:438bc2f61790c45130521ca2c81ab5bee427bbc1985ecf4f93b2c0194b284388
+    workload:
+      main:
+        enabled: true
+        primary: true
+        type: Deployment
+        replicas: 1
+        podSpec:
+          containers:
+            main:
+              args: --config /etc/livekit.yaml
+              enabled: true
+              primary: true
+              env:
+    service:
+      main:
+        ports:
+          main:
+            protocol: http
+            port: 80
+            targetPort: 7880
+          rtc-tcp:
+            port: 7881
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: internal
+        hosts:
+          - host: livekit.${INGRESS_URL}
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - livekit.${INGRESS_URL}
+      jwt:
+        enabled: true
+        ingressClassName: internal
+#        targetSelector:
+#          service-name: jwt
+        hosts:
+          - host: livekit.${INGRESS_URL}
+            paths:
+              - path: /sfu/get
+                pathType: Prefix
+              - path: /healthz
+                pathType: Prefix
+              - path: /get_token
+                pathType: Prefix
+        tls:
+          - hosts:
+              - livekit.${INGRESS_URL}
+    persistence:
+
+    configmap:
+      config:
+        enabled: true
+        data:
+          livekit.yaml: |
+            {{- .Values.livekit | toYaml | nindent 12 }}
+
+livekit:
+  port: 7880
+  bind_addresses:
+    - ""
+  rtc:
+    tcp_port: 7881
+    port_range_start: 50100
+    port_range_end: 50200
+    use_external_ip: true
+    enable_loopback_candidate: false
+  keys:
+    &{LK_MATRIX_KEY}: &{LK_MATRIX_SECRET}
+  rtc:
+    turn_servers:
+      - host: livekit.${INGRESS_URL}
+        port: 3478
+        protocol: tcp
+        secret: "${LK_TURN_SECRET}"
+      - host: livekit.${INGRESS_URL}
+        port: 5349
+        protocol: tls # Only if you've set up TLS in your coturn
+        secret: "${LK_TURN_SECRET}"
+      - host: livekit.${INGRESS_URL}
+        port: 3478
+        protocol: udp
+        secret: "${LK_TURN_SECRET}"
