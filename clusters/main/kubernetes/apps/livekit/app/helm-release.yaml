@@ -60,13 +60,13 @@ spec:
       main:
         enabled: true
         ingressClassName: internal
+        targetSelector:
+          main: main
         hosts:
           - host: livekit.${INGRESS_URL}
             paths:
               - path: /
                 pathType: Prefix
-                overrideService:
-                  port: 7880
         tls:
           - hosts:
               - livekit.${INGRESS_URL}
