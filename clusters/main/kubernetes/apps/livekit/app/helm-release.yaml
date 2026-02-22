@@ -44,6 +44,7 @@ spec:
         type: Deployment
         replicas: 1
         podSpec:
+          terminationGracePeriodSeconds: 1800 # 5 hours if folks are using it
           containers:
             main:
               #args: "--config /etc/livekit.yaml"
