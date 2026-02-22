@@ -31,7 +31,7 @@ spec:
     TZ: ${TZ}
     image:
       repository: forgejo.ellis.link/continuwuation/continuwuity
-      tag: main@sha256:438bc2f61790c45130521ca2c81ab5bee427bbc1985ecf4f93b2c0194b284388
+      tag: 0.5.5@sha256:467801ef68a22772147ac6088976d5284ec9f3a2182f004a8432ceb3af7a2319
     workload:
       main:
         enabled: true
