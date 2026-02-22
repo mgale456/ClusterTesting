@@ -26,7 +26,7 @@ spec:
     metallb.io/ip-allocated-from-pool: main
     metallb.io/loadBalancerIPs: ${STUNNER_UDP_IP}
     metallb.io/allow-shared-ip: stunner
-    #coredns.io/hostname: turn.${INGRESS_URL}
+    coredns.io/hostname: turn.${INGRESS_URL}
 
 ---
 apiVersion: gateway.networking.k8s.io/v1

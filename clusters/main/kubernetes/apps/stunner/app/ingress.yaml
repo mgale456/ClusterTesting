@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: internal
   rules:
-    - host: "turn.${INGRESS_URL}"
+    - host: "turn2.${INGRESS_URL}"
       http:
         paths:
           - path: /
@@ -20,4 +20,4 @@ spec:
   tls:
     - secretName:
       hosts:
-        - "turn.${INGRESS_URL}"
+        - "turn2.${INGRESS_URL}"
