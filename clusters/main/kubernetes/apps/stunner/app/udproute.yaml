@@ -60,5 +60,5 @@ spec:
     - name: udp-gateway
   rules:
     - backendRefs:
-        - name: livekit-server
+        - name: livekit-app-template
           namespace: livekit
