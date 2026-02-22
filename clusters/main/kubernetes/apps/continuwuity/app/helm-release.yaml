@@ -93,7 +93,14 @@ spec:
         mountPath: /config/config.toml
         subPath: config.toml
         readOnly: true
-        objectName: continuwuity-config
+        objectName: continuwuity-conf
+    configmap:
+      continuwuity-conf:
+        enabled: true
+        data:
+          config.toml: |
+            [global.well_known]
+            rtc_focus_server_urls = [{ type = "livekit", livekit_service_url = "https://livekit.${INGRESS_URL}" },]
     ingress:
       main:
         enabled: true
