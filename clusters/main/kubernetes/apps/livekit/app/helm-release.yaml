@@ -8,7 +8,7 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: livekit
+      chart: app-template
       version: 15.31.4
       sourceRef:
         kind: HelmRepository
@@ -31,8 +31,7 @@ spec:
     TZ: ${TZ}
     image:
       repository: livekit/livekit-server
-      tag: main@sha256:438bc2f61790c45130521ca2c81ab5bee427bbc1985ecf4f93b2c0194b284388
-    workload:
+      tag: 1.9.11@sha256:289262ffae8b827f45186331aa315d08ed275eb30f9b0add337ec57948e44ca1
       main:
         enabled: true
         primary: true
