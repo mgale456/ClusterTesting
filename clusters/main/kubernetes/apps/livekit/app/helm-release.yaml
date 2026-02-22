@@ -158,10 +158,10 @@ spec:
             port: 3478
             protocol: tcp
             secret: "${LK_TURN_SECRET}"
-          - host: turn.${INGRESS_URL}
-            port: 5349
-            protocol: tls # Only if you've set up TLS in your coturn
-            secret: "${LK_TURN_SECRET}"
+          #- host: turn.${INGRESS_URL}
+          #  port: 443
+          #  protocol: tls # Only if you've set up TLS in your coturn
+          #  secret: "${LK_TURN_SECRET}"
           - host: turn.${INGRESS_URL}
             port: 3478
             protocol: udp
