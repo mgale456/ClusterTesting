@@ -56,6 +56,7 @@ spec:
                 CONTINUWUITY_ALLOW_LEGACY_MEDIA: false
                 CONTINUWUITY_WELL_KNOWN__CLIENT: https://matrix.${INGRESS_URL}
                 CONTINUWUITY_WELL_KNOWN__SERVER: matrix.${INGRESS_URL}:443
+                CONTINUWUITY_WELL_KNOWN__RTC_FOCUS_SERVER_URLS: "{ type = 'livekit', livekit_service_url = 'livekit.&{INGRESS_URL}' }"
                 CONTINUWUITY_NEW_USER_DISPLAYNAME_SUFFIX: ""
                 CONTINUWUITY_QUERY_TRUSTED_KEY_SERVERS_FIRST: false # NOTE: this is because continuwuity only supports Synapse as trusted key servers
                 CONTINUWUITY_QUERY_TRUSTED_KEY_SERVERS_FIRST_ON_JOIN: false
