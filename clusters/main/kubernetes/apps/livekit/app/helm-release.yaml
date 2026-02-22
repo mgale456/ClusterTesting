@@ -89,9 +89,15 @@ spec:
         tls:
           - hosts:
               - livekit.${INGRESS_URL}
-
+    persistence:
+      config-vol:
+        enabled: true
+        type: configmap
+        items:
+          - key: config-map
+            path: /etc/livekit.yaml
     configmap:
-      config:
+      config-map:
         enabled: true
         data:
           livekit.yaml: |
@@ -125,4 +131,4 @@ spec:
       turn:
         enabled: false
       keys:
-        ${LK_MATRIX_KEY}: "&{LK_MATRIX_SECRET}"
+        ${LK_MATRIX_KEY}: "${LK_MATRIX_SECRET}"
