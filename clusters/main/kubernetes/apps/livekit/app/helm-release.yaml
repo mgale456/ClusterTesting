@@ -44,7 +44,7 @@ spec:
               args: --config /etc/livekit.yaml
               enabled: true
               primary: true
-              env:
+              env: {}
     service:
       main:
         ports:
@@ -83,7 +83,6 @@ spec:
         tls:
           - hosts:
               - livekit.${INGRESS_URL}
-    persistence:
 
     configmap:
       config:
