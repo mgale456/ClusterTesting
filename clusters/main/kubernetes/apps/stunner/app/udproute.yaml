@@ -39,11 +39,11 @@ spec:
     - name: udp-listener
       port: 3478
       protocol: TURN-UDP
-    - name: tls
-      port: 5349
-      protocol: TURN-TLS
-      tls:
-        mode: Terminate
+    #- name: tls
+    #  port: 5349
+    #  protocol: TURN-TLS
+    #  tls:
+    #    mode: Terminate
 
 ---
 apiVersion: stunner.l7mp.io/v1
