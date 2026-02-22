@@ -29,7 +29,7 @@ resources:
   - dockerregistry/ks.yaml
   - home-assistant/ks.yaml
   - grafana/ks.yaml
-  - hypermind/ks.yaml
+  #  - hypermind/ks.yaml
   - smartctl-exporter/ks.yaml
   - continuwuity/ks.yaml
   - stunner/ks.yaml

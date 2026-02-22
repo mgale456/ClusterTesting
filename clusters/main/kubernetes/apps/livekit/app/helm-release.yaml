@@ -49,6 +49,20 @@ spec:
               env:
                 LIVEKIT_CONFIG: |
                   {{- .Values.livekit | toYaml }}
+      jwt:
+        enabled: true
+        type: Deployment
+        replicas: 1
+        podSpec:
+          containers:
+            jwt:
+              enabled: true
+              env:
+                LIVEKIT_JWT_BIND: 8081
+                LIVEKIT_URL: wss://livekit.${INGRESS_URL}
+                LIVEKIT_KEY: ${LK_MATRIX_KEY}
+                LIVEKIT_SECRET: ${LK_MATRIX_SECRET}
+                LIVEKIT_FULL_ACCESS_HOMESERVERS: ${INGRESS_URL}
 
     service:
       main:
@@ -62,6 +76,13 @@ spec:
           rtc-tcp:
             enabled: true
             port: 7881
+      jwt:
+        enabled: true
+        ports:
+          jwt:
+            enabled: true
+            protocol: http
+            port: 8081
     ingress:
       main:
         enabled: true
@@ -79,8 +100,8 @@ spec:
       jwt:
         enabled: true
         ingressClassName: internal
-        #        targetSelector:
-        #          service-name: jwt
+        targetSelector:
+          jwt: jwt
         hosts:
           - host: livekit.${INGRESS_URL}
             paths:
@@ -119,15 +140,15 @@ spec:
         use_external_ip: false
         enable_loopback_candidate: false
         turn_servers:
-          - host: livekit.${INGRESS_URL}
+          - host: turn.${INGRESS_URL}
             port: 3478
             protocol: tcp
             secret: "${LK_TURN_SECRET}"
-          - host: livekit.${INGRESS_URL}
+          - host: turn.${INGRESS_URL}
             port: 5349
             protocol: tls # Only if you've set up TLS in your coturn
             secret: "${LK_TURN_SECRET}"
-          - host: livekit.${INGRESS_URL}
+          - host: turn.${INGRESS_URL}
             port: 3478
             protocol: udp
             secret: "${LK_TURN_SECRET}"
