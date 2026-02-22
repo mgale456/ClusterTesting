@@ -34,6 +34,9 @@ spec:
     image:
       repository: livekit/livekit-server
       tag: 1.9.11@sha256:289262ffae8b827f45186331aa315d08ed275eb30f9b0add337ec57948e44ca1
+    jwt-image:
+      repository: ghcr.io/element-hq/lk-jwt-service
+      tag: 0.4.1@sha256:6beec945a59b9b8b02161d29884abc2c1e5af9a376c1a2ccabbec3e26b07cf0c
     workload:
       main:
         enabled: true
@@ -58,6 +61,7 @@ spec:
             jwt:
               enabled: true
               primary: true
+              imageSelector: jwt-image
               env:
                 LIVEKIT_JWT_BIND: 8081
                 LIVEKIT_URL: wss://livekit.${INGRESS_URL}
