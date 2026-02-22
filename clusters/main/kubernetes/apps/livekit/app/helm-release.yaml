@@ -81,6 +81,7 @@ spec:
     service:
       main:
         enabled: true
+        targetSelector: main
         ports:
           main:
             enabled: true
@@ -92,6 +93,7 @@ spec:
             port: 7881
       jwt:
         enabled: true
+        targetSelector: jwt
         ports:
           jwt:
             enabled: true
