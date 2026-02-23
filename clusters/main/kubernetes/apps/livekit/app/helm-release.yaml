@@ -102,7 +102,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: internal
+        ingressClassName: external
         targetSelector:
           main: main
         hosts:
@@ -115,7 +115,7 @@ spec:
               - livekit.${INGRESS_URL}
       jwt:
         enabled: true
-        ingressClassName: internal
+        ingressClassName: external
         targetSelector:
           jwt: jwt
         hosts:
