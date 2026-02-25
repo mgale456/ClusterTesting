@@ -5,3 +5,4 @@ resources:
   - nginx-internal/ks.yaml
   - cloudflareddns/ks.yaml
   #- multus/ks.yaml
+  - envoy/ks.yaml
