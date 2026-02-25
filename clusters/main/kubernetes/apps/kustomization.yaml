@@ -34,3 +34,4 @@ resources:
   - continuwuity/ks.yaml
   - stunner/ks.yaml
   - livekit/ks.yaml
+  - envoy/ks.yaml

@@ -33,4 +33,5 @@ resources:
   - capacitor.yaml
   - home-ops-mirror.yaml
   - stunner.yaml
+  - envoyproxy.yaml
 # more goes here!
