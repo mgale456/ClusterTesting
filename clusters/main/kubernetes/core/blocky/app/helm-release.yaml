@@ -108,8 +108,26 @@ spec:
           groups:
             - default
 
+    rbac:
+      main:
+        # add gateway CRDs to the default Truecharts rbac
+        rules:
+          - apiGroups:
+              - "gateway.networking.k8s.io/v1"
+            resources:
+              - httproutes
+              - tlsroutes
+              - gateways
+            verbs:
+              - list
+              - watch
     k8sgateway:
       enabled: true
+      watchedResources:
+        - "Ingress"
+        - "HTTPRoute"
+        - "TLSRoute"
+        - "Service"
       # -- list of processed domains
       domains:
         - domain: "${DOMAIN_0}"
