@@ -74,6 +74,7 @@ spec:
           kubernetes.yaml: |
             mode: cluster
             ingress: true
+            gateway: true
           settings.yaml: |
             ---
             # For configuration options and examples, please see:
