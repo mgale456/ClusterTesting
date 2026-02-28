@@ -6,6 +6,8 @@ metadata:
 spec:
   parentRefs:
     - name: envoy-internal
+      namespace: envoy
+      sectionName: https
   hostnames:
     - "gatus.${INGRESS_URL}"
   rules:
