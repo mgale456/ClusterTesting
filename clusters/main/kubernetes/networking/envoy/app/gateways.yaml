@@ -65,10 +65,10 @@ spec:
       allowedRoutes:
         namespaces:
           from: All
-      #tls:
-      #  certificateRefs:
-      #    - kind: Secret
-      #      name: ${SECRET_DOMAIN/./-}-production-tls
+      tls:
+        certificateRefs:
+          - kind: Secret
+            name: certificate-issuer-domain-0-wildcard
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
@@ -94,10 +94,10 @@ spec:
       allowedRoutes:
         namespaces:
           from: All
-      #tls:
-      #  certificateRefs:
-      #    - kind: Secret
-      #      name: ${INGRESS_URL/./-}-production-tls
+      tls:
+        certificateRefs:
+          - kind: Secret
+            name: certificate-issuer-domain-0-wildcard
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: BackendTrafficPolicy
