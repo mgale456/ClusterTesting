@@ -121,7 +121,7 @@ spec:
               - list
               - watch
           - apiGroups:
-              - "gateway.networking.k8s.io/v1"
+              - "gateway.networking.k8s.io"
             resources:
               - "*"
             verbs:
