@@ -238,3 +238,56 @@ spec:
                     description: "ContainerForge GitHub"
 
     forceConfigFromValues: true
+
+    rbac:
+      main:
+        rules:
+          # customized
+          - apiGroups:
+              - "gateway.networking.k8s.io"
+            resources:
+              - httproutes
+              - gateways
+            verbs:
+              - get
+              - list
+          # carried forward from chart
+          - apiGroups:
+              - ""
+            resources:
+              - namespaces
+              - pods
+              - nodes
+            verbs:
+              - get
+              - list
+          - apiGroups:
+              - extensions
+              - networking.k8s.io
+            resources:
+              - ingresses
+            verbs:
+              - get
+              - list
+          - apiGroups:
+              - traefik.containo.us
+              - traefik.io
+            resources:
+              - ingressroutes
+            verbs:
+              - get
+              - list
+          - apiGroups:
+              - metrics.k8s.io
+            resources:
+              - nodes
+              - pods
+            verbs:
+              - get
+              - list
+          - apiGroups:
+              - apiextensions.k8s.io
+            resources:
+              - customresourcedefinitions/status
+            verbs:
+              - get
