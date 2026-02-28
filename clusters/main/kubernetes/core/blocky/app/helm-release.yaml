@@ -118,6 +118,23 @@ spec:
               - httproutes
               - tlsroutes
               - gateways
+              - gatewayclasses
+            verbs:
+              - list
+              - watch
+          - apiGroups:
+              - ""
+            resources:
+              - services
+              - namespaces
+            verbs:
+              - list
+              - watch
+          - apiGroups:
+              - extensions
+              - networking.k8s.io
+            resources:
+              - ingresses
             verbs:
               - list
               - watch
