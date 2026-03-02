@@ -45,55 +45,36 @@ spec:
               enabled: true
               primary: true
               env:
-                CONTINUWUITY_SERVER_NAME: matrix.${INGRESS_URL}
-                CONTINUWUITY_PORT: &port 8080
-                CONTINUWUITY_DATABASE_PATH: "/data/db"
-                CONTINUWUITY_ADDRESS: "0.0.0.0"
-                CONDUWUIT_ALLOW_ENCRYPTION: true
-                CONTINUWUITY_ALLOW_FEDERATION: true
-                CONTINUWUITY_ALLOW_REGISTRATION: true
-                CONTINUWUITY_SUSPEND_ON_REGISTER: true
-                CONTINUWUITY_ALLOW_LEGACY_MEDIA: false
-                CONTINUWUITY_WELL_KNOWN__CLIENT: https://matrix.${INGRESS_URL}
-                CONTINUWUITY_WELL_KNOWN__SERVER: matrix.${INGRESS_URL}:443
-                #CONTINUWUITY_WELL_KNOWN__RTC_FOCUS_SERVER_URLS: "[{ type = 'livekit', livekit_service_url = 'livekit.&{INGRESS_URL}' }]"
-                CONTINUWUITY_NEW_USER_DISPLAYNAME_SUFFIX: ""
-                CONTINUWUITY_QUERY_TRUSTED_KEY_SERVERS_FIRST: false # NOTE: this is because continuwuity only supports Synapse as trusted key servers
-                CONTINUWUITY_QUERY_TRUSTED_KEY_SERVERS_FIRST_ON_JOIN: false
-                CONTINUWUITY_FORBIDDEN_REMOTE_SERVER_NAMES: |
-                  ["matrix.org"]
-                CONTINUWUITY_FORBIDDEN_REMOTE_ROOM_DIRECTORY_SERVER_NAMES: |
-                  ["matrix.org"]
-                CONTINUWUITY_URL_PREVIEW_DOMAIN_EXPLICIT_DENYLIST: |
-                  ["matrix.org"]
-                CONTINUWUITY_ALLOW_ANNOUNCEMENTS_CHECK: true
-                CONTINUWUITY_REGISTRATION_TOKEN: ${CONTINUWUITY_REGISTRATION_TOKEN}
                 CONTINUWUITY_CONFIG: /config/config.toml
     service:
       main:
-        type: LoadBalancer
-        loadBalancerIP: ${XXXXX_IP}
         ports:
           main:
             enabled: true
             port: 80
-            targetPort: *port
+            targetPort: 8080
             protocol: http
-        integrations:
-          metallb:
-            enabled: true
+
     persistence:
       data:
         enabled: true
         type: pvc
         mountPath: /data
+      backups:
+        enabled: true
+        type: nfs
+        mountPath: /backups
+        path: /mnt/MainPool/Michael/Backups/continuwuity
+        server: ${TRUENAS_EXTERNAL_IP}
       config:
         enabled: true
         type: configmap
         mountPath: /config/config.toml
         subPath: config.toml
         readOnly: true
-        objectName: continuwuity-conf
+        objectName: continuwuity-config
+        optional: true
+        expandObjectName: false
     configmap:
       continuwuity-conf:
         enabled: true
@@ -103,7 +84,7 @@ spec:
             rtc_focus_server_urls = [{ type = "livekit", livekit_service_url = "https://livekit.${INGRESS_URL}" },]
     ingress:
       main:
-        enabled: true
+        enabled: false
         ingressClassName: external
         annotations:
           gethomepage.dev/instance: "internal"
