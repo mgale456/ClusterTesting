@@ -23,7 +23,7 @@ query_trusted_key_servers_first_on_join = false
 forbidden_remote_server_names = ["matrix.org"]
 forbidden_remote_room_directory_server_names = ["matrix.org"]
 url_preview_domain_explicit_denylist = ["matrix.org"]
-allow_announcements_check: true
+allow_announcements_check = true
 registration_token = "${CONTINUWUITY_REGISTRATION_TOKEN}"
 
 
