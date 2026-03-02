@@ -101,7 +101,7 @@ spec:
             port: 8080
     ingress:
       main:
-        enabled: true
+        enabled: false
         ingressClassName: external
         targetSelector:
           main: main
@@ -114,7 +114,7 @@ spec:
           - hosts:
               - livekit.${INGRESS_URL}
       jwt:
-        enabled: true
+        enabled: false
         ingressClassName: external
         targetSelector:
           jwt: jwt
