@@ -34,7 +34,7 @@ spec:
             value: /sfu/get
         - path:
             type: PathPrefix
-            value: healthz
+            value: /healthz
         - path:
             type: PathPrefix
             value: /get_token
