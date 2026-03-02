@@ -35,7 +35,7 @@ spec:
         type: emptyDir
     ingress:
       main:
-        enabled: true
+        enabled: false
         ingressClassName: external
         annotations:
           nginx.ingress.kubernetes.io/auth-method: "GET"
