@@ -68,7 +68,7 @@ spec:
                 LIVEKIT_URL: wss://livekit.${INGRESS_URL}
                 LIVEKIT_KEY: ${LK_MATRIX_KEY}
                 LIVEKIT_SECRET: ${LK_MATRIX_SECRET}
-                LIVEKIT_FULL_ACCESS_HOMESERVERS: matrix.${INGRESS_URL}
+                LIVEKIT_FULL_ACCESS_HOMESERVERS: "matrix.${INGRESS_URL},${INGRESS_URL}"
               probes:
                 liveness: &probes
                   enabled: true
