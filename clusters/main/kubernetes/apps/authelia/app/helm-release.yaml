@@ -182,7 +182,7 @@ spec:
                 - "refresh_token"
               response_types:
                 - "code"
-              response_mode:
+              response_modes:
                 - "jwt"
               access_token_signed_response_alg: "none"
               userinfo_signed_response_alg: "none"
