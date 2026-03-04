@@ -165,3 +165,22 @@ spec:
                 - "email"
               userinfo_signed_response_alg: "none"
               token_endpoint_auth_method: "client_secret_post"
+
+            - client_id: ${FILEBROWSER_OIDC_CLIENT_ID}
+              client_name: "Filebrowser"
+              client_secret: "${FILEBROWSER_OIDC_HASHED_CLIENT_SECRET}"
+              public: false
+              authorization_policy: "one_factor"
+              redirect_uris:
+                - "https://filebrowser.${INGRESS_URL}/envoyoidc/oauth2/callback"
+              scopes:
+                - "openid"
+                - "offline_access"
+              grant_types:
+                - "authorization_code"
+                - "refresh_token"
+              response_types:
+                - "code"
+              access_token_signed_response_alg: "none"
+              userinfo_signed_response_alg: "none"
+              token_endpoint_auth_method: "client_secret_basic"
