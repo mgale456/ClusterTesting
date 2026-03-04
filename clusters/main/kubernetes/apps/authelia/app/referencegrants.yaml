@@ -6,7 +6,7 @@ metadata:
   namespace: authelia
 spec:
   from:
-    - group: gateway.networking.k8s.io
+    - group: gateway.envoyproxy.io
       kind: SecurityPolicy
       namespace: filebrowser
   to:
