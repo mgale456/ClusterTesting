@@ -20,6 +20,7 @@ apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: SecurityPolicy
 metadata:
   name: filebrowser
+  namespace: filebrowser
 spec:
   targetRefs:
     - group: gateway.networking.k8s.io
