@@ -176,11 +176,14 @@ spec:
               scopes:
                 - "openid"
                 - "offline_access"
+                - "profile"
               grant_types:
                 - "authorization_code"
                 - "refresh_token"
               response_types:
                 - "code"
+              response_mode:
+                - "jwt"
               access_token_signed_response_alg: "none"
               userinfo_signed_response_alg: "none"
               token_endpoint_auth_method: "client_secret_basic"

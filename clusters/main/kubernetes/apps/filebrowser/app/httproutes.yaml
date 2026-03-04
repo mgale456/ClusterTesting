@@ -38,5 +38,10 @@ spec:
     clientID: "${FILEBROWSER_OIDC_CLIENT_ID}"
     clientSecret:
       name: "filebrowser-client-secret"
+    cookieDomain: "filebrowser.${DOMAIN_0}"
+    scopes:
+      - "openid"
+      - "offline_access"
+      - "profile"
     redirectURL: "https://filebrowser.${DOMAIN_0}/envoyoidc/oauth2/callback"
     logoutPath: "/envoyoidc/logout"
