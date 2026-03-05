@@ -14,10 +14,11 @@ spec:
     - backendRefs:
         - name: filebrowser
           port: 10187
-      #matches:
-      #  - headers:
-      #      - name: "Remote-User"
-      #        value: "*"
+      matches:
+        - headers:
+            - type: RegularExpression
+              name: "Cookie"
+              value: "authelia"
 
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
@@ -72,8 +73,8 @@ spec:
             hostname: auth.${DOMAIN_0}
             path:
               type: ReplaceFullPath
-              replaceFullPath: "?rm=GET&rd=https://filebrowser2.${DOMAIN_0}/"
+              replaceFullPath: "?rm=GET&rd=https%3A%2F%2Ffilebrowser2.${DOMAIN_0}%2F"
             statusCode: 301
-      matches:
-        - path:
-            value: "/foo"
+      #matches:
+      #  - path:
+      #      value: "/foo"
