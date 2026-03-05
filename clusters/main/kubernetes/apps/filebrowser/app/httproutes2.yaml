@@ -11,13 +11,13 @@ spec:
   hostnames:
     - "filebrowser2.${INGRESS_URL}"
   rules:
-    - matches:
-        - headers:
-            - name: "Remote-User"
-              value: "*"
-      backendRefs:
+    - backendRefs:
         - name: filebrowser
           port: 10187
+      #matches:
+      #  - headers:
+      #      - name: "Remote-User"
+      #        value: "*"
 
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
@@ -74,3 +74,6 @@ spec:
               type: ReplaceFullPath
               replaceFullPath: "?rm=GET&rd=https://filebrowser2.${DOMAIN_0}/"
             statusCode: 301
+      matches:
+        - path:
+            value: "/foo"
