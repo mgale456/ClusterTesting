@@ -18,7 +18,7 @@ spec:
         - headers:
             - type: RegularExpression
               name: "Cookie"
-              value: "authelia"
+              value: "authelia_session=.*"
 
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
