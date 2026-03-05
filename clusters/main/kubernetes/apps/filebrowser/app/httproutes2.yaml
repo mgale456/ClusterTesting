@@ -1,0 +1,56 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: filebrowser2
+  namespace: filebrowser
+spec:
+  parentRefs:
+    - name: envoy-external
+      namespace: envoy
+      sectionName: https
+  hostnames:
+    - "filebrowser2.${INGRESS_URL}"
+  rules:
+    - matches:
+        - headers:
+            - name: "Remote-User"
+      backendRefs:
+        - name: filebrowser
+          port: 10187
+    - matches:
+      backendRefs:
+        - name: authelia
+          port: 9091
+          namespace: authelia
+
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: SecurityPolicy
+metadata:
+  name: filebrowser2
+  namespace: filebrowser
+spec:
+  targetRefs:
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      name: filebrowser2
+  extAuth:
+    headersToExtAuth:
+      - "accept"
+      - "cookie"
+      - "location"
+      - "authorization"
+      - "proxy-authorization"
+      - "x-forwarded-proto"
+    failOpen: false
+    http:
+      backendRefs:
+        - name: "authelia"
+          namespace: "authelia"
+          port: 9091
+      path: "/api/authz/ext-authz/"
+      headersToBackend:
+        - Remote-User
+        - Remote-Groups
+        - Remote-Name
+        - Remote-Email

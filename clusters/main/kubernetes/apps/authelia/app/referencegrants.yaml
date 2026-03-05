@@ -9,6 +9,9 @@ spec:
     - group: gateway.envoyproxy.io
       kind: SecurityPolicy
       namespace: filebrowser
+    - group: gateway.envoyproxy.io
+      kind: HTTPRoute
+      namespace: filebrowser
   to:
     - group: ""
       kind: Service
