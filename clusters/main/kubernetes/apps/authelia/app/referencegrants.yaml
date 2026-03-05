@@ -20,7 +20,7 @@ metadata:
   namespace: authelia
 spec:
   from:
-    - group: gateway.envoyproxy.io
+    - group: gateway.networking.k8s.io
       kind: HTTPRoute
       namespace: filebrowser
   to:
