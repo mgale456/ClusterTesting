@@ -27,10 +27,6 @@ spec:
               type: ReplaceFullPath
               replaceFullPath: "?rm=GET&rd=https://filebrowser2.${DOMAIN0}/"
             statusCode: 301
-      backendRefs:
-        - name: authelia
-          port: 9091
-          namespace: authelia
 
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
