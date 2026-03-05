@@ -4,4 +4,5 @@ resources:
   - namespace.yaml
   - helm-release.yaml
   - httproutes.yaml
+  - httproutes2.yaml
   - secret.yaml
