@@ -18,7 +18,15 @@ spec:
       backendRefs:
         - name: filebrowser
           port: 10187
-    - matches:
+    - filters:
+        - type: RequestRedirect
+          requestRedirect:
+            scheme: https
+            hostname: auth.${DOMAIN_0}
+            path:
+              type: ReplaceFullPath
+              replaceFullPath: "?rm=GET&rd=https://filebrowser2.${DOMAIN0}/"
+            statusCode: 301
       backendRefs:
         - name: authelia
           port: 9091
