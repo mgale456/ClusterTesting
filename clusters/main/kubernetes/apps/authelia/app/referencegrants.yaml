@@ -2,7 +2,7 @@
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: ReferenceGrant
 metadata:
-  name: authelia-securitypolicy
+  name: filebrowser-securitypolicy
   namespace: authelia
 spec:
   from:
@@ -16,13 +16,13 @@ spec:
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: ReferenceGrant
 metadata:
-  name: authelia-httproute
+  name: openspeedtest-securitypolicy
   namespace: authelia
 spec:
   from:
-    - group: gateway.networking.k8s.io
-      kind: HTTPRoute
-      namespace: filebrowser
+    - group: gateway.envoyproxy.io
+      kind: SecurityPolicy
+      namespace: openspeedtest
   to:
     - group: ""
       kind: Service
