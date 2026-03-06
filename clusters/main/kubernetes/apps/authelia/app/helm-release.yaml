@@ -31,26 +31,6 @@ spec:
     TZ: ${TZ}
     podOptions:
       hostUsers: true
-    ingress:
-      main:
-        enabled: true
-        ingressClassName: external
-        annotations:
-          gethomepage.dev/instance: "internal"
-        hosts:
-          - host: auth.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - auth.${INGRESS_URL}
-        integrations:
-          homepage:
-            enabled: true
-            group: Default
-            widget:
-              enabled: false
     workload:
       main:
         replicas: 2
