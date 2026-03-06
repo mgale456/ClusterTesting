@@ -1,7 +1,7 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: filebrowser2
+  name: filebrowser
   namespace: filebrowser
 spec:
   parentRefs:
@@ -9,28 +9,23 @@ spec:
       namespace: envoy
       sectionName: https
   hostnames:
-    - "filebrowser2.${INGRESS_URL}"
+    - "filebrowser.${INGRESS_URL}"
   rules:
     - backendRefs:
         - name: filebrowser
           port: 10187
-      #matches:
-      #  - headers:
-      #      - type: RegularExpression
-      #        name: "Cookie"
-      #        value: "authelia_session=.*"
 
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: SecurityPolicy
 metadata:
-  name: filebrowser2
+  name: filebrowser
   namespace: filebrowser
 spec:
   targetRefs:
     - group: gateway.networking.k8s.io
       kind: HTTPRoute
-      name: filebrowser2
+      name: filebrowser
   extAuth:
     headersToExtAuth:
       - "accept"
@@ -41,7 +36,6 @@ spec:
       - "proxy-authorization"
       - "x-forwarded-proto"
     failOpen: false
-    recomputeRoute: true
     http:
       backendRefs:
         - name: "authelia"
@@ -54,30 +48,3 @@ spec:
         - Remote-Name
         - Remote-Email
         - Location
-
-#---
-#apiVersion: gateway.networking.k8s.io/v1
-#kind: HTTPRoute
-#metadata:
-#  name: filebrowser-redurect-to-auth
-#  namespace: filebrowser
-#spec:
-#  parentRefs:
-#    - name: envoy-external
-#      namespace: envoy
-#      sectionName: https
-#  hostnames:
-#    - "filebrowser2.${INGRESS_URL}"
-#  rules:
-#    - filters:
-#        - type: RequestRedirect
-#          requestRedirect:
-#            scheme: https
-#            hostname: auth.${DOMAIN_0}
-#            path:
-#              type: ReplaceFullPath
-#              replaceFullPath: "?rm=GET&rd=https%3A%2F%2Ffilebrowser2.${DOMAIN_0}%2F"
-#            statusCode: 301
-#      #matches:
-#      #  - path:
-#      #      value: "/foo"
