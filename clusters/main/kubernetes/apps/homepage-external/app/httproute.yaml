@@ -1,0 +1,57 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: openspeedtest
+  namespace: openspeedtest
+  annotations:
+    gethomepage.dev/description: "HTML5 Network Speed Test Server. You can test download & upload speed from any device"
+    gethomepage.dev/enabled: true
+    gethomepage.dev/group: Tools
+    gethomepage.dev/href: https://openspeedtest.${DOMAIN_0}/
+    gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/openspeedtest.webp
+    gethomepage.dev/name: Openspeedtest
+spec:
+  parentRefs:
+    - name: envoy-external
+      namespace: envoy
+      sectionName: https
+  hostnames:
+    - "openspeedtest.${INGRESS_URL}"
+  rules:
+    - backendRefs:
+        - name: openspeedtest
+          port: 10256
+
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: SecurityPolicy
+metadata:
+  name: openspeedtest
+  namespace: openspeedtest
+spec:
+  targetRefs:
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      name: openspeedtest
+  extAuth:
+    headersToExtAuth:
+      - "accept"
+      - "cookie"
+      - "Cookie"
+      - "location"
+      - "authorization"
+      - "proxy-authorization"
+      - "x-forwarded-proto"
+    failOpen: false
+    http:
+      backendRefs:
+        - name: "authelia"
+          namespace: "authelia"
+          port: 9091
+      path: "/api/authz/ext-authz/"
+      headersToBackend:
+        - Remote-User
+        - Remote-Groups
+        - Remote-Name
+        - Remote-Email
+        - Location
