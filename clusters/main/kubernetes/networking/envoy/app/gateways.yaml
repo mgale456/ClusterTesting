@@ -51,7 +51,7 @@ spec:
     annotations:
       metallb.io/ip-allocated-from-pool: main
       metallb.io/loadBalancerIPs: ${ENVOY_EXTERNAL_IP}
-      metallb.io/allow-shared-ip: stunner
+      metallb.io/allow-shared-ip: envoy
   listeners:
     - name: http
       protocol: HTTP
@@ -80,7 +80,7 @@ spec:
     annotations:
       metallb.io/ip-allocated-from-pool: main
       metallb.io/loadBalancerIPs: ${ENVOY_INTERNAL_IP}
-      metallb.io/allow-shared-ip: stunner
+      metallb.io/allow-shared-ip: envoy
   listeners:
     - name: http
       protocol: HTTP
