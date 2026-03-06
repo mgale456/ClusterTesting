@@ -50,7 +50,7 @@ spec:
   infrastructure:
     annotations:
       metallb.io/ip-allocated-from-pool: main
-      metallb.io/loadBalancerIPs: 192.168.0.75
+      metallb.io/loadBalancerIPs: ${ENVOY_EXTERNAL_IP}
       metallb.io/allow-shared-ip: stunner
   listeners:
     - name: http
@@ -79,7 +79,7 @@ spec:
   infrastructure:
     annotations:
       metallb.io/ip-allocated-from-pool: main
-      metallb.io/loadBalancerIPs: 192.168.0.76
+      metallb.io/loadBalancerIPs: ${ENVOY_INTERNAL_IP}
       metallb.io/allow-shared-ip: stunner
   listeners:
     - name: http
