@@ -12,7 +12,7 @@ allow_encryption = true
 
 allow_federation = true
 allow_registration = true
-suspend_on_register = true
+suspend_on_register = false
 
 allow_legacy_media = false
 
