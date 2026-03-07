@@ -33,31 +33,6 @@ spec:
     persistence:
       config:
         type: emptyDir
-    ingress:
-      main:
-        enabled: false
-        ingressClassName: external
-        annotations:
-          nginx.ingress.kubernetes.io/auth-method: "GET"
-          nginx.ingress.kubernetes.io/auth-url: "http://authelia.authelia.svc.cluster.local:9091/api/verify"
-          nginx.ingress.kubernetes.io/auth-signin: "https://auth.${DOMAIN_0}?rm=$request_method"
-          nginx.ingress.kubernetes.io/auth-response-headers: "Remote-User,Remote-Name,Remote-Groups,Remote-Email"
-        hosts:
-          - host: homepage2.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-                overrideService:
-                  name: main
-                  port: 10352
-        tls:
-          - hosts:
-              - homepage2.${INGRESS_URL}
-            certificateIssuer: "domain-0-le-prod"
-        integrations:
-          certManager:
-            enabled: true
-            certificateIssuer: "domain-0-le-prod"
     workload:
       main:
         podSpec:
@@ -66,7 +41,7 @@ spec:
             main:
               env:
                 # Set this to your host (example: home.mydomain.com)
-                HOMEPAGE_ALLOWED_HOSTS: "homepage2.${INGRESS_URL}"
+                HOMEPAGE_ALLOWED_HOSTS: "${INGRESS_URL}"
           initContainers:
             init-config:
               enabled: false
