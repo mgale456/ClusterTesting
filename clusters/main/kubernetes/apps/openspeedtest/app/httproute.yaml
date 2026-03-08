@@ -9,7 +9,7 @@ metadata:
     gethomepage.dev/group: Tools
     gethomepage.dev/href: https://openspeedtest.${DOMAIN_0}/
     gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/openspeedtest.webp
-    gethomepage.dev/name: Openspeedtest
+    gethomepage.dev/name: OpenSpeedTest
 spec:
   parentRefs:
     - name: envoy-external
