@@ -198,6 +198,17 @@ spec:
             # renovate: depName="smartctl-exporter-dashboard"
             id: 22604
             revision: 2
+        livekit:
+          enabled: true
+          failOnError: false
+          b64content: false
+          #datasource:
+          #  - name: "$${DS_PROMETHEUS}"
+          #    value: prometheus
+          marketplace:
+            # renovate: depName="livekit-metrics"
+            id: 15237
+            revision: 1
     workload:
       main:
         replicas: 1
