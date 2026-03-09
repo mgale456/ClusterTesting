@@ -122,13 +122,13 @@ spec:
             {{- .Values.livekit | toYaml | nindent 2 }}
 
     metrics:
-      main:
+      metrics:
         enabled: true
         primary: true
         # options: servicemonitor, podmonitor
         type: "servicemonitor"
         # defaults to selectorLabels
-        #selector: "metrics"
+        #selector: metrics
         endpoints:
           - port: metrics
             interval: 5s
