@@ -128,7 +128,7 @@ spec:
         # options: servicemonitor, podmonitor
         type: "servicemonitor"
         # defaults to selectorLabels
-        selector: metrics
+        selector: "metrics"
         endpoints:
           - port: metrics
             interval: 5s
