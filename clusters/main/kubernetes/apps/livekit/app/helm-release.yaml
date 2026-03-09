@@ -91,6 +91,13 @@ spec:
           rtc-tcp:
             enabled: true
             port: 7881
+      metrics:
+        enabled: true
+        targetSelector: main
+        ports:
+          metrics:
+            enabled: true
+            port: 6789
       jwt:
         enabled: true
         targetSelector: jwt
@@ -99,37 +106,6 @@ spec:
             enabled: true
             protocol: http
             port: 8080
-    ingress:
-      main:
-        enabled: false
-        ingressClassName: external
-        targetSelector:
-          main: main
-        hosts:
-          - host: livekit.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - livekit.${INGRESS_URL}
-      jwt:
-        enabled: false
-        ingressClassName: external
-        targetSelector:
-          jwt: jwt
-        hosts:
-          - host: livekit.${INGRESS_URL}
-            paths:
-              - path: /sfu/get
-                pathType: Prefix
-              - path: /healthz
-                pathType: Prefix
-              - path: /get_token
-                pathType: Prefix
-        tls:
-          - hosts:
-              - livekit.${INGRESS_URL}
     persistence:
       config-vol:
         enabled: true
@@ -145,6 +121,19 @@ spec:
           livekit.yaml: |
             {{- .Values.livekit | toYaml | nindent 2 }}
 
+    metrics:
+      main:
+        enabled: true
+        primary: true
+        # options: servicemonitor, podmonitor
+        type: "servicemonitor"
+        # defaults to selectorLabels
+        selector: metrics
+        endpoints:
+          - port: metrics
+            interval: 5s
+            scrapeTimeout: 5s
+            path: /metrics
     livekit:
       port: 7880
       bind_addresses:
@@ -172,5 +161,7 @@ spec:
         auto_create: false
       turn:
         enabled: false
+      prometheus:
+        port: 6789
       keys:
         ${LK_MATRIX_KEY}: "${LK_MATRIX_SECRET}"
