@@ -101,6 +101,19 @@ spec:
             # For configuration options and examples, please see:
             # https://gethomepage.dev/latest/configs/services
             #
+            #
+            - Community:
+                - Cinny:
+                    href: https://app.cinny.in/login/${DOMAIN_0}
+                    description: Matrix client for voice and text chat
+                    icon: https://cinny.in/assets/favicon-16x16.png
+                    widget:
+                      type: prometheusmetric
+                        url: http://prometheus.host.or.ip
+                        refreshInterval: 10000 # optional - in milliseconds, defaults to 10s
+                        metrics:
+                          - label: Live Chatters
+                            query: livekit
 
           bookmarks.yaml: |
             ---
