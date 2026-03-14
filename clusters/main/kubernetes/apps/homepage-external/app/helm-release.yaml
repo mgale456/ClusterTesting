@@ -104,16 +104,16 @@ spec:
             #
             - Community:
               - Cinny:
-                href: https://app.cinny.in/login/${DOMAIN_0}
-                description: Matrix client for voice and text chat
-                icon: https://cinny.in/assets/favicon-16x16.png
-                widget:
-                  type: prometheusmetric
-                  url: http://prometheus-operated.kube-prometheus-stack.svc.cluster.local:9090
-                  refreshInterval: 10000 # optional - in milliseconds, defaults to 10s
-                  metrics:
-                    - label: Live Chatters
-                      query: livekit_participant_total
+                  href: https://app.cinny.in/login/${DOMAIN_0}
+                  description: Matrix client for voice and text chat
+                  icon: https://cinny.in/assets/favicon-16x16.png
+                  widget:
+                    type: prometheusmetric
+                    url: http://prometheus-operated.kube-prometheus-stack.svc.cluster.local:9090
+                    refreshInterval: 10000 # optional - in milliseconds, defaults to 10s
+                    metrics:
+                      - label: Live Chatters
+                        query: livekit_participant_total
 
           bookmarks.yaml: |
             ---
