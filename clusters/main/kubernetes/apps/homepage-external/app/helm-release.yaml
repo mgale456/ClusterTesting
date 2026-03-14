@@ -109,11 +109,11 @@ spec:
                     icon: https://cinny.in/assets/favicon-16x16.png
                     widget:
                       type: prometheusmetric
-                        url: http://prometheus.host.or.ip
+                        url: http://prometheus-operated.kube-prometheus-stack.svc.cluster.local:9090
                         refreshInterval: 10000 # optional - in milliseconds, defaults to 10s
                         metrics:
                           - label: Live Chatters
-                            query: livekit
+                            query: livekit_participant_total
 
           bookmarks.yaml: |
             ---
