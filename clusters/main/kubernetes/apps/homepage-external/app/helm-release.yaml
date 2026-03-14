@@ -54,6 +54,7 @@ spec:
           kubernetes.yaml: |
             mode: cluster
             ingress: true
+            gateway: true
           settings.yaml: |
             ---
             # For configuration options and examples, please see:
@@ -89,7 +90,7 @@ spec:
             - resources:
                 cpu: true
                 memory: true
-                disk: /
+                #disk: /
 
             - search:
                 provider: duckduckgo
@@ -127,16 +128,6 @@ spec:
                     icon: https://github.githubassets.com/favicons/favicon-dark.svg
                     href: https://github.com/trueforge-org/truecharts/tree/master/charts/stable
                     description: "TrueCharts GitHub"
-                - MrPuffin's Cluster Repo:
-                  - abbr: GH
-                    href: https://github.com/PrivatePuffin/cluster
-                    icon: https://github.githubassets.com/favicons/favicon-dark.svg
-                    description: "Cluster Repo"
-                - ContainerForge Github:
-                  - abbr: GH
-                    icon: https://github.githubassets.com/favicons/favicon-dark.svg
-                    href: https://github.com/trueforge-org/containerforge/tree/main/apps
-                    description: "ContainerForge GitHub"
 
     forceConfigFromValues: true
 
