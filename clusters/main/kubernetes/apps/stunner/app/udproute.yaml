@@ -62,3 +62,4 @@ spec:
     - backendRefs:
         - name: livekit-app-template
           namespace: livekit
+          port: 50100
