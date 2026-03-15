@@ -38,9 +38,8 @@ spec:
     socketLB:
       hostNamespaceOnly: true # differs from ClusterTool
     #routingMode: native # differs from ClusterTool default
-    # cilium-hubble-values.yaml
     hubble:
-      enabled: false
+      enabled: true
       relay:
         enabled: true
         replicas: 2
