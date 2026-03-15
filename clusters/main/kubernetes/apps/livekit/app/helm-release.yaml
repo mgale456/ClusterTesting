@@ -94,6 +94,7 @@ spec:
           rtc-udp:
             enabled: true
             port: 50100
+            protocol: udp
       metrics:
         enabled: true
         targetSelector: main
