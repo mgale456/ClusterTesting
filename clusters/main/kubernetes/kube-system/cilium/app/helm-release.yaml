@@ -38,8 +38,27 @@ spec:
     socketLB:
       hostNamespaceOnly: true # differs from ClusterTool
     #routingMode: native # differs from ClusterTool default
+    # cilium-hubble-values.yaml
     hubble:
-      enabled: false
+      enabled: true
+      relay:
+        enabled: true
+        replicas: 2
+      ui:
+        enabled: true
+        replicas: 1
+      metrics:
+        enabled:
+          - dns
+          - drop
+          - tcp
+          - flow
+          - icmp
+          - http
+        serviceMonitor:
+          enabled: true
+          labels:
+            release: prometheus-stack
     cluster:
       name: ${CLUSTERNAME}
       id: 1
