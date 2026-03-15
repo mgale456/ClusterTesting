@@ -32,5 +32,5 @@ resources:
   #  - hypermind/ks.yaml
   - smartctl-exporter/ks.yaml
   - continuwuity/ks.yaml
-  - stunner/ks.yaml
+  #- stunner/ks.yaml
   - livekit/ks.yaml
