@@ -63,3 +63,4 @@ spec:
         - name: livekit-app-template
           namespace: livekit
           port: 50100
+          endPort: 50110
