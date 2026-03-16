@@ -91,10 +91,50 @@ spec:
           rtc-tcp:
             enabled: true
             port: 7881
-          #rtc-udp:
-          #  enabled: true
-          #  port: 50100
-          #  protocol: udp
+          rtc-udp:
+            enabled: true
+            port: 50100
+            protocol: udp
+          rtc-udp1:
+            enabled: true
+            port: 50101
+            protocol: udp
+          rtc-udp2:
+            enabled: true
+            port: 50102
+            protocol: udp
+          rtc-ud3:
+            enabled: true
+            port: 50103
+            protocol: udp
+          rtc-udp4:
+            enabled: true
+            port: 50104
+            protocol: udp
+          rtc-udp5:
+            enabled: true
+            port: 50105
+            protocol: udp
+          rtc-udp6:
+            enabled: true
+            port: 50106
+            protocol: udp
+          rtc-udp7:
+            enabled: true
+            port: 50107
+            protocol: udp
+          rtc-udp8:
+            enabled: true
+            port: 50108
+            protocol: udp
+          rtc-udp9:
+            enabled: true
+            port: 50109
+            protocol: udp
+          rtc-udp10:
+            enabled: true
+            port: 50110
+            protocol: udp
       metrics:
         enabled: true
         targetSelector: main
@@ -149,7 +189,7 @@ spec:
       rtc:
         tcp_port: 7881
         port_range_start: 50100
-        port_range_end: 50200
+        port_range_end: 50110
         use_external_ip: false
         enable_loopback_candidate: false
         turn_servers:
