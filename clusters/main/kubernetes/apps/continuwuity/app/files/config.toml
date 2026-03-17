@@ -27,6 +27,18 @@ allow_announcements_check = true
 #registration_token = "${CONTINUWUITY_REGISTRATION_TOKEN}"
 
 
+# TURN URIs that clients should connect to
+turn_uris = [
+    "turn:turn.${INGRESS_URL}:3478?transport=udp",
+    "turn:coturn.example.com?:3478?transport=tcp"
+]
+# Shared secret for generating credentials (must match coturn's static-auth-secret)
+turn_secret = "${LK_TURN_SECRET}"
+# TTL for generated credentials in seconds (default: 86400 = 24 hours)
+turn_ttl = 43200
+
+
+
 [global.well_known]
 client = "https://matrix.${INGRESS_URL}"
 server = "matrix-fed.${INGRESS_URL}:443"

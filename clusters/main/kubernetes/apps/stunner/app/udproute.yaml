@@ -19,7 +19,7 @@ metadata:
   namespace: stunner-system
 spec:
   logLevel: "all:DEBUG,turn:INFO"
-  realm: stunner.l7mp.io
+  realm: "turn.${DOMAIN_0}"
   authType: ephemeral
   sharedSecret: ${LK_TURN_SECRET}
   loadBalancerServiceAnnotations:
