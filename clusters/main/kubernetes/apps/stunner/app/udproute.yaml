@@ -34,6 +34,8 @@ kind: Gateway
 metadata:
   name: udp-gateway
   namespace: stunner-system
+  annotations:
+    stunner.l7mp.io/enable-mixed-protocol-lb: true
 spec:
   gatewayClassName: stunner-gatewayclass
   listeners:
