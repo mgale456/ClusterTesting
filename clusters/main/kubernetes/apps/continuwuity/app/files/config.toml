@@ -30,7 +30,7 @@ allow_announcements_check = true
 # TURN URIs that clients should connect to
 turn_uris = [
     "turn:turn.${INGRESS_URL}:3478?transport=udp",
-    "turn:coturn.example.com?:3478?transport=tcp"
+    "turn:turn.${INGRESS_URL}?:3478?transport=tcp"
 ]
 # Shared secret for generating credentials (must match coturn's static-auth-secret)
 turn_secret = "${LK_TURN_SECRET}"
