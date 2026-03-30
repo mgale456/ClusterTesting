@@ -34,6 +34,8 @@ spec:
       # Overprovisioning might be needed when using volsync
       storageOverProvisioningPercentage: "100000"
       # v2DataEngine: true
+      # -- Maximum number of engines that are allowed to concurrently upgrade on each node after Longhorn Manager is upgraded. When the value is "0", Longhorn does not automatically upgrade volume engines to the new default engine image version.
+      concurrentAutomaticEngineUpgradePerNodeLimit: 2
     persistence:
       # Set to false to pick another CSI as default
       defaultClass: true
