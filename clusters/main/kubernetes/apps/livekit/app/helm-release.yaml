@@ -33,7 +33,7 @@ spec:
       hostUsers: true
     image:
       repository: livekit/livekit-server
-      tag: 1.10.0@sha256:6ff9c33d21ae1b92b7f5a86bc55890a3e5b8ebe7b8a847349c5ee326e90ac965
+      tag: 1.10.1@sha256:698a13999b4b2285866a32903724884b1e10c03259526391d9b3a72d9b73bbb4
     jwt-image:
       repository: ghcr.io/element-hq/lk-jwt-service
       tag: 0.4.1@sha256:6beec945a59b9b8b02161d29884abc2c1e5af9a376c1a2ccabbec3e26b07cf0c
