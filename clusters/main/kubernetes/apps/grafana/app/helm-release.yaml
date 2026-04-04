@@ -85,7 +85,7 @@ spec:
           marketplace:
             # renovate: depName="kubernetes-views-pods"
             id: 15760
-            revision: 37
+            revision: 39
         etcd:
           enabled: true
           failOnError: false
