@@ -52,7 +52,7 @@ spec:
                 UTILS_SECRET: ${OUTLINE_UTILS_SECRET}
     ingress:
       main:
-        enabled: true
+        enabled: false
         ingressClassName: internal
         annotations:
           gethomepage.dev/instance: "internal"
