@@ -36,7 +36,7 @@ spec:
       tag: 1.11.0@sha256:100b9a870616d02f5e3795b34e0b593b5054a26f8131a94fd3fa322ed3154b16
     jwt-image:
       repository: ghcr.io/element-hq/lk-jwt-service
-      tag: 0.4.3@sha256:19a3bde2dc597eb689d954d8dac4587e3ed7e990d63571b40526cc5810faf768
+      tag: 0.4.4@sha256:9c715697c6f7c1f538f2ee41b7b59b04a8d06bf790a7cc8c8517ccac8d28813d
     workload:
       main:
         enabled: true
