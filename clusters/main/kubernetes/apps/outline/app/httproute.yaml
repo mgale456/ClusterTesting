@@ -3,6 +3,13 @@ kind: HTTPRoute
 metadata:
   name: outline
   namespace: outline
+  annotations:
+    gethomepage.dev/description: "Formatted Notes App"
+    gethomepage.dev/enabled: true
+    gethomepage.dev/group: Tools
+    gethomepage.dev/href: https://outline.${DOMAIN_0}/
+    gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/outline.webp
+    gethomepage.dev/name: Outline
 spec:
   parentRefs:
     - name: envoy-internal
@@ -13,4 +20,4 @@ spec:
   rules:
     - backendRefs:
         - name: outline
-          port: 10352
+          port: 10196
