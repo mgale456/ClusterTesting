@@ -30,25 +30,3 @@ spec:
   values:
     podOptions:
       hostUsers: true
-    ingress:
-      main:
-        enabled: true
-        ingressClassName: internal
-        annotations:
-          gethomepage.dev/instance: "internal"
-        hosts:
-          - host: reubah.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - reubah.${INGRESS_URL}
-            clusterIssuer: "domain-0-wildcard"
-        integrations:
-          homepage:
-            enabled: true
-            group: Tools
-            weight: 1
-            widget:
-              enabled: false
