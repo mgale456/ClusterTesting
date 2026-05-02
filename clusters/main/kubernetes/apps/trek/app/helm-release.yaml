@@ -59,9 +59,10 @@ spec:
                 PORT: 3000
                 ENCRYPTION_KEY: temp3be5919fda2ddbe3c7e95dd2694cc79576ea92f4d153d607c00bf641a3d9 # generate with: openssl rand -hex 32
                 LOG_LEVEL: info
-                ALLOWED_ORIGINS: trek.${DOMAIN_0}
-                APP_URL: trek.${DOMAIN_0}
+                ALLOWED_ORIGINS: https://trek.${DOMAIN_0}
+                APP_URL: https://trek.${DOMAIN_0}
                 TRUST_PROXY: 1
+                DEFAULT_LANGUAGE: en
 
     service:
       main:
