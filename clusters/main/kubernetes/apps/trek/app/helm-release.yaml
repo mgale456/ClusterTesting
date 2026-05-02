@@ -1,0 +1,78 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: trek
+  namespace: trek
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 18.4.0
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    TZ: ${TZ}
+    podOptions:
+      hostUsers: true
+    image:
+      repository: mauriceboe/trek
+      tag: 3.0.13@sha256:18db8cb0e93c67d394ec52c0b7032fb874631823062fc817c0ad34b2e133302c
+    workload:
+      main:
+        enabled: true
+        primary: true
+        type: Deployment
+        replicas: 1
+        podSpec:
+          containers:
+            main:
+              enabled: true
+              primary: true
+              env:
+                NODE_ENV: production
+                PORT: 3000
+                ENCRYPTION_KEY: temp3be5919fda2ddbe3c7e95dd2694cc79576ea92f4d153d607c00bf641a3d9 # generate with: openssl rand -hex 32
+                TZ: ${TZ}
+                LOG_LEVEL: info
+                ALLOWED_ORIGINS: trek.${DOMAIN_0}
+                APP_URL: trek.${DOMAIN_0}
+                TRUST_PROXY: 1
+
+    service:
+      main:
+        enabled: true
+        ports:
+          main:
+            enabled: true
+            protocol: http
+            port: 3000
+    persistence:
+      db:
+        enabled: true
+        type: pvc
+        mountPath: /app/data
+      logs:
+        enabled: true
+        type: pvc
+        mountPath: /app/data/logs
+      uploads:
+        enabled: true
+        type: pvc
+        mountPath: /app/uploads
