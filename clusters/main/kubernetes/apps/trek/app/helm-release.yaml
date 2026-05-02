@@ -31,6 +31,8 @@ spec:
     TZ: ${TZ}
     podOptions:
       hostUsers: true
+    securityContext:
+      fsGroup: 1000
     image:
       repository: mauriceboe/trek
       tag: 3.0.13@sha256:18db8cb0e93c67d394ec52c0b7032fb874631823062fc817c0ad34b2e133302c
