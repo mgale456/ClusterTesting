@@ -50,6 +50,8 @@ spec:
         podSpec:
           containers:
             main:
+              command: ["dumb-init", "--"]
+              args: ["node", "--import", "tsx", "src/index.ts"]
               enabled: true
               primary: true
               env:
