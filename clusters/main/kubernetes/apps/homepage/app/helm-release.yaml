@@ -136,22 +136,10 @@ spec:
                     href: https://www.uwcu.org/
                     description: Online Banking
                     icon: https://www.uwcu.org/ui/www/assets/favicon/apple-touch-icon.png
-                - The Banano Stand:
-                    href: https://thebananostand.com/
+                - Banano:
+                    href: https://creeper.banano.cc/account/ban_3szzs3sfn3ar4w1xa7n3u6jp9d9wezzz4ydez1yy8ux85epryp7mux9rbsou
                     description: Online Banano wallet
                     icon: https://banano.cc/icon.svg
-                    widget:
-                        type: customapi
-                        url: https://api.spyglass.pw/banano/v1/account/overview/ban_3szzs3sfn3ar4w1xa7n3u6jp9d9wezzz4ydez1yy8ux85epryp7mux9rbsou
-                        refreshInterval: 360000000 # 100 hours (4 days)
-                        method: GET
-                        mappings:
-                            - field: balance
-                              label: Banano
-                              format: number
-                            - field: receivable
-                              label: Receivable Banano
-                              format: float
             - Default:
                 - Longhorn:
                     href: http://${LONGHORN_IP}
