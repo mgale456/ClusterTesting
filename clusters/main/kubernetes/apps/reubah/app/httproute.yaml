@@ -10,6 +10,7 @@ metadata:
     gethomepage.dev/href: https://reubah.${INGRESS_URL}/
     gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/reubah.webp
     gethomepage.dev/description: "File Format Converter"
+    gethomepage.dev/instance: "internal"
 spec:
   parentRefs:
     - name: envoy-internal

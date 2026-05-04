@@ -10,6 +10,7 @@ metadata:
     gethomepage.dev/href: https://outline.${DOMAIN_0}/
     gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/outline.webp
     gethomepage.dev/name: Outline
+    gethomepage.dev/instance: "internal"
 spec:
   parentRefs:
     - name: envoy-internal
