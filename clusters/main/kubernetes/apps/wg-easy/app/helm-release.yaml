@@ -53,35 +53,6 @@ spec:
           add:
             - NET_ADMIN
             - NET_RAW
-    ingress:
-      main:
-        enabled: true
-        ingressClassName: internal
-        annotations:
-          gethomepage.dev/instance: "internal"
-        hosts:
-          - host: "wg-easy.${INGRESS_URL}"
-            paths:
-              - overrideService:
-                  name: "main"
-                  port: 51821
-                path: "/"
-                pathType: "Prefix"
-        integrations:
-          certManager:
-            certificateIssuer: "domain-0-le-prod"
-            enabled: true
-          homepage:
-            enabled: true
-            group: "Default"
-            widget:
-              version: 2
-              custom:
-                username: admin
-                password: ${WG_EASY_PASSWORD}
-        tls:
-          - hosts:
-              - "wg-easy.${INGRESS_URL}"
     service:
       vpn:
         type: LoadBalancer
