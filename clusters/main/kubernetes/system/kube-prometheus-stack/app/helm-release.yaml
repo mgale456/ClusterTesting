@@ -59,7 +59,7 @@ spec:
           - memory-snapshot-on-shutdown
         # Prometheus metrics retention time in PV
         retention: 5d
-        retentionSize: 100GB
+        retentionSize: 50GB
         # External labels to add to any time series or
         # alerts when communicating with external systems
         externalLabels:
@@ -79,7 +79,7 @@ spec:
               storageClassName: longhorn
               resources:
                 requests:
-                  storage: 50Gi
+                  storage: 75Gi
 
     prometheus-node-exporter:
       fullnameOverride: node-exporter
