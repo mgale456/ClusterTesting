@@ -40,7 +40,7 @@ spec:
         fsGroup: 1000
     image:
       repository: mauriceboe/trek
-      tag: 3.0.20@sha256:96c900fe6447a8aa5f882f712ad2e3bd2d522eac07f2981d144951e31bc35187
+      tag: 3.0.21@sha256:79f88110b76980b261b81d1313ec82ee393149d97ae672e87a83e0b158e361a0
     workload:
       main:
         enabled: true
