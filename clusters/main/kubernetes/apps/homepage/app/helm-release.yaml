@@ -33,26 +33,6 @@ spec:
     persistence:
       config:
         type: emptyDir
-    ingress:
-      main:
-        enabled: true
-        ingressClassName: internal
-        hosts:
-          - host: homepage.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-                overrideService:
-                  name: main
-                  port: 10352
-        tls:
-          - hosts:
-              - homepage.${INGRESS_URL}
-            certificateIssuer: "domain-0-le-prod"
-        integrations:
-          certManager:
-            enabled: true
-            certificateIssuer: "domain-0-le-prod"
     workload:
       main:
         podSpec:
