@@ -82,21 +82,3 @@ spec:
           config.toml: |
             [global.well_known]
             rtc_focus_server_urls = [{ type = "livekit", livekit_service_url = "https://livekit.${INGRESS_URL}" },]
-    ingress:
-      main:
-        enabled: false
-        ingressClassName: external
-        annotations:
-          gethomepage.dev/instance: "internal"
-        hosts:
-          - host: matrix.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - matrix.${INGRESS_URL}
-        integrations:
-          homepage:
-            enabled: true
-            group: Default
