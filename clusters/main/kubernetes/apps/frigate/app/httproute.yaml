@@ -1,0 +1,24 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: frigate
+  namespace: frigate
+  annotations:
+    gethomepage.dev/description: "HTML5 Network Speed Test Server. You can test download & upload speed from any device"
+    gethomepage.dev/enabled: true
+    gethomepage.dev/group: Home Automation
+    gethomepage.dev/href: https://frigate.${DOMAIN_0}/
+    gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/frigate.webp
+    gethomepage.dev/name: Frigate
+    gethomepage.dev/instance: "internal"
+spec:
+  parentRefs:
+    - name: envoy-internal
+      namespace: envoy
+      sectionName: https
+  hostnames:
+    - "frigate.${INGRESS_URL}"
+  rules:
+    - backendRefs:
+        - name: frigate
+          port: 10500
