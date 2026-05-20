@@ -4,13 +4,17 @@ metadata:
   name: frigate
   namespace: frigate
   annotations:
-    gethomepage.dev/description: "HTML5 Network Speed Test Server. You can test download & upload speed from any device"
+    gethomepage.dev/description: NVR With Realtime Object Detection for IP Cameras                                                │
     gethomepage.dev/enabled: true
     gethomepage.dev/group: Home Automation
     gethomepage.dev/href: https://frigate.${DOMAIN_0}/
     gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/frigate.webp
     gethomepage.dev/name: Frigate
     gethomepage.dev/instance: "internal"
+    gethomepage.dev/widget.enableRecentEvents: true                                                                               │
+    gethomepage.dev/widget.type: frigate                                                                                          │
+    gethomepage.dev/widget.url: http://frigate.frigate.svc:10500                                                                  │
+    gethomepage.dev/widget.version: 1                                                                                             │
 spec:
   parentRefs:
     - name: envoy-internal
