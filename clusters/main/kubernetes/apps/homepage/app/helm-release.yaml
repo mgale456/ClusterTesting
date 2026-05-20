@@ -99,6 +99,15 @@ spec:
                 cpu: true
                 memory: true
                 disk: /
+            - longhorn:
+                # Show the expanded view
+                expanded: true
+                # Shows a node representing the aggregate values
+                total: true
+                # Shows the node names as labels
+                labels: true
+                # Show the nodes
+                nodes: true
 
             - search:
                 provider: duckduckgo
