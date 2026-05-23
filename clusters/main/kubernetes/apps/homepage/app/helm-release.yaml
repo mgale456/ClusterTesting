@@ -103,7 +103,7 @@ spec:
             - kubernetes:
                 cluster:
                   # Shows cluster-wide statistics
-                  show: true
+                  show: false
                   # Shows the aggregate CPU stats
                   cpu: true
                   # Shows the aggregate memory stats
