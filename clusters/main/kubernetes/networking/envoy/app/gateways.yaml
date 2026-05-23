@@ -48,6 +48,7 @@ metadata:
   annotations:
     gatus.home-operations.com/endpoint: |-
       group: Envoy-External
+      conditions: ["[STATUS] == 401"]
 spec:
   gatewayClassName: envoy
   infrastructure:
