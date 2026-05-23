@@ -26,7 +26,6 @@ metadata:
   annotations:
     gatus.home-operations.com/endpoint: |-
       conditions: ["[STATUS] == 200"]
-      url: https://livekit.${INGRESS_URL}/healthz
 spec:
   parentRefs:
     - name: envoy-external
@@ -38,10 +37,10 @@ spec:
     - matches:
         - path:
             type: PathPrefix
-            value: /sfu/get
+            value: /healthz
         - path:
             type: PathPrefix
-            value: /healthz
+            value: /sfu/get
         - path:
             type: PathPrefix
             value: /get_token
