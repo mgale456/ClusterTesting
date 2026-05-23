@@ -3,6 +3,9 @@ kind: HTTPRoute
 metadata:
   name: continuwuity-main
   namespace: continuwuity
+  annotations:
+    gatus.home-operations.com/endpoint: |-
+      conditions: ["[STATUS] == 200"]
 spec:
   parentRefs:
     - name: envoy-external
@@ -20,6 +23,9 @@ kind: HTTPRoute
 metadata:
   name: continuwuity-fed
   namespace: continuwuity
+  annotations:
+    gatus.home-operations.com/endpoint: |-
+      conditions: ["[STATUS] == 200"]
 spec:
   parentRefs:
     - name: envoy-external
@@ -37,6 +43,10 @@ kind: HTTPRoute
 metadata:
   name: continuwuity-well-known
   namespace: continuwuity
+  annotations:
+    gatus.home-operations.com/endpoint: |-
+      conditions: ["[STATUS] == 200"]
+      url: "https://${INGRESS_URL}/.well-known/matrix/client"
 spec:
   parentRefs:
     - name: envoy-external

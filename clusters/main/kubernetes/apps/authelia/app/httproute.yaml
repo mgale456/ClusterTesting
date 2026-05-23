@@ -12,6 +12,9 @@ metadata:
     gethomepage.dev/instance: internal
     gethomepage.dev/name: Authelia
 
+    gatus.home-operations.com/endpoint: |-
+      conditions: ["[STATUS] == 200"]
+
 spec:
   parentRefs:
     - name: envoy-external

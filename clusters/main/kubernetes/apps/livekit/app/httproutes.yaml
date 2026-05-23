@@ -3,6 +3,9 @@ kind: HTTPRoute
 metadata:
   name: livekit-main
   namespace: livekit
+  annotation:
+    gatus.home-operations.com/endpoint: |-
+      conditions: ["[STATUS] == 200"]
 spec:
   parentRefs:
     - name: envoy-external
@@ -20,6 +23,10 @@ kind: HTTPRoute
 metadata:
   name: livekit-jwt
   namespace: livekit
+  annotation:
+    gatus.home-operations.com/endpoint: |-
+      conditions: ["[STATUS] == 200"]
+      url: https://livekit.${INGRESS_URL}/healthz
 spec:
   parentRefs:
     - name: envoy-external
