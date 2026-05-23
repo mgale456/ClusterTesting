@@ -3,7 +3,7 @@ kind: HTTPRoute
 metadata:
   name: livekit-main
   namespace: livekit
-  annotation:
+  annotations:
     gatus.home-operations.com/endpoint: |-
       conditions: ["[STATUS] == 200"]
 spec:
@@ -23,7 +23,7 @@ kind: HTTPRoute
 metadata:
   name: livekit-jwt
   namespace: livekit
-  annotation:
+  annotations:
     gatus.home-operations.com/endpoint: |-
       conditions: ["[STATUS] == 200"]
       url: https://livekit.${INGRESS_URL}/healthz
