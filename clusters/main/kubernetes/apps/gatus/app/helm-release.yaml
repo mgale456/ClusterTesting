@@ -58,6 +58,8 @@ spec:
       enable: true
       enableIngress: true
       autoIngress: true
+      enableHttproute: true
+      autoHttproute: true
     persistence:
       configmain:
         type: emptyDir

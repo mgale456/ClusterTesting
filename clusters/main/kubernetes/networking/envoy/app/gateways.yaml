@@ -52,6 +52,8 @@ spec:
       metallb.io/ip-allocated-from-pool: main
       metallb.io/loadBalancerIPs: ${ENVOY_EXTERNAL_IP}
       metallb.io/allow-shared-ip: envoy
+      gatus.home-operations.com/endpoint: |-
+        group: Nginx-External
   listeners:
     - name: http
       protocol: HTTP
