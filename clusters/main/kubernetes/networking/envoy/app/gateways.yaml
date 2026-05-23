@@ -45,6 +45,9 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: envoy-external
+  annotations:
+    gatus.home-operations.com/endpoint: |-
+      group: Envoy-External
 spec:
   gatewayClassName: envoy
   infrastructure:
@@ -52,8 +55,6 @@ spec:
       metallb.io/ip-allocated-from-pool: main
       metallb.io/loadBalancerIPs: ${ENVOY_EXTERNAL_IP}
       metallb.io/allow-shared-ip: envoy
-      gatus.home-operations.com/endpoint: |-
-        group: Nginx-External
   listeners:
     - name: http
       protocol: HTTP
@@ -76,6 +77,11 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: envoy-internal
+  annotations:
+    gatus.home-operations.com/endpoint: |-
+      group: Envoy-Internal
+      client:
+        dns-resolver: "tcp://blocky-dns.blocky.svc.cluster.local:53"
 spec:
   gatewayClassName: envoy
   infrastructure:
