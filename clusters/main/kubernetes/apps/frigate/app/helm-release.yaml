@@ -107,34 +107,6 @@ spec:
       config:
         enabled: true
         mountPath: /config
-
-    ingress:
-      main:
-        enabled: true
-        ingressClassName: internal
-        annotations:
-          gethomepage.dev/instance: "internal"
-        hosts:
-          - host: frigate.${INGRESS_URL}
-            paths:
-              - overrideService:
-                  name: main
-                  port: 10500
-                path: /
-                pathType: Prefix
-        integrations:
-          certManager:
-            certificateIssuer: domain-0-le-prod
-            enabled: true
-          homepage:
-            enabled: true
-            group: Home Automation
-            widget:
-              custom:
-                enableRecentEvents: "true"
-        tls:
-          - hosts:
-              - frigate.${INGRESS_URL}
     workload:
       main:
         podSpec:
