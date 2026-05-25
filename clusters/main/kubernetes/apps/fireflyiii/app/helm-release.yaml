@@ -36,7 +36,7 @@ spec:
           enabled: true
           credentials: mys3
         recovery:
-          enabled: false
+          enabled: true
           credentials: mys3
     credentials:
       mys3:
