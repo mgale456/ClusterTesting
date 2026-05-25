@@ -101,11 +101,8 @@ spec:
           gethomepage.dev/name: lldap
           gethomepage.dev/instance: "internal"
           gethomepage.dev/description: Lightweight ldap server for authentication and user management
-        # -- Configure the resource the route attaches to.
         parentRefs:
-          - group: gateway.networking.k8s.io
-            kind: Gateway
-            name: envoy-internal
+          - name: envoy-internal
             namespace: envoy
             sectionName: https
         hostnames:
@@ -113,8 +110,5 @@ spec:
         # -- Configure rules for routing. Defaults to the primary service.
         rules:
           - backendRefs:
-              - group: ""
-                #kind: Service
-                name: lldap
-                #namespace:
+              - name: lldap
                 port: 17170
