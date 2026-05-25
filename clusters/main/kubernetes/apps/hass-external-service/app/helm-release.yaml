@@ -28,24 +28,16 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    ingress:
+    route:
       main:
         enabled: true
-        ingressClassName: internal
-        hosts:
-          - host: hass.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-                overrideService:
-                  name: main
-                  port: 8123
-        tls:
-          - hosts:
-              - hass.${INGRESS_URL}
-        integrations:
-          homepage:
-            enabled: false
+        kind: HTTPRoute
+        parentRefs:
+          - name: envoy-internal
+            namespace: envoy
+            sectionName: https
+        hostnames:
+          - hass.${DOMAIN_0}
     service:
       main:
         type: ExternalIP
