@@ -79,25 +79,21 @@ spec:
         mountPath: /media
         path: /mnt/MainPool/media
         server: 192.168.0.109
-    ingress:
+    route:
       main:
         enabled: true
-        ingressClassName: internal
+        kind: HTTPRoute
         annotations:
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/group: Home Automation
+          gethomepage.dev/href: https://music-assistant.${DOMAIN_0}/
+          gethomepage.dev/icon: https://raw.githubusercontent.com/music-assistant/frontend/a9b3ace45becb6b6d770e1910c32c63d84ae4e37/src/assets/icon.svg
+          gethomepage.dev/name: music-assistant
           gethomepage.dev/instance: "internal"
-        hosts:
-          - host: music-assistant.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - music-assistant.${INGRESS_URL}
-        integrations:
-          traefik:
-            enabled: false
-          homepage:
-            enabled: true
-            group: Home Automation
-            widget:
-              enabled: false
+          gethomepage.dev/description: Music Streamer Supporting Many Sources and Outputs
+        parentRefs:
+          - name: envoy-internal
+            namespace: envoy
+            sectionName: https
+        hostnames:
+          - music-assistant.${DOMAIN_0}
