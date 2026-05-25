@@ -31,27 +31,28 @@ spec:
     TZ: ${TZ}
     workload:
       main:
+        podSpec:
+          nodeSelector:
+            ${INGRESS_URL}.node-restriction.kubernetes.io/camera-nic: "true"
         replicas: 0
-    ingress:
-      main:
-        enabled: true
-        ingressClassName: internal
-        annotations:
-          gethomepage.dev/instance: "internal"
-        hosts:
-          - host: firefox.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - firefox.${INGRESS_URL}
-        integrations:
-          homepage:
-            enabled: true
-            group: Tools
-            widget:
-              enabled: false
     persistence:
       config:
         enabled: false
+    route:
+      main:
+        enabled: true
+        kind: HTTPRoute
+        annotations:
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/group: Tools
+          gethomepage.dev/href: https://firefox.${DOMAIN_0}/
+          gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/firefox.webp
+          gethomepage.dev/name: firefox
+          gethomepage.dev/instance: "internal"
+          gethomepage.dev/description: Used for browser access to cameras
+        parentRefs:
+          - name: envoy-internal
+            namespace: envoy
+            sectionName: https
+        hostnames:
+          - firefox.${DOMAIN_0}

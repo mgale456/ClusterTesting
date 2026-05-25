@@ -71,7 +71,6 @@ spec:
     route:
       main:
         enabled: true
-        # Valid options are GRPCRoute, HTTPRoute, TCPRoute, TLSRoute, UDPRoute
         kind: HTTPRoute
         annotations:
           gethomepage.dev/enabled: "true"
