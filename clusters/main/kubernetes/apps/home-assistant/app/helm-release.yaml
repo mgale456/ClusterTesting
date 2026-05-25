@@ -78,11 +78,11 @@ spec:
     addons:
       codeserver:
         # -- Enable running a code-server container in the pod
-        enabled: true
+        enabled: false
 
         ingress:
           # -- Enable an ingress for the code-server add-on.
-          enabled: true
+          enabled: false
           ingressClassName: internal
           hosts:
             - host: cs-home-assistant.${INGRESS_URL}
