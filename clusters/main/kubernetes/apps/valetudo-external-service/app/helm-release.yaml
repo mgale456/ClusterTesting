@@ -28,30 +28,24 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    ingress:
+    route:
       main:
         enabled: true
-        ingressClassName: internal
+        kind: HTTPRoute
         annotations:
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/group: Home Automation
+          gethomepage.dev/href: https://valetudo.${DOMAIN_0}/
+          gethomepage.dev/icon: https://raw.githubusercontent.com/Hypfer/Valetudo/99a91f68b0148bc888a93615c6a5b7e7cd95577b/assets/logo/valetudo_icon.svg
+          gethomepage.dev/name: Valetudo
           gethomepage.dev/instance: "internal"
-        hosts:
-          - host: valetudo.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-                overrideService:
-                  name: main
-                  port: 80
-        tls:
-          - hosts:
-              - valetudo.${INGRESS_URL}
-        integrations:
-          homepage:
-            enabled: true
-            icon: https://raw.githubusercontent.com/Hypfer/Valetudo/99a91f68b0148bc888a93615c6a5b7e7cd95577b/assets/logo/valetudo_icon.svg
-            group: Home Automation
-            widget:
-              enabled: false
+          gethomepage.dev/description: Cloud Free Web UI for the Dreame X40
+        parentRefs:
+          - name: envoy-internal
+            namespace: envoy
+            sectionName: https
+        hostnames:
+          - valetudo.${DOMAIN_0}
     service:
       main:
         type: ExternalIP
