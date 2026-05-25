@@ -65,27 +65,6 @@ spec:
         type: emptyDir
       platformio:
         enabled: false
-    ingress:
-      main:
-        enabled: true
-        ingressClassName: internal
-        annotations:
-          gethomepage.dev/instance: "internal"
-        hosts:
-          - host: esphome.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - esphome.${INGRESS_URL}
-        integrations:
-          traefik:
-            enabled: false
-          homepage:
-            enabled: true
-            group: Home Automation
-            description: "A system to control your ESP8266/ESP32s"
     resources:
       limits:
         cpu: 4000m
