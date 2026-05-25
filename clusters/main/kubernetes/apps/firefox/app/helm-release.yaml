@@ -47,7 +47,7 @@ spec:
           gethomepage.dev/group: Tools
           gethomepage.dev/href: https://firefox.${DOMAIN_0}/
           gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/firefox.webp
-          gethomepage.dev/name: firefox
+          gethomepage.dev/name: Firefox
           gethomepage.dev/instance: "internal"
           gethomepage.dev/description: Used for browser access to cameras
         parentRefs:
