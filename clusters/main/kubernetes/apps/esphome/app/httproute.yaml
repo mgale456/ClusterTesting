@@ -10,8 +10,10 @@ metadata:
     gethomepage.dev/href: https://esphome.${DOMAIN_0}/
     gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/esphome.webp
     gethomepage.dev/name: esphome
+    gethomepage.dev/widget.url: http://esphome.esphome.svc:3000
     gethomepage.dev/instance: "internal"
     gethomepage.dev/widget.type: esphome
+
 spec:
   parentRefs:
     - name: envoy-internal
