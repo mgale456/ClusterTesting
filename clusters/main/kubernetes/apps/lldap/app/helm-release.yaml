@@ -109,7 +109,7 @@ spec:
             namespace: envoy
             sectionName: https
         hostnames:
-          - https://lldap.${DOMAIN_0}/
+          - lldap.${DOMAIN_0}
         # -- Configure rules for routing. Defaults to the primary service.
         rules:
           - backendRefs:
