@@ -42,10 +42,11 @@ spec:
         kind: HTTPRoute
         annotations:
           gethomepage.dev/enabled: "true"
-          gethomepage.dev/group: Tools
+          gethomepage.dev/group: Home Automation
           gethomepage.dev/href: https://whisper.${DOMAIN_0}/
-          gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/whisper.webp
+          gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/wyoming-whisper.webp
           gethomepage.dev/name: Whisper
+          gethomepage.dev/app: wyoming-whisper
           gethomepage.dev/instance: "internal"
           gethomepage.dev/description: STT backend for Home Assistant
         parentRefs:
