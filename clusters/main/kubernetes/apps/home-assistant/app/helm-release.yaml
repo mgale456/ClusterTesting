@@ -43,26 +43,25 @@ spec:
           main:
             port: 8123
             targetPort: 8123
-    ingress:
+    route:
       main:
         enabled: true
-        ingressClassName: internal
+        kind: HTTPRoute
         annotations:
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/group: Home Automation
+          gethomepage.dev/href: https://home-assistant.${DOMAIN_0}/
+          gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/home-assistant.webp
+          gethomepage.dev/name: Home Assistant (k8s)
           gethomepage.dev/instance: "internal"
-        hosts:
-          - host: home-assistant.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - home-assistant.${INGRESS_URL}
-        integrations:
-          homepage:
-            enabled: true
-            group: Home Automation
-            widget:
-              enabled: false
+          gethomepage.dev/description: Smart Home Automation Platform
+        parentRefs:
+          - name: envoy-internal
+            namespace: envoy
+            sectionName: https
+        hostnames:
+          - home-assistant.${DOMAIN_0}
+
     persistence:
       config:
         enabled: true

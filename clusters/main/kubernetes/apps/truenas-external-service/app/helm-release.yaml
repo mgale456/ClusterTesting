@@ -28,38 +28,30 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    ingress:
+    route:
       main:
         enabled: true
-        ingressClassName: internal
-        hosts:
-          - host: truenas.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-                overrideService:
-                  name: main
-                  port: 81
-        tls:
-          - hosts:
-              - truenas.${INGRESS_URL}
-            certificateIssuer: "domain-0-le-prod"
-        integrations:
-          certManager:
-            enabled: true
-            certificateIssuer: "domain-0-le-prod"
-          homepage:
-            enabled: false
-            group: Default
-            icon: "https://truenas.${INGRESS_URL}/ui/assets/images/truenas_scale_ondark_favicon.png"
-            name: "TrueNAS Scale"
-            widget:
-              type: truenas
-              url: http://${TRUENAS_EXTERNAL_IP}:81
-              custom:
-                key: ${TRUENAS_API_KEY} # not required if using username / password
-                enablePools: "true" # optional, defaults to false
-                nasType: scale # defaults to scale, must be set to 'core' if using enablePools with TrueNAS Core
+        kind: HTTPRoute
+        annotations:
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/group: Default
+          gethomepage.dev/href: https://truenas.${DOMAIN_0}/
+          gethomepage.dev/icon: "https://truenas.${INGRESS_URL}/ui/assets/images/truenas_scale_ondark_favicon.png"
+          gethomepage.dev/name: TrueNAS Scale
+          gethomepage.dev/instance: "internal"
+          gethomepage.dev/ping: ${TRUENAS_EXTERNAL_IP}
+          gethomepage.dev/description: NAS Appliance OS
+          gethomepage.dev/widget.type: truenas
+          gethomepage.dev/widget.url: http://${TRUENAS_EXTERNAL_IP}:81
+          gethomepage.dev/widget.key: ${TRUENAS_API_KEY} # not required if using username / password
+          gethomepage.dev/widget.enablePools: "true" # optional, defaults to false
+          gethomepage.dev/widget.nasType: scale # def
+        parentRefs:
+          - name: envoy-internal
+            namespace: envoy
+            sectionName: https
+        hostnames:
+          - truenas.${DOMAIN_0}
 
     service:
       main:
