@@ -94,7 +94,7 @@ spec:
         # Valid options are GRPCRoute, HTTPRoute, TCPRoute, TLSRoute, UDPRoute
         kind: HTTPRoute
         annotations:
-          gethomepage.dev/enabled: true
+          gethomepage.dev/enabled: "true"
           gethomepage.dev/group: Default
           gethomepage.dev/href: https://lldap.${DOMAIN_0}/
           gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/lldap.webp
