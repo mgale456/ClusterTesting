@@ -68,26 +68,6 @@ spec:
         recovery:
           revision: "2"
           credentials: mys3
-    ingress:
-      main:
-        enabled: true
-        ingressClassName: internal
-        annotations:
-          gethomepage.dev/instance: "internal"
-        hosts:
-          - host: lldap.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - lldap.${INGRESS_URL}
-        integrations:
-          homepage:
-            enabled: true
-            group: Default
-            widget:
-              enabled: false
     route:
       main:
         enabled: true
