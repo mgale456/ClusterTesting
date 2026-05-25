@@ -88,3 +88,33 @@ spec:
             group: Default
             widget:
               enabled: false
+    route:
+      main:
+        enabled: true
+        # Valid options are GRPCRoute, HTTPRoute, TCPRoute, TLSRoute, UDPRoute
+        kind: HTTPRoute
+        annotations:
+          gethomepage.dev/enabled: true
+          gethomepage.dev/group: Default
+          gethomepage.dev/href: https://lldap.${DOMAIN_0}/
+          gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/lldap.webp
+          gethomepage.dev/name: lldap
+          gethomepage.dev/instance: "internal"
+          gethomepage.dev/description: Lightweight ldap server for authentication and user management
+        # -- Configure the resource the route attaches to.
+        parentRefs:
+          - group: gateway.networking.k8s.io
+            kind: Gateway
+            name: envoy-internal
+            namespace: envoy
+            sectionName: https
+        hostnames:
+          - https://lldap.${DOMAIN_0}/
+        # -- Configure rules for routing. Defaults to the primary service.
+        rules:
+          - backendRefs:
+              - group: ""
+                #kind: Service
+                name: lldap
+                #namespace:
+                port: 17170

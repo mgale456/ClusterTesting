@@ -5,7 +5,7 @@ metadata:
   namespace: grafana
   annotations:
     gethomepage.dev/enabled: true
-    gethomepage.dev/group: Home Automation
+    gethomepage.dev/group: Default
     gethomepage.dev/href: https://grafana.${DOMAIN_0}/
     gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/grafana.webp
     gethomepage.dev/name: grafana
