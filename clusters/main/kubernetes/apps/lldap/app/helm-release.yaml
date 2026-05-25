@@ -111,4 +111,4 @@ spec:
         rules:
           - backendRefs:
               - name: lldap
-                port: 17170
+                #port: 17170
