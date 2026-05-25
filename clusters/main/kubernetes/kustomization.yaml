@@ -8,4 +8,3 @@ resources:
   - kube-system
   - networking
   - system
-  - truecharts.yaml
