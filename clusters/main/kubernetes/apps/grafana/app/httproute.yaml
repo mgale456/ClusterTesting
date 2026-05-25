@@ -4,7 +4,6 @@ metadata:
   name: grafana
   namespace: grafana
   annotations:
-    gethomepage.dev/description: A system to control your ESP8266/ESP32s
     gethomepage.dev/enabled: true
     gethomepage.dev/group: Home Automation
     gethomepage.dev/href: https://grafana.${DOMAIN_0}/
@@ -16,6 +15,7 @@ metadata:
     gethomepage.dev/widget.url: http://grafana.grafana.svc:3000
     gethomepage.dev/widget.username: admin
     gethomepage.dev/widget.version: 2
+    gethomepage.dev/description: Grafana is an open source, feature rich metrics dashboard and graph editor for Graphite, Elasticsearch, OpenTSDB, Prometheus and InfluxDB.
 spec:
   parentRefs:
     - name: envoy-internal

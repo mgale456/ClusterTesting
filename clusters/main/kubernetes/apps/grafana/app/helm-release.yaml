@@ -28,30 +28,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    ingress:
-      main:
-        enabled: true
-        ingressClassName: internal
-        annotations:
-          gethomepage.dev/instance: "internal"
-        hosts:
-          - host: grafana.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - grafana.${INGRESS_URL}
-        integrations:
-          homepage:
-            enabled: true
-            group: Default
-            widget:
-              custom:
-                username: admin
-                password: testpassword
-                version: "2"
-
     # Define extra dashboards to be provisioned
     # Supports 2 formats:
     # - Importing directly from `grafana.com` via Grafana dashboard ID & revision
