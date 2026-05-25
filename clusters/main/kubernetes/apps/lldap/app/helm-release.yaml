@@ -107,8 +107,3 @@ spec:
             sectionName: https
         hostnames:
           - lldap.${DOMAIN_0}
-        # -- Configure rules for routing. Defaults to the primary service.
-        rules:
-          - backendRefs:
-              - name: lldap
-                #port: 17170
