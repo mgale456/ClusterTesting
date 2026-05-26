@@ -90,6 +90,7 @@ spec:
           gethomepage.dev/icon: https://raw.githubusercontent.com/music-assistant/frontend/a9b3ace45becb6b6d770e1910c32c63d84ae4e37/src/assets/icon.svg
           gethomepage.dev/name: music-assistant
           gethomepage.dev/instance: "internal"
+          gethomepage.dev/podSelector: ""
           gethomepage.dev/description: Music Streamer Supporting Many Sources and Outputs
         parentRefs:
           - name: envoy-internal
