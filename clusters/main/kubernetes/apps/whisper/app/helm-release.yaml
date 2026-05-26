@@ -49,6 +49,7 @@ spec:
           gethomepage.dev/app: wyoming-whisper
           gethomepage.dev/instance: "internal"
           gethomepage.dev/description: STT backend for Home Assistant
+          gatus.home-operations.com/enabled: false
         parentRefs:
           - name: envoy-internal
             namespace: envoy

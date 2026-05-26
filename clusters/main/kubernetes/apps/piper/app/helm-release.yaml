@@ -49,6 +49,7 @@ spec:
           gethomepage.dev/app: wyoming-piper
           gethomepage.dev/instance: "internal"
           gethomepage.dev/description: TTS backend for Home Assistant
+          gatus.home-operations.com/enabled: false
         parentRefs:
           - name: envoy-internal
             namespace: envoy
