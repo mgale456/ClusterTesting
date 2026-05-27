@@ -49,7 +49,9 @@ spec:
           gethomepage.dev/app: wyoming-piper
           gethomepage.dev/instance: "internal"
           gethomepage.dev/description: TTS backend for Home Assistant
-          gatus.home-operations.com/enabled: false
+          gatus.home-operations.com/endpoint: |-
+            conditions: ["[CONNECTED] == true"]
+            url: tcp://${PIPER_IP}:10200
         parentRefs:
           - name: envoy-internal
             namespace: envoy
