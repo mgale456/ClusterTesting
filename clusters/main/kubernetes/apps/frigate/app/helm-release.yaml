@@ -97,6 +97,13 @@ spec:
         integrations:
           metallb:
             enabled: true
+      web:
+        enabled: true
+        type: LoadBalancer
+        loadBalancerIP: ${FRIGATE_IP}
+        integrations:
+          metallb:
+            enabled: true
     persistence:
       media:
         enabled: true
