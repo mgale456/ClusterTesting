@@ -101,6 +101,10 @@ spec:
         enabled: true
         type: LoadBalancer
         loadBalancerIP: ${FRIGATE_IP}
+        ports:
+          web:
+            enabled: true
+            port: 1984
         integrations:
           metallb:
             enabled: true
