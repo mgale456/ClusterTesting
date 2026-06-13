@@ -62,6 +62,11 @@ spec:
         hostnames:
           - home-assistant.${DOMAIN_0}
 
+    workload:
+      main:
+        podSpec:
+          nodeSelector:
+            feature.node.kubernetes.io/usb-ff_10c4_ea60.present: "true" # zigbee dongle
     persistence:
       config:
         enabled: true
