@@ -61,6 +61,29 @@ spec:
             sectionName: https
         hostnames:
           - home-assistant.${DOMAIN_0}
+      cs:
+        enabled: false
+        kind: HTTPRoute
+        parentRefs:
+          - name: envoy-internal
+            namespace: envoy
+            sectionName: https
+
+        hostnames:
+          - cs-home-assistant.${DOMAIN_0}
+        rules:
+          - backendRefs:
+              - group: ""
+                kind: Service
+                name:
+                namespace:
+                port:
+                weight: 1
+                ## Configure conditions used for matching incoming requests. Only for HTTPRoutes
+                matches:
+                  - path:
+                      type: PathPrefix
+                      value: /
 
     workload:
       main:
@@ -83,17 +106,4 @@ spec:
     addons:
       codeserver:
         # -- Enable running a code-server container in the pod
-        enabled: false
-
-        ingress:
-          # -- Enable an ingress for the code-server add-on.
-          enabled: false
-          ingressClassName: internal
-          hosts:
-            - host: cs-home-assistant.${INGRESS_URL}
-              paths:
-                - path: /
-                  pathType: Prefix
-          tls:
-            - hosts:
-                - cs-home-assistant.${INGRESS_URL}
+        enabled: true
