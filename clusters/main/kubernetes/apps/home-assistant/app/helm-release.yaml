@@ -82,6 +82,10 @@ spec:
         podSpec:
           nodeSelector:
             feature.node.kubernetes.io/usb-ff_10c4_ea60.present: "true" # zigbee dongle
+          containers:
+            main:
+              env:
+                VENV_FOLDER: "/mgale/.venv"
     persistence:
       config:
         enabled: true
@@ -93,7 +97,7 @@ spec:
               mountPath: /config/workspace
       venv-cache:
         enabled: true
-        mountPath: /config/.venv
+        mountPath: /mgale/.venv
         targetSelectAll: true
     addons:
       codeserver:
