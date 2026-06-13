@@ -75,15 +75,7 @@ spec:
           - backendRefs:
               - group: ""
                 kind: Service
-                name:
-                namespace:
-                port:
-                weight: 1
-                ## Configure conditions used for matching incoming requests. Only for HTTPRoutes
-                matches:
-                  - path:
-                      type: PathPrefix
-                      value: /
+                name: home-assistant-app-template-codeserver
 
     workload:
       main:
