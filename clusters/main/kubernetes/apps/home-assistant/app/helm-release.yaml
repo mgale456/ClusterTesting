@@ -62,7 +62,7 @@ spec:
         hostnames:
           - home-assistant.${DOMAIN_0}
       cs:
-        enabled: false
+        enabled: true
         kind: HTTPRoute
         parentRefs:
           - name: envoy-internal
