@@ -61,7 +61,7 @@ spec:
             sectionName: https
         hostnames:
           - home-assistant.${DOMAIN_0}
-      cs:
+      z-cs:
         enabled: true
         kind: HTTPRoute
         parentRefs:
@@ -76,6 +76,7 @@ spec:
               - group: ""
                 kind: Service
                 name: home-assistant-app-template-codeserver
+                port: 12321
 
     workload:
       main:
