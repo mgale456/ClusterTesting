@@ -47,6 +47,13 @@ spec:
         hostnames:
           - zigbee2mqtt.${DOMAIN_0}
 
+    securityContext:
+      container:
+        runAsNonRoot: true
+        readOnlyRootFilesystem: true
+        runAsUser: 568
+        runAsGroup: 568
+
     workload:
       main:
         podSpec:
