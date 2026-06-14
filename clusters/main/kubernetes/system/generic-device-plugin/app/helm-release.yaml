@@ -40,17 +40,14 @@ spec:
                         - path: /dev/serial/by-id/usb-Nabu_Casa_SkyConnect_v1.0_5a7595ca07deed11b2b6ed2d62c613ac-if00-port0
                 - --device
                 - |
+                  name: usb
+                  groups:
+                    - usb:
+                        - vendor: "10c4"
+                          product: "ea60"
+                - --device
+                - |
                   name: serial
                   groups:
                     - paths:
                         - path: /dev/ttyUSB*
-                    - paths:
-                        - path: /dev/ttyACM*
-                    - paths:
-                        - path: /dev/tty.usb*
-                    - paths:
-                        - path: /dev/cu.*
-                    - paths:
-                        - path: /dev/cuaU*
-                    - paths:
-                        - path: /dev/rfcomm*
