@@ -50,9 +50,9 @@ spec:
     securityContext:
       container:
         runAsNonRoot: true
-        readOnlyRootFilesystem: true
-        runAsUser: 568
-        runAsGroup: 568
+        readOnlyRootFilesystem: false
+        runAsUser: 18
+        runAsGroup: 18
 
     workload:
       main:
