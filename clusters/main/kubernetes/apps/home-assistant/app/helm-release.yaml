@@ -89,7 +89,7 @@ spec:
                 VENV_FOLDER: "/mgale/.venv"
               resources:
                 limits:
-                  devic.es/serial: 1
+                  devic.es/usb: 1
     persistence:
       config:
         enabled: true
