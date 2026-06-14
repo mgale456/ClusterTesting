@@ -87,6 +87,9 @@ spec:
             main:
               env:
                 VENV_FOLDER: "/mgale/.venv"
+              resources:
+                limits:
+                  devic.es/zigbee: 1
     persistence:
       config:
         enabled: true
