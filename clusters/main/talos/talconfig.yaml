@@ -21,6 +21,7 @@ cniConfig:
 patches:
   - "@./patches/all.yaml"
   - "@./patches/wg-easy-sysctls.yaml"
+  - "@./patches/all-udev.yaml"
 nodes:
   # We would adivce to always stick to a "k8s-something-1" style naming scheme
   - hostname: k8s-control-1
