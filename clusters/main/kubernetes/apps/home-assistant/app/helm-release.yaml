@@ -87,9 +87,9 @@ spec:
             main:
               env:
                 VENV_FOLDER: "/mgale/.venv"
-              resources:
-                limits:
-                  devic.es/usb: 1
+              #resources:
+              #  limits:
+              #    devic.es/usb: 1
     persistence:
       config:
         enabled: true
