@@ -61,7 +61,7 @@ spec:
             sectionName: https
         hostnames:
           - home-assistant.${DOMAIN_0}
-      z-cs:
+      z-cs: # needs to sort after main so that main is really treated as main for the assumed backend refs above
         enabled: true
         kind: HTTPRoute
         parentRefs:
