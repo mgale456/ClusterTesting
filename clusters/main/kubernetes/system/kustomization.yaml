@@ -11,3 +11,4 @@ resources:
   - spegel/ks.yaml
   - kube-prometheus-stack/ks.yaml
   - system-upgrade
+  - generic-device-plugin/ks.yaml

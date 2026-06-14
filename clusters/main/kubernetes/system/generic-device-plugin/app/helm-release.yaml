@@ -1,0 +1,39 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: generic-device-plugin
+  namespace: generic-device-plugin
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: generic-device-plugin
+      version: 3.4.0
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 5m
+  install:
+    createNamespace: true
+    crds: CreateReplace
+    remediation:
+      retries: 3
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: 3
+  values:
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              args:
+                - --device
+                - |
+                  name: zigbee
+                  groups:
+                    - count: 1
+                      paths:
+                        - path: /dev/serial/by-id/usb-Nabu_Casa_SkyConnect_v1.0_5a7595ca07deed11b2b6ed2d62c613ac-if00-port0
