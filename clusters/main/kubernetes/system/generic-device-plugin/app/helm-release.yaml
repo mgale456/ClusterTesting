@@ -31,7 +31,8 @@ spec:
           containers:
             main:
               args:
-                - --log-level debug
+                - --log-level
+                - "debug"
                 #- --device
                 #- |
                 #  name: zigbee
