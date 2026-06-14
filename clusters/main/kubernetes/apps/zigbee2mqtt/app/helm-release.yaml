@@ -37,7 +37,7 @@ spec:
           gethomepage.dev/group: Home Automation
           gethomepage.dev/href: https://zigbee2mqtt.${DOMAIN_0}/
           gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/zigbee2mqtt.webp
-          gethomepage.dev/name: Home Assistant (k8s)
+          gethomepage.dev/name: Zigbee2MQTT
           gethomepage.dev/instance: "internal"
           gethomepage.dev/description: Smart Home Automation Platform
         parentRefs:
