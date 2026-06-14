@@ -90,6 +90,8 @@ spec:
               resources:
                 limits:
                   devic.es/usb: 1
+                  devic.es/serial: 1
+                  devic.es/zigbee: 1
     persistence:
       config:
         enabled: true
