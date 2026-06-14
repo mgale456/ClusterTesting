@@ -35,8 +35,8 @@ spec:
         annotations:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/group: Home Automation
-          gethomepage.dev/href: https://home-assistant.${DOMAIN_0}/
-          gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/home-assistant.webp
+          gethomepage.dev/href: https://zigbee2mqtt.${DOMAIN_0}/
+          gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/zigbee2mqtt.webp
           gethomepage.dev/name: Home Assistant (k8s)
           gethomepage.dev/instance: "internal"
           gethomepage.dev/description: Smart Home Automation Platform
@@ -45,7 +45,7 @@ spec:
             namespace: envoy
             sectionName: https
         hostnames:
-          - home-assistant.${DOMAIN_0}
+          - zigbee2mqtt.${DOMAIN_0}
 
     workload:
       main:
