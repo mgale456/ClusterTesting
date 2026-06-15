@@ -120,6 +120,7 @@ spec:
         mountPath: /config
     workload:
       main:
+        replicas: 0
         podSpec:
           nodeSelector:
             ${INGRESS_URL}.node-restriction.kubernetes.io/camera-nic: "true"

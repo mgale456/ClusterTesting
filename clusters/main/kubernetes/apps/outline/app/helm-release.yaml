@@ -31,6 +31,7 @@ spec:
     TZ: ${TZ}
     workload:
       main:
+        replicas: 0
         podSpec:
           containers:
             main:

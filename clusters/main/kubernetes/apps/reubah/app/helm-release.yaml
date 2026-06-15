@@ -28,5 +28,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    workload:
+      main:
+        replicas: 0
     podOptions:
       hostUsers: true

@@ -28,6 +28,9 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    workload:
+      main:
+        replicas: 0
     persistence:
       meg-files:
         enabled: true

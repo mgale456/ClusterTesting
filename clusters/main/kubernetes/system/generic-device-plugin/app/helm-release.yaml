@@ -39,4 +39,4 @@ spec:
                   groups:
                     - paths:
                        - path: /dev/serial/by-id/usb-Nabu_Casa_SkyConnect_v1.0_5a7595ca07deed11b2b6ed2d62c613ac-if00-port0
-                         mountPath: /dev/zigbee
+                #          mountPath: /dev/zigbee

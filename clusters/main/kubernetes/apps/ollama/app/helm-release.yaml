@@ -52,6 +52,7 @@ spec:
           - ollama.${DOMAIN_0}
     workload:
       main:
+        replicas: 0
         enabled: false
       ui:
         enabled: true

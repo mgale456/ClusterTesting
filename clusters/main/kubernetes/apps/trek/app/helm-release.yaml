@@ -46,7 +46,7 @@ spec:
         enabled: true
         primary: true
         type: Deployment
-        replicas: 1
+        replicas: 0
         podSpec:
           containers:
             main:

@@ -30,26 +30,9 @@ spec:
     keepHistory: false
   values:
     TZ: ${TZ}
-    ingress:
+    workload:
       main:
-        enabled: false
-        ingressClassName: internal
-        annotations:
-          gethomepage.dev/instance: "internal"
-          gatus.home-operations.com/endpoint: |
-            enabled: false
-        hosts:
-          - host: gatus.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - gatus.${INGRESS_URL}
-        integrations:
-          homepage:
-            enabled: true
-            group: Default
+        replicas: 0
     cnpg:
       main:
         enabled: false
