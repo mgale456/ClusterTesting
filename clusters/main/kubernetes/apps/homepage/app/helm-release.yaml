@@ -117,16 +117,6 @@ spec:
                   # Shows the label, which is always the node name
                   showLabel: true
 
-            - longhorn:
-                # Show the expanded view
-                expanded: true
-                # Shows a node representing the aggregate values
-                total: true
-                # Shows the node names as labels
-                labels: true
-                # Show the nodes
-                nodes: true
-
             - search:
                 provider: duckduckgo
                 target: _blank
