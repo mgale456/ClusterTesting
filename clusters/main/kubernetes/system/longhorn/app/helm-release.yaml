@@ -43,3 +43,8 @@ spec:
       defaultClassReplicaCount: 1
       # -- Data locality of the default Longhorn StorageClass. (Options: "disabled", "best-effort")
       defaultDataLocality: best-effort
+
+    metrics:
+      serviceMonitor:
+        # -- Setting that allows the creation of a Prometheus ServiceMonitor resource for Longhorn Manager components.
+        enabled: true
