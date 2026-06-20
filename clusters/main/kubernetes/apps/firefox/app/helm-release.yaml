@@ -34,7 +34,7 @@ spec:
         podSpec:
           nodeSelector:
             ${INGRESS_URL}.node-restriction.kubernetes.io/camera-nic: "true"
-        replicas: 0
+        replicas: 1
     persistence:
       config:
         enabled: false

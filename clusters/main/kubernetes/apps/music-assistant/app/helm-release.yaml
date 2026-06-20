@@ -65,7 +65,7 @@ spec:
         runAsGroup: 0
     workload:
       main:
-        replicas: 0
+        replicas: 1
         podSpec:
           hostNetwork: true
           nodeSelector:
