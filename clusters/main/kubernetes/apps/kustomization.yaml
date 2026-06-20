@@ -36,3 +36,4 @@ resources:
   - livekit/ks.yaml
   - trek/ks.yaml
   - zigbee2mqtt/ks.yaml
+  - konflate/ks.yaml
