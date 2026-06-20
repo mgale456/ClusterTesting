@@ -59,7 +59,7 @@ spec:
           labels:
             release: prometheus-stack
     cluster:
-      name: ${CLUSTERNAME}
+      name: main
       id: 1
     ipv4NativeRoutingCIDR: ${PODNET}
     securityContext:
@@ -85,7 +85,6 @@ spec:
       automount:
         enabled: false
       hostRoot: /sys/fs/cgroup
-    enableRuntimeDeviceDetection: true
     endpointRoutes:
       enabled: true
     ipam:
