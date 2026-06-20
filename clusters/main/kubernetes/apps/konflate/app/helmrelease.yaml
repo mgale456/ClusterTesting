@@ -11,17 +11,17 @@ spec:
   interval: 1h
   values:
     config:
-      repo: forgejo://git.bjw-s.dev/bjw-s/home-ops
-      statusChecks: true
-      prComments: true
-      publicUrl: https://konflate.bjw-s.dev
-      mcp: true
+      repo: github://mgale456/ClusterTesting
+      statusChecks: false
+      prComments: false
+      publicUrl: https://konflate.${INGRESS_URL}
+      mcp: false
     secret:
       existingSecret: konflate-secret
     httpRoute:
       enabled: true
       hostnames:
-        - konflate.bjw-s.dev
+        - konflate.${INGRESS_URL}
       parentRefs:
         - name: envoy-internal
           namespace: network
