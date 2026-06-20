@@ -32,7 +32,7 @@ spec:
     credentials:
       mys3:
         type: s3
-        url: "${S3URL}"
+        url: "https://${S3URL}"
         bucket: "${S3BUCKETNAME}"
         accessKey: "${S3APIKEYID}"
         secretKey: "${S3APIKEY}"

@@ -41,7 +41,7 @@ spec:
     credentials:
       mys3:
         type: s3
-        url: "${S3URL:=https://placeholder}"
+        url: "https://${S3URL}"
         bucket: "${S3BUCKETNAME}"
         #path: "/esphome"
         accessKey: "${S3APIKEYID}"
