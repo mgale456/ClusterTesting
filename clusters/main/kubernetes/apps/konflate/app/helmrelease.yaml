@@ -18,7 +18,8 @@ spec:
       publicUrl: https://konflate.${INGRESS_URL}
       mcp: false
     secret:
-      existingSecret: konflate-secret
+      webhookSecret: ""
+      writeToken: ""
     httpRoute:
       enabled: true
       hostnames:
