@@ -51,26 +51,6 @@ spec:
                 LOG_LEVEL: debug
                 SECRET_KEY: ${OUTLINE_SECRET_KEY}
                 UTILS_SECRET: ${OUTLINE_UTILS_SECRET}
-    ingress:
-      main:
-        enabled: false
-        ingressClassName: internal
-        annotations:
-          gethomepage.dev/instance: "internal"
-        hosts:
-          - host: outline.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - outline.${INGRESS_URL}
-        integrations:
-          homepage:
-            enabled: true
-            group: Tools
-            widget:
-              enabled: false
     cnpg:
       main:
         mode: recovery

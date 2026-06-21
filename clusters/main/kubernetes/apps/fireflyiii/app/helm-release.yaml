@@ -50,30 +50,14 @@ spec:
         accessKey: "${S3APIKEYID}"
         secretKey: "${S3APIKEY}"
         encrKey: "${S3KEY}"
-    ingress:
+
+    route:
       main:
         enabled: true
-        ingressClassName: internal
-        annotations:
-          gethomepage.dev/instance: "internal"
-        hosts:
-          - host: fireflyiii.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-                overrideService:
-                  name: main
-                  port: 10082
-        tls:
-          - hosts:
-              - fireflyiii.${INGRESS_URL}
-            certificateIssuer: "domain-0-le-prod"
-        integrations:
-          certManager:
-            enabled: true
-            certificateIssuer: "domain-0-le-prod"
-          homepage:
-            enabled: true
-            group: Finance
-            widget:
-              enabled: false
+        kind: HTTPRoute
+        parentRefs:
+          - name: envoy-internal
+            namespace: envoy
+            sectionName: https
+        hostnames:
+          - fireflyiii.${DOMAIN_0}

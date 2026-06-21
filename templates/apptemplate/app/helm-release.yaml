@@ -35,21 +35,21 @@ spec:
         integrations:
           metallb:
             enabled: true
-    ingress:
+    route:
       main:
         enabled: true
-        ingressClassName: internal
+        kind: HTTPRoute
         annotations:
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/group: Default
+          gethomepage.dev/href: https://REPLACEME.${DOMAIN_0}/
+          gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/REPLACEME.webp
+          gethomepage.dev/name: REPLACEME
           gethomepage.dev/instance: "internal"
-        hosts:
-          - host: REPLACEME.${INGRESS_URL}
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - REPLACEME.${INGRESS_URL}
-        integrations:
-          homepage:
-            enabled: true
-            group: Default
+          gethomepage.dev/description: REPLACEME
+        parentRefs:
+          - name: envoy-internal
+            namespace: envoy
+            sectionName: https
+        hostnames:
+          - REPLACEME.${DOMAIN_0}
