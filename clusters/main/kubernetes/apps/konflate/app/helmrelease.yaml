@@ -13,19 +13,20 @@ spec:
   values:
     config:
       repo: github://mgale456/ClusterTesting
-      statusChecks: false
-      prComments: false
+      statusChecks: true
+      prComments: true
       publicUrl: https://konflate.${INGRESS_URL}
       mcp: false
+      appClientId: ${KONFLATE_APP_CLIENT_ID}
     secret:
-      webhookSecret: ""
-      writeToken: ""
+      webhookSecret: "${KONFLATE_WEBHOOK_SECRET}"
+      appPrivateKey: "${KONFLATE_APP_PRIVATE_KEY}"
     httpRoute:
       enabled: true
       hostnames:
         - konflate.${INGRESS_URL}
       parentRefs:
-        - name: envoy-internal
+        - name: envoy-external
           namespace: envoy
     resources:
       requests:
