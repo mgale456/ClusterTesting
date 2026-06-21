@@ -29,6 +29,9 @@ spec:
       parentRefs:
         - name: envoy-external
           namespace: envoy
+      annotations:
+        gatus.home-operations.com/endpoint: |-
+          conditions: ["[STATUS] == 200"]
     resources:
       requests:
         cpu: 50m
