@@ -38,6 +38,8 @@ spec:
             sectionName: https
         hostnames:
           - hass.${DOMAIN_0}
+        annotations:
+          gatus.home-operations.com/enabled: false
     service:
       main:
         type: ExternalIP
