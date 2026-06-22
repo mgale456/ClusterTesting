@@ -39,7 +39,7 @@ spec:
         hostnames:
           - hass.${DOMAIN_0}
         annotations:
-          gatus.home-operations.com/enabled: false
+          gatus.home-operations.com/enabled: "false"
     service:
       main:
         type: ExternalIP
