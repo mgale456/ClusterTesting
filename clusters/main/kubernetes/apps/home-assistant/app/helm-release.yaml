@@ -103,6 +103,13 @@ spec:
         enabled: true
         mountPath: /mgale/.venv
         targetSelectAll: true
+
+    securityContext:
+      container:
+        runAsNonRoot: false
+        readOnlyRootFilesystem: false
+        runAsUser: 0
+        runAsGroup: 0
     addons:
       codeserver:
         # -- Enable running a code-server container in the pod
