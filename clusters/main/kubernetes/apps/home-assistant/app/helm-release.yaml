@@ -44,7 +44,7 @@ spec:
             port: 8123
             targetPort: 8123
     route:
-      main:
+      hass:
         enabled: true
         kind: HTTPRoute
         annotations:
@@ -61,6 +61,9 @@ spec:
             sectionName: https
         hostnames:
           - home-assistant.${DOMAIN_0}
+        rules:
+          - backendRefs:
+              - name: home-assistant-app-template
       z-cs: # needs to sort after main so that main is really treated as main for the assumed backend refs above
         enabled: true
         kind: HTTPRoute
