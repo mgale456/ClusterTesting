@@ -56,7 +56,7 @@ spec:
 
     workload:
       main:
-        replicas: 1
+        replicas: 0
         podSpec:
           nodeSelector:
             feature.node.kubernetes.io/usb-ff_10c4_ea60.present: "true" # zigbee dongle
