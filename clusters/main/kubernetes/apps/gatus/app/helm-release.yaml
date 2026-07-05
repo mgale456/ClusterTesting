@@ -53,14 +53,8 @@ spec:
         data:
           config.yaml: |
             endpoints:
-              - name: Home Assistant
-                group: Home Automation
-                url: http://${HASS_EXTERNAL_IP}:8123
-                interval: 300s
-                conditions:
-                  - "[STATUS] == 200"
-              - name: Blocky DNS
-                group: Kubernetes
+              - name: K8s Blocky DNS
+                group: DNS
                 url: ${BLOCKY_IP}
                 interval: 300s
                 dns:
@@ -68,8 +62,8 @@ spec:
                   query-type: "A"
                 conditions:
                   - "[DNS_RCODE] == NOERROR"
-              - name: Adguard DNS
-                group: Home Automation
+              - name: RPi3 Blocky DNS
+                group: DNS
                 url: ${HASS_EXTERNAL_IP}
                 interval: 300s
                 dns:
