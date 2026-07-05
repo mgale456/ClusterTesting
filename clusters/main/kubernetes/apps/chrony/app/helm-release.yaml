@@ -32,7 +32,7 @@ spec:
     image:
       repository: simonrupf/chronyd
       pullPolicy: IfNotPresent
-      tag: 0.8.0@sha256:a4242629c8ffb7f137a41af9bc0246c00628e487818e5b942d6d0a5b648b041b
+      tag: 0.9.1@sha256:8ccd8102f09b30246d8f3886a1d4f06052983690907d5b1e30dd723816ed29fc
     service:
       main:
         type: LoadBalancer
