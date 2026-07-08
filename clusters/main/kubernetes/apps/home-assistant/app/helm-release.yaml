@@ -106,6 +106,12 @@ spec:
         enabled: true
         mountPath: /mgale/.venv
         targetSelectAll: true
+      backups:
+        enabled: true
+        type: nfs
+        mountPath: /config/backups
+        path: /mnt/MainPool/Michael/Backups/HomeAssistant
+        server: ${TRUENAS_EXTERNAL_IP}
 
     securityContext:
       container:
