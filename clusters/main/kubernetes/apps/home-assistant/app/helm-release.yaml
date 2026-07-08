@@ -107,7 +107,7 @@ spec:
         mountPath: /mgale/.venv
         targetSelectAll: true
       backups:
-        enabled: true
+        enabled: false
         type: nfs
         mountPath: /config/backups
         path: /mnt/MainPool/Michael/Backups/HomeAssistant
