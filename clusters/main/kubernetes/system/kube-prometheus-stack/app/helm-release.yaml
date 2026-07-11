@@ -71,10 +71,10 @@ spec:
           kubernetes.io/hostname: k8s-worker-2
         resources:
           requests:
-            cpu: 100m
-            memory: 500Mi
+            cpu: 150m
+            memory: 1500Mi
           limits:
-            memory: 2000Mi
+            memory: 4000Mi
         storageSpec:
           volumeClaimTemplate:
             spec:
