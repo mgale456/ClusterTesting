@@ -31,7 +31,7 @@ spec:
     TZ: ${TZ}
     image:
       repository: ghcr.io/music-assistant/server
-      tag: 2.9.8
+      tag: 2.9.9
     service:
       main:
         type: LoadBalancer
