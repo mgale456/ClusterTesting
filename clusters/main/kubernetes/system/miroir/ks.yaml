@@ -4,6 +4,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: miroir
+  namespace: flux-system
 spec:
   dependsOn:
     - name: snapshot-controller
@@ -15,7 +16,6 @@ spec:
     kind: GitRepository
     name: cluster
     namespace: flux-system
-  targetNamespace: miroir
   wait: true
 ---
 # yaml-language-server: $schema=https://k8s-schemas.home-operations.com/kustomize.toolkit.fluxcd.io/kustomization_v1.json
@@ -23,6 +23,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: miroir-config
+  namespace: flux-system
 spec:
   dependsOn:
     - name: miroir
@@ -33,5 +34,4 @@ spec:
     kind: GitRepository
     name: cluster
     namespace: flux-system
-  targetNamespace: miroir
   wait: true
