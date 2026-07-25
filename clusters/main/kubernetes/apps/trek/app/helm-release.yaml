@@ -64,6 +64,24 @@ spec:
                 TRUST_PROXY: 1
                 DEFAULT_LANGUAGE: en
 
+              probes:
+                liveness:
+                  enabled: true
+                  type: http
+                  port: 3000
+                  path: /api/health
+                readiness:
+                  enabled: true
+                  type: http
+                  port: 3000
+                  path: /api/health
+                startup:
+                  enabled: true
+                  type: http
+                  port: 3000
+                  path: /api/health
+
+
     service:
       main:
         enabled: true
