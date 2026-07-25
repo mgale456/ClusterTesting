@@ -11,8 +11,8 @@ machine:
       rotate-server-certificates: "true"
     extraConfig:
       maxPods: 250
-      shutdownGracePeriod: 15s
-      shutdownGracePeriodCriticalPods: 10s
+      shutdownGracePeriod: 120s
+      shutdownGracePeriodCriticalPods: 60s
     extraMounts:
       - destination: /var/openebs/local
         type: bind
@@ -24,6 +24,13 @@ machine:
       - destination: /var/lib/longhorn
         type: bind
         source: /var/lib/longhorn
+        options:
+          - bind
+          - rshared
+          - rw
+      - destination: /var/lib/miroir
+        type: bind
+        source: /var/lib/miroir
         options:
           - bind
           - rshared
@@ -91,4 +98,10 @@ machine:
           - https://quay.io
           - https://tccr.io
 # No DockerHub credentials provided
-    
+
+  kernel:
+    modules:
+      - name: drbd
+        parameters:
+          - usermode_helper=disabled
+      - name: drbd_transport_tcp
