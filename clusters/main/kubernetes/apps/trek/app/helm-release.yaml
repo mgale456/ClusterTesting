@@ -68,6 +68,13 @@ spec:
                 APP_URL: https://trek.${DOMAIN_0}
                 TRUST_PROXY: 1
                 DEFAULT_LANGUAGE: en
+                OIDC_ISSUER: https://auth.${DOMAIN_0}
+                OIDC_CLIENT_ID: ${TREK_OIDC_CLIENT_ID}
+                OIDC_CLIENT_SECRET: ${TREK_OIDC_CLIENT_SECRET}
+                OIDC_DISPLAY_NAME: Authelia
+                OIDC_SCOPE: openid email profile groups
+                OIDC_ADMIN_CLAIM: groups
+                OIDC_ADMIN_VALUE: lldap_admin
 
               probes:
                 liveness:
