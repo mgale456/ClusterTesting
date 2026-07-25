@@ -151,7 +151,7 @@ spec:
               public: false
               authorization_policy: "one_factor"
               redirect_uris:
-                - "https://trek.${DOMAIN_0}/auth/oidc.callback"
+                - "https://trek.${DOMAIN_0}/api/auth/oidc/callback"
               scopes:
                 - "openid"
                 - "profile"
