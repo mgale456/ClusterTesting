@@ -46,12 +46,12 @@ spec:
         enabled: true
         primary: true
         type: Deployment
-        replicas: 1
+        replicas: 0
         podSpec:
           containers:
             main:
-              command: ["dumb-init", "--"]
-              args: ["node", "--import", "tsx", "src/index.ts"]
+              #command: ["dumb-init", "--"]
+              #args: ["node", "--import", "tsx", "src/index.ts"]
               enabled: true
               primary: true
               env:
