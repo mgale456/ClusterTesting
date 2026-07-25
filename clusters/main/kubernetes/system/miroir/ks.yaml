@@ -8,7 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: snapshot-controller
-      namespace: snapshot-controller
+      namespace: flux-system
   interval: 1h
   path: clusters/main/kubernetes/system/miroir/app
   prune: true
