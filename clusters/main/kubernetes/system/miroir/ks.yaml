@@ -1,0 +1,37 @@
+---
+# yaml-language-server: $schema=https://k8s-schemas.home-operations.com/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: miroir
+spec:
+  dependsOn:
+    - name: snapshot-controller
+      namespace: kube-system
+  interval: 1h
+  path: clusters/main/kubernetes/system/miroir/app
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: cluster
+    namespace: flux-system
+  targetNamespace: miroir
+  wait: true
+---
+# yaml-language-server: $schema=https://k8s-schemas.home-operations.com/kustomize.toolkit.fluxcd.io/kustomization_v1.json
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: miroir-config
+spec:
+  dependsOn:
+    - name: miroir
+  interval: 1h
+  path: clusters/main/kubernetes/system/miroir/config
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: cluster
+    namespace: flux-system
+  targetNamespace: miroir
+  wait: true

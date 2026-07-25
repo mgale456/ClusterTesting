@@ -50,6 +50,7 @@ nodes:
         dhcp: false
     nodeLabels:
       ${INGRESS_URL}.node-restriction.kubernetes.io/camera-nic: "true"
+      storage.miroir.home-operations.com/class: std
   - hostname: k8s-worker-2
     ipAddress: ${WORKER2IP_IP}
     controlPlane: false
@@ -68,6 +69,7 @@ nodes:
             gateway: ${GATEWAY}
     nodeLabels:
       ${INGRESS_URL}/music-assistant: "true"
+      storage.miroir.home-operations.com/class: std
 controlPlane:
   patches:
     - "@./patches/controlplane.yaml"
