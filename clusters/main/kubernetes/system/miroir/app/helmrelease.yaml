@@ -17,8 +17,8 @@ spec:
     groupSnapshots:
       enabled: true
     monitoring:
-    #  dashboards:
-    #    enabled: true
+      dashboards:
+        enabled: false
     #    grafanaOperator:
     #      enabled: true
     #      matchLabels:
