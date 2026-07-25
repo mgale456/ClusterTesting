@@ -17,14 +17,14 @@ spec:
     groupSnapshots:
       enabled: true
     monitoring:
-      dashboards:
-        enabled: true
-        grafanaOperator:
-          enabled: true
-          matchLabels:
-            dashboards: grafana
+    #  dashboards:
+    #    enabled: true
+    #    grafanaOperator:
+    #      enabled: true
+    #      matchLabels:
+    #        dashboards: grafana
       podMonitor:
         enabled: true
-      prometheusRule:
-        enabled: true
+    #  prometheusRule:
+    #    enabled: true
     replicaCount: 1
