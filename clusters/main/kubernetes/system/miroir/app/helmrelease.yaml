@@ -12,6 +12,8 @@ spec:
   interval: 1h
   values:
     autoEvictAfter: 1h
+    loopfileBaseDirs:
+      - /var/lib/miroir
     drbd:
       alExtents: 6007
     groupSnapshots:
