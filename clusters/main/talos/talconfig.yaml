@@ -86,6 +86,7 @@ controlPlane:
           - siderolabs/util-linux-tools
           - siderolabs/iscsi-tools
           - siderolabs/qemu-guest-agent
+          - siderolabs/drbd # - Miroir extension - not sure if this worked, since I still saw errors
   machineFiles:
     - content: |
         [plugins."io.containerd.grpc.v1.cri"]
@@ -125,6 +126,7 @@ worker:
           - siderolabs/amd-ucode
           - siderolabs/iscsi-tools
           - siderolabs/util-linux-tools
+          - siderolabs/drbd
   machineFiles:
     - content: |
         [plugins."io.containerd.grpc.v1.cri"]

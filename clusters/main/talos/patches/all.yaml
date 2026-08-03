@@ -99,6 +99,7 @@ machine:
           - https://tccr.io
 # No DockerHub credentials provided
 
+  # Miroir DRBD modules. Also add the Talos extension first
   kernel:
     modules:
       - name: drbd
