@@ -55,6 +55,14 @@ spec:
           gethomepage.dev/name: Home Assistant (k8s)
           gethomepage.dev/instance: "internal"
           gethomepage.dev/description: Smart Home Automation Platform
+          gatus.home-operations.com/endpoint: |-
+            alerts:
+              - type: discord
+                description: "healthcheck failed"
+                send-on-resolved: true
+            group: Envoy-Internal
+            client:
+              dns-resolver: "tcp://blocky-dns.blocky.svc.cluster.local:53"
         parentRefs:
           - name: envoy-internal
             namespace: envoy

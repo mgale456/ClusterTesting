@@ -77,3 +77,7 @@ spec:
                 interval: 300s
                 conditions:
                   - "[STATUS] == 200"
+
+            alerting:
+              discord:
+                webhook-url: ${DISCORD_WEBHOOK_GATUS}
