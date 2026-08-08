@@ -58,7 +58,7 @@ spec:
           gatus.home-operations.com/endpoint: |-
             alerts:
               - type: discord
-                description: "healthcheck failed"
+                #description: "healthcheck failed"
                 send-on-resolved: true
             group: Envoy-Internal
             client:
