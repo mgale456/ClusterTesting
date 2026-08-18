@@ -33,6 +33,18 @@ spec:
     workload:
       main:
         replicas: 1
+        podSpec:
+          affinity:
+            podAntiAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                  - key: app.kubernetes.io/instance
+                    operator: In
+                    values:
+                    - home-assistant
+                namespaces:
+                  - home-assistant
     cnpg:
       main:
         enabled: false
