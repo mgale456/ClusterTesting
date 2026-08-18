@@ -43,7 +43,7 @@ spec:
                     operator: In
                     values:
                     - home-assistant
-                topologyKey: kubernetes.io/os=linux
+                topologyKey: kubernetes.io/os
                 namespaces:
                   - home-assistant
     cnpg:
