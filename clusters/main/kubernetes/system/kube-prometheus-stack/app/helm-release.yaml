@@ -67,7 +67,7 @@ spec:
           env: prod
         # High availability
         replicas: 0
-        #paused: true
+        paused: true
         nodeSelector:
           kubernetes.io/hostname: k8s-worker-2
         resources:
