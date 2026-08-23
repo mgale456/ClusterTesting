@@ -78,7 +78,9 @@ spec:
         storageSpec:
           volumeClaimTemplate:
             spec:
-              storageClassName: longhorn
+              selector:
+                matchLabels:
+                  app.kubernetes.io/name: prom-pvc
               resources:
                 requests:
                   storage: 75Gi
