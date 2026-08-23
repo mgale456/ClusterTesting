@@ -6,9 +6,9 @@ metadata:
   labels:
     app.kubernetes.io/name: prom-pv
 spec:
+  capacity:
+    storage: 75Gi
   accessModes:
     - ReadWriteOnce
-  resources:
-    requests:
-      storage: 75Gi
   storageClassName: miroir-local
+  persistentVolumeReclaimPolicy: Retain
