@@ -14,4 +14,4 @@ spec:
   csi:
     driver: miroir.home-operations.com
     fsType: ext4
-    volumeHandle: pvc-123
+    volumeHandle: prom-pv
