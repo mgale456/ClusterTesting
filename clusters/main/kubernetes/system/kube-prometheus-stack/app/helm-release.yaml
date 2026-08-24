@@ -80,9 +80,6 @@ spec:
           volumeClaimTemplate:
             spec:
               storageClassName: miroir-local
-              selector:
-                matchLabels:
-                  app.kubernetes.io/name: prom-pv
               resources:
                 requests:
                   storage: 75Gi
