@@ -59,6 +59,10 @@ spec:
     persistence:
       configmain:
         type: emptyDir
+      data:
+        enabled: true
+        mountPath: /gatus/db
+        storageClass: miroir-local
 
     configmap:
       config:
@@ -94,3 +98,6 @@ spec:
             alerting:
               discord:
                 webhook-url: ${DISCORD_WEBHOOK_GATUS}
+            storage:
+              type: sqlite
+              path: /gatus/db/data.db
