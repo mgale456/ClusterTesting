@@ -59,9 +59,9 @@ spec:
     persistence:
       configmain:
         type: emptyDir
-      data:
+      sqldata:
         enabled: true
-        mountPath: /gatus/db
+        mountPath: /mgale/db
         storageClass: miroir-local
 
     configmap:
@@ -100,4 +100,4 @@ spec:
                 webhook-url: ${DISCORD_WEBHOOK_GATUS}
             storage:
               type: sqlite
-              path: /gatus/db/data.db
+              path: /mgale/db/data.db
