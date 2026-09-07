@@ -101,3 +101,5 @@ spec:
             storage:
               type: sqlite
               path: /mgale/db/data.db
+              maximum-number-of-results: 400
+              maximum-number-of-events: 50
