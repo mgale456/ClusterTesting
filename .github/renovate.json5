@@ -4,5 +4,6 @@
     "config:recommended",
     "github>truecharts/public//.github/renovate/main.json5",
     "github>mgale456/ClusterTesting//.github/special_talos.json5"
-  ]
+  ],
+  "ignorePaths": ["**/.mise/**"]
 }
