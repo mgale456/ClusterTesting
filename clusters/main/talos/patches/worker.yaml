@@ -3,3 +3,8 @@ machine:
     disabled: false
     servers:
       - time.cloudflare.com
+
+  logging:
+    destinations:
+      - endpoint: "tcp://192.168.0.83:514/"
+        format: "json_lines"
