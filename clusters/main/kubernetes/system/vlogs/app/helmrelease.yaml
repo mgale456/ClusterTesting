@@ -1,0 +1,24 @@
+---
+# yaml-language-server: $schema=https://k8s-schemas.home-operations.com/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: vlogs
+  namespace: vlogs
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: miroir
+  interval: 1h
+  values:
+    nameOverride: vlogs
+    server:
+      retentionPeriod=: 30d
+      http:
+        - name: http
+          primary: true
+          value: ":9443:"
+      syslog:
+        tcp:
+          - name: syslog-tcp
+            value: :514
