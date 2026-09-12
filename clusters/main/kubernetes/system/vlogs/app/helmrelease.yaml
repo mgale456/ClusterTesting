@@ -22,3 +22,6 @@ spec:
         tcp:
           - name: syslog-tcp
             value: :514
+      nodeSelector:
+        kubernetes.io/hostname: k8s-control-1
+
