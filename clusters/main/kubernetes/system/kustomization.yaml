@@ -13,3 +13,4 @@ resources:
   - system-upgrade
   - generic-device-plugin/ks.yaml
   - miroir/ks.yaml
+  - vlogs/ks.yaml
