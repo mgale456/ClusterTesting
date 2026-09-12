@@ -8,7 +8,7 @@ metadata:
 spec:
   chartRef:
     kind: OCIRepository
-    name: miroir
+    name: vlogs
   interval: 1h
   values:
     nameOverride: vlogs
