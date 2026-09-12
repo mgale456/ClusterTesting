@@ -22,7 +22,7 @@ spec:
         #clusterIPs: ["192.168.0.94"]
         annotations:
           metallb.io/ip-allocated-from-pool: main
-          metallb.io/loadBalancerIPs: 192.168.0.94
+          metallb.io/loadBalancerIPs: 192.168.0.83
       http:
         - name: http
           primary: true
