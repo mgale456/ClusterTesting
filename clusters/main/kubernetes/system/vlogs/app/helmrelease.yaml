@@ -13,11 +13,11 @@ spec:
   values:
     nameOverride: vlogs
     server:
-      retentionPeriod=: 30d
+      retentionPeriod: 30d
       http:
         - name: http
           primary: true
-          value: ":9443:"
+          value: ":9443"
       syslog:
         tcp:
           - name: syslog-tcp
