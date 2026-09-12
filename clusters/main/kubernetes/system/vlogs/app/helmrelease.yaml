@@ -16,8 +16,8 @@ spec:
       retentionPeriod: 30d
       service:
         type: LoadBalancer
-        CLusterIP: 192.168.0.94
-        CLusterIPs: ["192.168.0.94"]
+        ClusterIP: 192.168.0.94
+        ClusterIPs: ["192.168.0.94"]
         annotations:
           metallb.io/ip-allocated-from-pool: main
           metallb.io/loadBalancerIPs: 192.168.0.94
