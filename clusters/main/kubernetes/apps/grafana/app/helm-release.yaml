@@ -72,7 +72,7 @@ spec:
           marketplace:
             # renovate: depName="etcd"
             id: 22236
-            revision: 4
+            revision: 5
         k8s-views-nodes: # https://github.com/dotdc/grafana-dashboards-kubernetes/tree/master
           enabled: true
           failOnError: false
