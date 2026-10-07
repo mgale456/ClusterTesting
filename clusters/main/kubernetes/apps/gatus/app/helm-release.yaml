@@ -94,6 +94,12 @@ spec:
                 interval: 300s
                 conditions:
                   - "[STATUS] == 200"
+              - name: Discord ISP Check
+                group: Other
+                url: https://discord.com
+                interval: 300s
+                conditions:
+                  - "[STATUS] == 200"
 
             alerting:
               discord:
