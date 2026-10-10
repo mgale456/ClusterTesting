@@ -1,0 +1,7 @@
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: high
+value: 10000
+globalDefault: false
+description: "This priority class should be used for pods Michael wants to start first like Home Assistant. This will preempt other pods"
