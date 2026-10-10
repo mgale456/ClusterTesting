@@ -79,6 +79,7 @@ spec:
                   columns: 3
               - Tools:
                   icon: mdi-tools
+                  columns: 2
               - Finance:
                   icon: mdi-cash-multiple
                   #style: row
@@ -126,21 +127,7 @@ spec:
             # For configuration options and examples, please see:
             # https://gethomepage.dev/latest/configs/services
             #
-            - Home Automation:
-                - Home Assistant:
-                    href: https://hass.${INGRESS_URL}/
-                    description: Home Automation Hub
-                    icon: https://hass.${INGRESS_URL}/static/icons/favicon.ico
 
-            - Finance:
-                - UW Credit Union:
-                    href: https://www.uwcu.org/
-                    description: Online Banking
-                    icon: https://www.uwcu.org/ui/www/assets/favicon/apple-touch-icon.png
-                - Banano:
-                    href: https://creeper.banano.cc/account/ban_3szzs3sfn3ar4w1xa7n3u6jp9d9wezzz4ydez1yy8ux85epryp7mux9rbsou
-                    description: Online Banano wallet
-                    icon: https://banano.cc/icon.svg
             - Default:
                 - Longhorn:
                     href: http://${LONGHORN_IP}
@@ -185,11 +172,16 @@ spec:
                       href: http://tplinkwifi.net
                       icon: https://static.tp-link.com/assets/images/icon/favicon-152px.png
 
-            - Mattie:
-                - Fitchburg Library:
-                    - abbr: FL
-                      href: https://fitchburgwi.gov/2775/Library
-                      icon: https://fitchburgwi.gov/images/favicon.ico
+            - Finance:
+                - UW Credit Union:
+                    - abbr: UWCU
+                      href: https://www.uwcu.org/
+                      icon: https://www.uwcu.org/ui/www/assets/favicon/apple-touch-icon.png
+                - Banano:
+                    - abbr: BAN
+                      href: https://creeper.banano.cc/account/ban_3szzs3sfn3ar4w1xa7n3u6jp9d9wezzz4ydez1yy8ux85epryp7mux9rbsou
+                      #description: Online Banano wallet
+                      icon: https://banano.cc/icon.svg
 
             - TrueCharts:
                 - TrueCharts:
