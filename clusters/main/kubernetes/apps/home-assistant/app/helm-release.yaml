@@ -92,6 +92,7 @@ spec:
     workload:
       main:
         podSpec:
+          priorityClassName: high
           nodeSelector:
             feature.node.kubernetes.io/usb-ff_10c4_ea60.present: "true" # zigbee dongle
           containers:

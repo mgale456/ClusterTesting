@@ -28,6 +28,7 @@ spec:
       main:
         type: DaemonSet
         podSpec:
+          priorityClassName: high
           containers:
             main:
               args:
