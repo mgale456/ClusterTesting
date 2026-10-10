@@ -33,7 +33,7 @@ spec:
         enabled: true
         kind: HTTPRoute
         annotations:
-          gethomepage.dev/enabled: "true"
+          gethomepage.dev/enabled: "false"
           gethomepage.dev/group: Default
           gethomepage.dev/href: https://truenas.${DOMAIN_0}/
           gethomepage.dev/icon: "https://truenas.${INGRESS_URL}/ui/assets/images/truenas_scale_ondark_favicon.png"

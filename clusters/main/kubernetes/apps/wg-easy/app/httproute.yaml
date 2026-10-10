@@ -7,6 +7,7 @@ metadata:
     gethomepage.dev/enabled: "true"
     gethomepage.dev/description: WireGuard client
     gethomepage.dev/group: Default
+    gethomepage.dev/instance: internal
     gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/wg-easy.webp
     gethomepage.dev/name: WG Easy
     gethomepage.dev/widget.type: wgeasy

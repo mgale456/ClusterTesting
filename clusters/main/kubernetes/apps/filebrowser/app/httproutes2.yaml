@@ -3,6 +3,13 @@ kind: HTTPRoute
 metadata:
   name: filebrowser
   namespace: filebrowser
+  annotations:
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: Fileshare
+    gethomepage.dev/group: Tools
+    #gethomepage.dev/instance: internal
+    gethomepage.dev/icon: https://trueforge.org/img/hotlink-ok/chart-icons/filebrowser.webp
+    gethomepage.dev/name: Filebrowser
 spec:
   parentRefs:
     - name: envoy-external
