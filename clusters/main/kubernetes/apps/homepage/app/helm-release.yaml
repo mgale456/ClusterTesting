@@ -79,11 +79,8 @@ spec:
                   columns: 3
               - Tools:
                   icon: mdi-tools
+                  style: row
                   columns: 2
-              - Finance:
-                  icon: mdi-cash-multiple
-                  #style: row
-                  #columns: 3
               - Default:
                   style: row
                   columns: 3
