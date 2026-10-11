@@ -55,7 +55,8 @@ spec:
           gethomepage.dev/name: Home Assistant (k8s)
           gethomepage.dev/instance: "internal"
           gethomepage.dev/description: Smart Home Automation Platform
-          gethomepage.dev/pod-selector: ""
+          #gethomepage.dev/pod-selector: ""
+          gethomepage.dev/app: app-template
           gatus.home-operations.com/endpoint: |-
             alerts:
               - type: discord
