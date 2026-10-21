@@ -37,7 +37,7 @@ spec:
     image:
       repository: ghcr.io/hotio/cloudflareddns
       pullPolicy: IfNotPresent
-      tag: latest@sha256:8e6b2c51b4c05753e97106d5a719be2e636806e308832817ed89f242db5fd36e
+      tag: latest@sha256:6d7c35c20182ec4205f915d0472a7fcf66aa5d90e2285d77c6840e4674f170eb
     TZ: ${TZ}
     cloudflareddns:
       api_token: ${DOMAIN_0_CLOUDFLARE_TOKEN}
