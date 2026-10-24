@@ -5,3 +5,4 @@ resources:
   - clusterissuer/ks.yaml
   - blocky/ks.yaml
   - high-priorityClass.yaml
+  - med-priorityClass.yaml
