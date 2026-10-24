@@ -24,7 +24,7 @@
       "matchPackageNames": ["ghcr.io/siderolabs/kubelet", "ghcr.io/siderolabs/installer"],
       "labels": ["type/major", "system-upgrade"],
       "addLabels": null
-    }
+    },
     {
       "description": ["Block automerge for continuwuity version Minor due to Calver"],
       "matchUpdateTypes": ["minor"],
@@ -32,6 +32,6 @@
       "matchPackageNames": ["forgejo.ellis.link/continuwuation/continuwuity"],
       "labels": ["type/minor", "calver"],
       "addLabels": null
-    },
+    }
   ]
 }
