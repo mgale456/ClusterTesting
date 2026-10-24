@@ -75,10 +75,3 @@ spec:
         objectName: continuwuity-config
         optional: true
         expandObjectName: false
-    configmap:
-      continuwuity-conf:
-        enabled: true
-        data:
-          config.toml: |
-            [global.well_known]
-            rtc_focus_server_urls = [{ type = "livekit", livekit_service_url = "https://livekit.${INGRESS_URL}" },]
