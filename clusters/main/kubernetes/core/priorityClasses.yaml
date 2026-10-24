@@ -1,0 +1,24 @@
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: high
+value: 10000
+globalDefault: false
+description: "This priority class should be used for pods Michael wants to start first like Home Assistant. This will preempt other pods"
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: medium
+value: 9000
+globalDefault: false
+description: "This priority class should be used for pods Michael wants to preempt other pods during upgrades, but not be quite as important as things that always run first. Currently it's CNPG that needs to swap nodes to stay healthy"
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: regular
+value: 5000
+globalDefault: true
+description: "This priority class is the default"
