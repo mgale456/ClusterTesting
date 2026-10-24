@@ -38,7 +38,7 @@ spec:
         primary: true
         type: StatefulSet
         replicas: 1
-        strategy: OnDelete
+        strategy: RollingUpdate
         podSpec:
           containers:
             main:
