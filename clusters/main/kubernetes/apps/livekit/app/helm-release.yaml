@@ -85,12 +85,12 @@ spec:
         ports:
           main:
             enabled: true
-            protocol: TCP
+            protocol: tcp
             port: 80
             targetPort: 7880
           rtc-tcp:
             enabled: true
-            protocol: TCP
+            protocol: tcp
             port: 7881
       metrics:
         enabled: true
