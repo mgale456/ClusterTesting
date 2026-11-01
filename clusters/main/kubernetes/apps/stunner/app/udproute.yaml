@@ -64,7 +64,7 @@ spec:
     - backendRefs:
         - name: livekit-app-template
           namespace: livekit
-          port: 50100
-          endPort: 50200
-        - name: udp-gateway # added from https://github.com/l7mp/stunner/issues/174
-          namespace: stunner-system
+          #port: 50100
+          #endPort: 50200
+        #- name: udp-gateway # added from https://github.com/l7mp/stunner/issues/174
+          #namespace: stunner-system

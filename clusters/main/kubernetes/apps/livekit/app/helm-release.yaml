@@ -85,11 +85,12 @@ spec:
         ports:
           main:
             enabled: true
-            protocol: http
+            protocol: TCP
             port: 80
             targetPort: 7880
           rtc-tcp:
             enabled: true
+            protocol: TCP
             port: 7881
       metrics:
         enabled: true
@@ -149,10 +150,10 @@ spec:
         use_external_ip: false
         enable_loopback_candidate: false
         turn_servers:
-          - host: turn.${INGRESS_URL}
-            port: 3478
-            protocol: tcp
-            secret: "${LK_TURN_SECRET}"
+#          - host: turn.${INGRESS_URL}
+#            port: 3478
+#            protocol: tcp
+#            secret: "${LK_TURN_SECRET}"
           - host: turn.${INGRESS_URL}
             port: 5349
             protocol: tls # Only if you've set up TLS in your coturn
