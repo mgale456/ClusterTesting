@@ -42,6 +42,12 @@ turn_ttl = 43200
 [global.well_known]
 client = "https://matrix.${INGRESS_URL}"
 server = "matrix-fed.${INGRESS_URL}:443"
-rtc_focus_server_urls = [
+#rtc_focus_server_urls = [
+#    { type = "livekit", livekit_service_url = "https://livekit.${INGRESS_URL}" },
+#]
+
+
+[global.matrix_rtc]
+foci = [
     { type = "livekit", livekit_service_url = "https://livekit.${INGRESS_URL}" },
 ]
